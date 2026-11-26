@@ -1,0 +1,75 @@
+---
+export type YumeriaPose = 'welcome' | 'journal' | 'reading' | 'recording' | 'thinking' | 'research' | 'qa' | 'farewell';
+
+interface Props {
+  pose?: YumeriaPose;
+  class?: string;
+  alt?: string;
+  size?: number;
+}
+
+const {
+  pose = 'welcome',
+  class: className = '',
+  alt = 'YUMERIA · 梦璃 原创角色立绘',
+  size = 240,
+} = Astro.props;
+
+const poseLabels: Record<YumeriaPose, string> = {
+  welcome: '微笑欢迎旅行者',
+  journal: '手持物语手账',
+  reading: '窗边档案阅读',
+  recording: '记录品牌资料',
+  thinking: '思考消费问题',
+  research: '研究网络知识',
+  qa: '温柔答疑',
+  farewell: '黄昏告别',
+};
+---
+
+<figure class={`yumeria-portrait-card ${className}`} style={`width:100%;max-width:${size}px;margin:0 auto;`}>
+  <div class="yumeria-frame">
+    <img
+      src="/images/characters/yumeria-portrait.jpg"
+      alt={`${alt}（${poseLabels[pose]}）`}
+      width="672"
+      height="672"
+      loading="lazy"
+      decoding="async"
+      class="yumeria-img"
+    />
+    <span class="yumeria-pose-pill">{poseLabels[pose]}</span>
+  </div>
+  <figcaption class="sr-only">YUMERIA · 梦璃（{poseLabels[pose]}）</figcaption>
+</figure>
+
+<style>
+  .yumeria-frame {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid var(--border-gold);
+    box-shadow: 0 10px 26px rgba(57, 65, 93, 0.16);
+    background: var(--bg-surface-solid);
+  }
+  .yumeria-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+  }
+  .yumeria-pose-pill {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(24, 34, 56, 0.78);
+    backdrop-filter: blur(6px);
+    color: #F9F4EF;
+    border: 1px solid rgba(216, 183, 126, 0.55);
+  }
+</style>

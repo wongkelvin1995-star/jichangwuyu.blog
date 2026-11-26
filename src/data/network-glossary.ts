@@ -1,0 +1,61 @@
+export interface GlossaryTerm {
+  term: string;
+  en: string;
+  category: '线路与架构' | '协议与传输' | '性能指标' | '网络基础与安全' | '设备与客户端';
+  definition: string;
+  significance: string;
+  articleSlug: string;
+}
+
+export const networkGlossary: GlossaryTerm[] = [
+  { term: 'IEPL', en: 'International Ethernet Private Line', category: '线路与架构', definition: '国际以太网专线，基于二层以太网透传的跨境点对点专线。', significance: '物理隔离度高、绕开公网拥堵，但带宽采购成本高，稳定性仍受端口冗余影响。', articleSlug: 'iepl-vs-iplc-differences' },
+  { term: 'IPLC', en: 'International Private Leased Circuit', category: '线路与架构', definition: '国际专线租用电路，传统一层/点对点物理或TDM跨境租用线路。', significance: '常用于企业高可靠性互联，但在实际机场服务中常与IEPL混称。', articleSlug: 'iepl-vs-iplc-differences' },
+  { term: 'BGP', en: 'Border Gateway Protocol', category: '线路与架构', definition: '边界网关协议，用于在互联网不同自治系统（AS）之间交换路由可达信息。', significance: '多线BGP入口能自动适配电信、联通、移动等不同宽带运营商。', articleSlug: 'bgp-multi-line-routing' },
+  { term: 'CN2 GIA', en: 'ChinaNet Next Carrying Network Global Internet Access', category: '线路与架构', definition: '中国电信下一代承载网中的高品质国际精品路由级别。', significance: '在电信跨境方向通常具有较低丢包率，但价格高于普通163骨干网。', articleSlug: 'cn2-gia-as9929-cmi' },
+  { term: 'AS9929', en: 'China Unicom Industrial Internet', category: '线路与架构', definition: '中国联通A网（原网通/联通精品骨干网）的自治系统编号。', significance: '常用于政企与高品质国际出口，晚高峰负载相对普通AS4837更轻。', articleSlug: 'cn2-gia-as9929-cmi' },
+  { term: 'CMI', en: 'China Mobile International', category: '线路与架构', definition: '中国移动国际公司承载的国际出口与海外回程网络体系。', significance: '香港及亚太方向移动直连或回程常见路由，不同时段拥堵特征各异。', articleSlug: 'cn2-gia-as9929-cmi' },
+  { term: '直连', en: 'Direct Connection', category: '线路与架构', definition: '用户本地宽带不经国内中转节点，直接通过公网连接海外落地服务器。', significance: '成本低、结构简单，但在跨网或晚高峰公网拥堵时波动较大。', articleSlug: 'direct-vs-relay-lines' },
+  { term: '中转', en: 'Relay / Transit', category: '线路与架构', definition: '先连接国内优化入口服务器，再由入口通过优质路由或专线转发至海外落地。', significance: '改善跨运营商直连丢包问题，是目前主流中高端机场的常见架构。', articleSlug: 'direct-vs-relay-lines' },
+  { term: '专线', en: 'Dedicated Line', category: '线路与架构', definition: '服务商向基础电信运营商租用的固定点对点跨境带宽通道。', significance: '不代表绝对不掉线，若入口超售或后端落地机过载依然会变慢。', articleSlug: 'dedicated-line-stability-myth' },
+  { term: '入口节点', en: 'Ingress / Entry Node', category: '线路与架构', definition: '用户客户端首先建立连接的国内或近端转发服务器。', significance: '决定本地宽带到中转机之间的第一跳延迟与抗干扰能力。', articleSlug: 'direct-vs-relay-lines' },
+  { term: '出口节点', en: 'Egress / Exit Node', category: '线路与架构', definition: '最终向目标网站或AI/流媒体平台发起请求的海外服务器IP。', significance: '决定目标平台识别到的归属国家、解锁条件与IP纯净度。', articleSlug: 'shared-ip-vs-dedicated-ip' },
+  { term: '路由', en: 'Routing', category: '线路与架构', definition: '数据包从源地址经过多个网络跳点到达目的地址的路径选择过程。', significance: '去程与回程路由可能不对称，共同影响最终访问延迟。', articleSlug: 'isp-experience-differences' },
+  { term: 'ASN', en: 'Autonomous System Number', category: '线路与架构', definition: '自治系统编号，用于唯一标识互联网上拥有独立路由策略的网络实体。', significance: '目标平台常通过ASN判断IP属于数据中心机房还是家庭住宅宽带。', articleSlug: 'shared-ip-vs-dedicated-ip' },
+  { term: 'CDN', en: 'Content Delivery Network', category: '线路与架构', definition: '内容分发网络，通过全球边缘缓存节点就近响应静态与动态请求。', significance: 'Cloudflare等CDN节点调度也会受用户出口IP所在地区影响。', articleSlug: 'global-node-region-selection' },
+  { term: 'TCP', en: 'Transmission Control Protocol', category: '协议与传输', definition: '面向连接的可靠传输层协议，通过三次握手与重传机制保证数据有序到达。', significance: '高丢包环境下TCP重传会导致吞吐量显著下降。', articleSlug: 'tcp-vs-udp-transport' },
+  { term: 'UDP', en: 'User Datagram Protocol', category: '协议与传输', definition: '无连接传输层协议，不强制按序确认，开销低、实时性强。', significance: '语音、游戏及QUIC/Hysteria2等现代协议均基于UDP构建。', articleSlug: 'tcp-vs-udp-transport' },
+  { term: 'QUIC', en: 'Quick UDP Internet Connections', category: '协议与传输', definition: '基于UDP的多路复用安全传输协议，内置TLS 1.3加密。', significance: '减少连接建立握手延迟，但在部分严格限制UDP的校园网可能受阻。', articleSlug: 'hysteria2-weak-network' },
+  { term: 'Shadowsocks', en: 'Shadowsocks (SS)', category: '协议与传输', definition: '经典的轻量级加密SOCKS5代理协议，现主流采用AEAD加密套件。', significance: '协议开销小、跨平台兼容性极广，常配合中转或专线使用。', articleSlug: 'shadowsocks-protocol-guide' },
+  { term: 'VLESS', en: 'VLESS Protocol', category: '协议与传输', definition: '无状态轻量传输协议，本身不捆绑固定加密，通常依赖TLS或Reality层。', significance: '灵活性高、可搭配XTLS Vision与Reality减少特征识别。', articleSlug: 'vless-protocol-basics' },
+  { term: 'Trojan', en: 'Trojan Protocol', category: '协议与传输', definition: '将代理流量伪装为标准HTTPS（TLS）网页访问流量的传输协议。', significance: '端口与握手行为接近正常Web服务，兼容性与隐蔽性均衡。', articleSlug: 'trojan-protocol-conditions' },
+  { term: 'Hysteria2', en: 'Hysteria2 Protocol', category: '协议与传输', definition: '基于QUIC与拥塞控制优化的新一代代理协议，专为高丢包弱网环境设计。', significance: '在丢包率较高的公网条件下往往能维持更高的单线程吞吐量。', articleSlug: 'hysteria2-weak-network' },
+  { term: 'TLS', en: 'Transport Layer Security', category: '协议与传输', definition: '传输层安全协议，为网络通信提供加密、完整性校验与身份认证。', significance: 'Trojan与VLESS+TLS均依赖标准TLS证书与系统准确时间。', articleSlug: 'trojan-protocol-conditions' },
+  { term: 'Reality', en: 'XTLS Reality', category: '协议与传输', definition: '无需自有域名证书即可模拟目标真实网站TLS指纹的传输安全方案。', significance: '降低证书配置成本并提升抗主动探测能力。', articleSlug: 'vless-protocol-basics' },
+  { term: 'HTTPS', en: 'Hypertext Transfer Protocol Secure', category: '协议与传输', definition: '基于TLS加密的HTTP网页传输协议。', significance: '现代浏览器默认要求HTTPS，代理节点转发亦需完整支持SNI。', articleSlug: 'dns-resolution-and-issues' },
+  { term: 'Proxy', en: 'Network Proxy', category: '协议与传输', definition: '代理服务器，在客户端与目标服务器之间代为转发特定应用或端口流量。', significance: '支持精细分流规则，是机场服务的核心技术形态。', articleSlug: 'proxy-vs-vpn-differences' },
+  { term: 'VPN', en: 'Virtual Private Network', category: '协议与传输', definition: '虚拟专用网络，在操作系统网络层建立加密隧道接管全部或指定路由流量。', significance: '与机场应用层分流代理在架构与计费逻辑上存在显著差异。', articleSlug: 'proxy-vs-vpn-differences' },
+  { term: 'Ping', en: 'ICMP Echo / Latency Check', category: '性能指标', definition: '通过ICMP或TCP测试数据包往返目标主机所需毫秒数的基础工具。', significance: '低Ping不等于高带宽或零丢包，仅反映基础响应距离。', articleSlug: 'network-latency-ping-explained' },
+  { term: 'Latency', en: '网络延迟', category: '性能指标', definition: '数据从发送端出发到达接收端并获得响应的时间总和。', significance: '直接影响网页首屏打开速度与实时交互跟手度。', articleSlug: 'network-latency-ping-explained' },
+  { term: 'RTT', en: 'Round-Trip Time', category: '性能指标', definition: '往返时延，数据包从发出到收到确认响应的完整时间。', significance: 'TCP窗口传输效率受RTT与丢包率共同制约。', articleSlug: 'network-latency-ping-explained' },
+  { term: 'Jitter', en: '网络抖动', category: '性能指标', definition: '连续数据包之间延迟变化的标准差或波动幅度。', significance: '高抖动会导致视频通话卡顿、游戏瞬移与网页加载时快时慢。', articleSlug: 'network-jitter-explained' },
+  { term: 'Packet Loss', en: '网络丢包率', category: '性能指标', definition: '在传输过程中未能成功到达目的地的IP数据包所占百分比。', significance: '哪怕1%–3%的丢包也会大幅拖累TCP单线程下载速度。', articleSlug: 'packet-loss-impact' },
+  { term: 'Bandwidth', en: '网络带宽', category: '性能指标', definition: '链路在单位时间内理论上可承载的最大数据传输能力（常用Mbps）。', significance: '本地宽带带宽、节点端口带宽与目标网站限速共同决定上限。', articleSlug: 'bandwidth-vs-download-speed' },
+  { term: 'Throughput', en: '实际吞吐量', category: '性能指标', definition: '在特定协议开销、延迟与丢包条件下实际测得的有效传输速率。', significance: '实际下载速度（MB/s）通常低于标称带宽换算的理论值。', articleSlug: 'bandwidth-vs-download-speed' },
+  { term: '晚高峰', en: 'Evening Peak Hours', category: '性能指标', definition: '通常指每日 20:00 至 23:00 跨境民用网络并发访问最集中的时段。', significance: '检验机场带宽冗余与运营商国际出口抗压能力的关键窗口。', articleSlug: 'evening-peak-congestion' },
+  { term: 'DNS', en: 'Domain Name System', category: '网络基础与安全', definition: '域名系统，负责将人类可读的域名解析为计算机通信所需的IP地址。', significance: 'DNS污染或分流解析错误是“连上节点却打不开网页”的常见元凶。', articleSlug: 'dns-resolution-and-issues' },
+  { term: 'DoH', en: 'DNS over HTTPS', category: '网络基础与安全', definition: '通过加密HTTPS协议发送DNS查询请求的隐私保护标准。', significance: '防止本地ISP监听或篡改域名解析结果。', articleSlug: 'dns-resolution-and-issues' },
+  { term: 'DoT', en: 'DNS over TLS', category: '网络基础与安全', definition: '基于专用853端口TLS隧道传输DNS查询的加密协议。', significance: '常用于路由器与系统级加密DNS配置。', articleSlug: 'dns-resolution-and-issues' },
+  { term: 'IPv4', en: 'Internet Protocol version 4', category: '网络基础与安全', definition: '32位地址长度的经典互联网协议，地址资源已高度枯竭。', significance: '大多数机场节点落地仍以IPv4为主，部分平台仅支持IPv4或双栈。', articleSlug: 'shared-ip-vs-dedicated-ip' },
+  { term: 'IPv6', en: 'Internet Protocol version 6', category: '网络基础与安全', definition: '128位地址长度的新一代互联网协议。', significance: '开启IPv6但代理未接管时可能导致分流绕过或连接超时。', articleSlug: 'connection-timeout-causes' },
+  { term: 'MTU', en: 'Maximum Transmission Unit', category: '网络基础与安全', definition: '网络链路单次允许传输的最大数据包字节数（以太网常见1500）。', significance: '隧道封装若超出MTU引发分片，会降低传输效率甚至丢包。', articleSlug: 'connection-timeout-causes' },
+  { term: 'MSS', en: 'Maximum Segment Size', category: '网络基础与安全', definition: 'TCP单个分段中允许携带的最大有效载荷字节数。', significance: '合理协商MSS可避免VPN或TUN模式下的网页加载卡死。', articleSlug: 'connection-timeout-causes' },
+  { term: 'NAT', en: 'Network Address Translation', category: '网络基础与安全', definition: '网络地址转换，将局域网私有IP映射为公网IP的技术。', significance: '多层NAT环境会影响P2P直连与部分UDP游戏联机类型。', articleSlug: 'isp-experience-differences' },
+  { term: 'CGNAT', en: 'Carrier-Grade NAT', category: '网络基础与安全', definition: '运营商级大型NAT，多个宽带用户共享同一公网IPv4出口。', significance: '国内家庭宽带与手机蜂窝网络普遍存在CGNAT。', articleSlug: 'isp-experience-differences' },
+  { term: 'QoS', en: 'Quality of Service', category: '网络基础与安全', definition: '服务质量调度机制，运营商对不同协议或端口分配差异化优先级。', significance: '高峰期部分运营商会对未知UDP大流量实施QoS限速。', articleSlug: 'hysteria2-weak-network' },
+  { term: '共享IP', en: 'Shared IP', category: '网络基础与安全', definition: '多个订阅用户共同使用的同一海外出口IP地址。', significance: '成本低，但容易因他人高频请求而触发AI或流媒体风控。', articleSlug: 'shared-ip-vs-dedicated-ip' },
+  { term: '独立IP', en: 'Dedicated IP', category: '网络基础与安全', definition: '仅分配给单一客户或团队独占使用的海外公网IP。', significance: '多见于企业定制套餐，风控隔离度高但价格昂贵。', articleSlug: 'shared-ip-vs-dedicated-ip' },
+  { term: 'TUN模式', en: 'TUN Virtual Interface Mode', category: '设备与客户端', definition: '在操作系统内核层创建虚拟网卡以接管全局或非代理感知应用的流量。', significance: '解决命令行工具、游戏客户端不走系统HTTP代理的问题。', articleSlug: 'connected-but-no-internet' },
+  { term: '分流规则', en: 'Routing / Split-Tunneling Rules', category: '设备与客户端', definition: '根据域名、IP归属或GeoIP数据库决定直连、代理或拦截的策略列表。', significance: '正确分流可避免国内网站绕行海外节点浪费流量与延迟。', articleSlug: 'connected-but-no-internet' },
+  { term: '流量倍率', en: 'Traffic Multiplier', category: '设备与客户端', definition: '节点实际扣费流量与真实传输流量的比例系数（如1x、2x）。', significance: '直接决定套餐每GB真实使用成本。', articleSlug: 'speed-fast-but-browsing-slow' },
+  { term: 'Fake-IP', en: 'Fake IP DNS Mode', category: '设备与客户端', definition: '代理客户端拦截DNS请求并立即返回保留段虚拟IP以加速域名分流判断。', significance: '降低首跳解析延迟，但切换网络或关闭代理时偶发缓存异常。', articleSlug: 'dns-resolution-and-issues' },
+];

@@ -1,0 +1,577 @@
+﻿---
+import YumeriaArt from '../art/YumeriaArt.astro';
+import { brands, plans, coupons, serviceEvents } from '../../lib/db';
+
+// Derived real views from unified database
+const periodicMonthly = plans
+  .filter((p) => p.category === 'periodic' && p.cycle === 'monthly')
+  .sort((a, b) => a.price - b.price);
+
+const budgetUnder20 = periodicMonthly.filter((p) => p.price <= 20).slice(0, 8);
+const oneTimePacks = plans.filter((p) => p.category === 'dataPack').slice(0, 10);
+
+// Lowest monthly starter per brand
+const brandCards = brands.map((b) => {
+  const monthlyPlans = plans.filter((p) => p.brandId === b.id && p.cycle === 'monthly');
+  const minMonthly = monthlyPlans.length > 0 ? Math.min(...monthlyPlans.map((p) => p.price)) : null;
+  const yearlySmall = b.planGroup?.yearlySmall?.[0] || null;
+  return { ...b, minMonthly, yearlySmall };
+});
+---
+
+<!-- Module 02: Yumeria's Welcome Letter -->
+<section class="section-block" id="module-02">
+  <div class="container">
+    <div class="story-card story-card--gold letter-grid">
+      <div class="letter-art">
+        <YumeriaArt pose="journal" size={210} />
+      </div>
+      <div class="letter-body">
+        <span class="chapter-badge">梦璃的物语欢迎寄语</span>
+        <h2>欢迎来到机场物语，旅行者</h2>
+        <p>
+          选择一家机场，不应该只是比较今天的价格或者一份推荐排行榜。真正影响长期使用体验的，还有套餐规则、流量限制、客户端兼容性、服务政策以及品牌后续的变化。
+        </p>
+        <p>
+          有些套餐看起来每个月只需要几元，但实际上需要一次性支付较长周期的费用；有些服务宣传拥有大量节点，却未必能够提供符合个人需求的连接体验。
+          机场物语希望从不同角度记录网络服务的真实特点。除了介绍品牌及套餐，我们也会整理有来源的历史价格、优惠变化、服务公告以及消费注意事项。
+        </p>
+        <p>
+          在这里，用户可以阅读品牌物语，比较不同付款周期的实际成本，了解线路及节点基础知识，也可以通过个人订阅手账记录消费及续费计划。
+          我们不会将品牌宣传当作真实测试结果，也不会因为缺少资料而虚构用户评价、测速数据或品牌历史。每一次消费都值得认真考虑，每一条信息都应该具有可以追溯的依据。2027年度指南现阶段根据 2026 年能够获得的真实资料编写，并随信息变化持续更新。
+        </p>
+        <p class="letter-note">※ 提示：梦璃与星语精灵为本站虚构档案向导，所有品牌分析均基于公开档案与消费规则核对，不构成个人实测背书。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Module 04: 2027 Annual Observation -->
+<section class="section-block" id="module-04">
+  <div class="container">
+    <div class="story-card">
+      <span class="chapter-badge">2027年度机场消费观察</span>
+      <h2>从“只看月付标价”转向“全周期规则审计”</h2>
+      <p>
+        在 2026 年底至 2027 年初的公开套餐结构中，机场服务的定价策略呈现出明显的分层：部分品牌通过年付小流量包（例如年付 ¥39–¥99 区间）降低首年门槛，另一些品牌则维持月付 ¥15–¥25 起步的周期档位，并通过季付、半年付、年付阶梯折扣或 8 折、9 折优惠码拉长用户预付周期。
+      </p>
+      <p>
+        然而，真正决定消费体验的往往不是宣传页上的最低单月折算价，而是三项容易被忽略的条款：<strong>客户端政策</strong>（是否强制使用官方客户端、第三方订阅是否需额外申请）、<strong>流量倍率与重置机制</strong>（是否存在高倍率节点、月内用尽是否必须原价购买重置包），以及<strong>退款与售后边界</strong>（多数虚拟网络服务在激活订阅后不支持无理由退款）。
+      </p>
+      <div class="inline-links">
+        <a href="/observations/" class="btn btn-ghost">进入长期服务观察 →</a>
+        <a href="/tools/value-analyzer/" class="btn btn-ghost">打开套餐消费分析器 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Module 05: 18 Brand Stories Overview -->
+<section class="section-block" id="module-05">
+  <div class="container">
+    <div class="section-header">
+      <span class="chapter-badge">机场品牌故事总览（18家完整档案）</span>
+      <h2>十八座旅行驿站：真实资料导入与独立档案入口</h2>
+      <p>按原始资料索引顺序展示，不代表速度或稳定性排名。点击任意卡片可阅读 26 节完整品牌物语。</p>
+    </div>
+
+    <div class="brands-grid">
+      {brandCards.map((b) => (
+        <article class="story-card story-card--interactive brand-card">
+          <div class="brand-card-top">
+            <span class="brand-order">#{String(b.order).padStart(2, '0')}</span>
+            <span class="tag tag--gold">优惠码：{b.coupon.code}</span>
+          </div>
+          <h3><a href={b.storyPath}>{b.name}</a></h3>
+          <small class="brand-en">{b.nameEn}</small>
+          <p class="brand-tagline">{b.tagline}</p>
+          <div class="brand-meta">
+            <span>起步参考：{b.minMonthly !== null ? `月付 ¥${b.minMonthly} 起` : b.yearlySmall ? `年付 ¥${b.yearlySmall.price} 起` : '见档案详情'}</span>
+            <span>倍率：{b.ratio}</span>
+            <span>历史价格条目：{b.historicalRecordCount} 条</span>
+          </div>
+          <div class="brand-actions">
+            <a href={b.storyPath} class="btn btn-primary" style="padding:7px 14px;font-size:13px;">阅读物语档案</a>
+            <a href={b.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored" class="btn btn-ghost" style="padding:7px 12px;font-size:13px;">原始入口 ↗</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Module 06: Brand History Timeline -->
+<section class="section-block" id="module-06">
+  <div class="container">
+    <div class="story-card">
+      <div class="split-header">
+        <div>
+          <span class="chapter-badge">品牌历史时间轴</span>
+          <h2>可追溯的公开采集与规则变更记录</h2>
+          <p style="color:var(--text-secondary);">每条时间轴记录均标注发生/快照时间、采集时间、来源 URL 与核验状态，无依据时不填充虚构事件。</p>
+        </div>
+        <a href="/archives/" class="btn btn-primary">查看完整历史档案 →</a>
+      </div>
+      <div class="timeline-preview">
+        {serviceEvents.slice(0, 6).map((evt) => (
+          <div class="timeline-row">
+            <span class="timeline-date">{evt.eventDate}</span>
+            <div class="timeline-content">
+              <strong>{evt.title}</strong>
+              <p>{evt.summary}</p>
+              <small>证据类型：{evt.evidenceType} · 状态：{evt.verificationStatus}</small>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Module 07 & 08: Selection & Scenarios -->
+<section class="section-block" id="module-07">
+  <div class="container two-col">
+    <div class="story-card" id="module-08">
+      <span class="chapter-badge">机场推荐及选购知识</span>
+      <h2>为什么“适合别人”的未必适合你</h2>
+      <p>
+        选购机场服务时，最容易陷入的误区是直接照搬单一榜单。榜单通常只反映了制作者在特定时间、特定网络环境下的参考视角，而真正决定你能否顺畅使用的，是你自己的网络运营商、常用设备平台、每月实际消耗流量以及对客户端自由度的要求。
+      </p>
+      <p>
+        在机场物语的选购框架中，我们建议先明确<strong>付款周期承受上限</strong>（新手优先月付试错），再核对<strong>设备数量限制与客户端政策</strong>，最后才对照地区节点与线路说明。
+      </p>
+      <a href="/recommend/" class="btn btn-ghost">阅读选购方法论 →</a>
+    </div>
+
+    <div class="story-card">
+      <span class="chapter-badge">不同用户的使用场景物语</span>
+      <h2>从轻度查阅到多设备协同的消费边界</h2>
+      <ul class="clean-list">
+        <li><strong>轻度日常查阅（每月 20–60 GB）：</strong>重点关注年付小包或 10–20 元月付入门档，留意单月流量是否结转。</li>
+        <li><strong>远程办公与开发（稳定连接优先）：</strong>关注多地区冗余节点、客户端兼容稳定性与官方维护公告透明度。</li>
+        <li><strong>多设备家庭/工作室：</strong>核对“同时在线设备数”限制与路由器/OpenClash 订阅支持政策。</li>
+        <li><strong>跨境电商与出海业务：</strong>优先确认是否提供独立 IP、独享带宽或固定出口地区的合规说明。</li>
+      </ul>
+      <a href="/experiences/" class="btn btn-ghost">查看场景物语专题 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Module 09, 10, 11: Budget Plans, Monthly vs Yearly, One-time Traffic -->
+<section class="section-block" id="module-09">
+  <div class="container">
+    <div class="section-header">
+      <span class="chapter-badge">套餐价格与付款周期深度研究</span>
+      <h2>月付 20 元以内入门档与一次性流量包实录</h2>
+      <p>以下数据直接读取自本站统一数据库，标注了公开标价与每 GB 折算成本（未计入优惠码抵扣）。</p>
+    </div>
+
+    <div class="two-col" style="margin-bottom:20px;">
+      <div class="story-card" id="module-10">
+        <h3>月付、季付及年付消费分析</h3>
+        <p>
+          月付的核心价值在于<strong>降低沉没成本</strong>：当服务商出现线路波动、客户端不兼容或政策调整时，月付用户的最大损失锁定在单月金额内。季付与年付虽然通常附带 85 折至 75 折的长周期优惠，但前提是用户对品牌历史连续性已有足够了解，且能接受预付资金在服务期内不可退还的规则。
+        </p>
+        <p>
+          计算折合月均价时，必须使用公式：<code>折合每月价格 = 整期实付金额 ÷ 套餐有效月数</code>，切忌将年付折算月价直接等同于月付门槛。
+        </p>
+        <a href="/plans/monthly-vs-yearly/" class="btn btn-ghost">月付 vs 年付详细对比 →</a>
+      </div>
+
+      <div class="story-card" id="module-11">
+        <h3>一次性流量套餐（不限时）研究</h3>
+        <p>
+          一次性流量包（又称“按量不限时流量包”）适合每月流量消耗极不固定、或作为主力机场备用线路的用户。选购前务必核对三点：是否真正“不限到期时间”、是否允许叠加当前优惠码（部分品牌明确排除不限时包），以及是否存在最低续费或长期不活跃回收条款。
+        </p>
+        <a href="/plans/one-time-traffic/" class="btn btn-ghost">查看一次性流量专题 →</a>
+      </div>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>品牌</th>
+            <th>套餐名称</th>
+            <th>周期类型</th>
+            <th>标价（元）</th>
+            <th>流量额度</th>
+            <th>每 GB 约合</th>
+            <th>核验日期</th>
+          </tr>
+        </thead>
+        <tbody>
+          {budgetUnder20.map((p) => (
+            <tr>
+              <td><a href={`/stories/${p.brandId}/`}>{p.brandName}</a></td>
+              <td>{p.planName}</td>
+              <td>月付</td>
+              <td>¥{p.price}</td>
+              <td>{p.trafficGb ? `${p.trafficGb} GB/月` : '见详情'}</td>
+              <td>{p.pricePerGb ? `¥${p.pricePerGb}/GB` : '—'}</td>
+              <td>{p.verifiedAt}</td>
+            </tr>
+          ))}
+          {oneTimePacks.slice(0, 4).map((p) => (
+            <tr>
+              <td><a href={`/stories/${p.brandId}/`}>{p.brandName}</a></td>
+              <td>{p.planName}</td>
+              <td>一次性流量包</td>
+              <td>¥{p.price}</td>
+              <td>{p.trafficGb ? `${p.trafficGb} GB` : '见详情'}</td>
+              <td>{p.pricePerGb ? `¥${p.pricePerGb}/GB` : '—'}</td>
+              <td>{p.verifiedAt}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Module 12, 13, 14: Price History, Multiplier, Coupons/Renewal -->
+<section class="section-block" id="module-12">
+  <div class="container three-col">
+    <div class="story-card">
+      <span class="chapter-badge">套餐历史价格对比</span>
+      <h3>区分历史快照与可比曲线</h3>
+      <p>
+        我们在 18 家品牌中均记录了来自公开索引的历史价格条目数与快照日期（如 2026-10-20 与 2026-10-31）。由于部分旧记录与新版档案的流量额度或计费周期存在差异，本站严格遵守“仅在同套餐同条件可比时绘制曲线”的原则，避免误导性走势图。
+      </p>
+      <a href="/price-history/">进入历史价格中心 →</a>
+    </div>
+
+    <div class="story-card" id="module-13">
+      <span class="chapter-badge">流量倍率及费用计算</span>
+      <h3>1x 倍率与多倍率节点的真实差距</h3>
+      <p>
+        若某节点标注 2x 倍率，消耗 10 GB 实际流量将扣除账户 20 GB 额度，相当于实际可用流量减半、每 GB 真实成本翻倍。目前收录的品牌中，部分标注全节点 1x 倍率，也有品牌对特殊专线或晚高峰节点采用差异化倍率。
+      </p>
+      <a href="/tools/value-analyzer/">使用消费分析器计算 →</a>
+    </div>
+
+    <div class="story-card" id="module-14">
+      <span class="chapter-badge">优惠码、续费及升级知识</span>
+      <h3>核对折扣排除项与续费原价规则</h3>
+      <p>
+        在 18 家品牌的优惠资料中，部分优惠码明确排除“年付小包”“不限时流量包”或“私人定制”等特定档位，且部分折扣仅限首购生效、续费恢复原价。下单前请务必在官网结算页核对最终实付金额。
+      </p>
+      <a href="/coupons/">查看 18 家优惠码档案 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Module 15 & 16: Network Testing & Evidence -->
+<section class="section-block" id="module-15">
+  <div class="container two-col">
+    <div class="story-card">
+      <div class="inline-character">
+        <YumeriaArt pose="research" size={115} />
+        <div>
+          <span class="chapter-badge">机场网络实测知识</span>
+          <h2>如何理性看待测速指标</h2>
+          <p>
+            延迟（Ping）、抖动（Jitter）、丢包率与下载/上传吞吐量分别反映连接响应、波动幅度、传输完整性与带宽上限。单次高带宽截图不能证明晚高峰（20:00–23:00）的持续稳定性。
+          </p>
+          <a href="/test/">阅读实测方法论 →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-card" id="module-16">
+      <span class="chapter-badge">测试报告及证据研究</span>
+      <h2>本站定位与证据透明声明</h2>
+      <p>
+        机场物语（jichangwuyu.blog）专注于品牌历史与消费档案，<strong>不冒充实测平台</strong>。本站未收录独立多日节点测速实证，因此全站不展示虚假的实时速度曲线；真实测速报告请参考专门实测站点（如 jichangshice.mom）。
+      </p>
+      <a href="/evidence/">进入网络证据研究中心 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Module 17 & 18: Global Routes & Node Regions -->
+<section class="section-block" id="module-17">
+  <div class="container">
+    <div class="story-card">
+      <span class="chapter-badge">全球线路与地区节点百科</span>
+      <h2>IEPL / IPLC 专线、BGP 中转与地区节点选择逻辑</h2>
+      <p id="module-18">
+        线路名词（如 IEPL、IPLC、BGP 中转、直连）描述的是数据跨境与境内调度的网络路径架构，而非绝对的速度保证。香港、台湾、日本、新加坡节点通常面向低延迟日常访问与流媒体；美国与欧洲节点则在特定 AI 服务、学术资源与跨区内容中具有不可替代性。选择节点时应结合目标服务地区与本地运营商晚高峰表现综合判断。
+      </p>
+      <div class="inline-links">
+        <a href="/nodes/dedicated-lines/" class="tag">IEPL 与 IPLC 区别</a>
+        <a href="/nodes/direct-vs-relay/" class="tag">直连与中转对比</a>
+        <a href="/nodes/protocols/hysteria2/" class="tag">Hysteria2 协议</a>
+        <a href="/nodes/" class="tag tag--gold">进入完整网络百科 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Module 19 & 20: Ladder/VPN & Clients -->
+<section class="section-block" id="module-19">
+  <div class="container two-col">
+    <div class="story-card">
+      <span class="chapter-badge">梯子、VPN 与网络基础知识</span>
+      <h3>分流代理与传统全局 VPN 的本质差异</h3>
+      <p>
+        现代机场普遍基于 Shadowsocks、Trojan、VLESS 或 Hysteria2 等代理协议，配合客户端规则实现国内外流量分流；传统商业 VPN 多采用全局加密隧道，两者的计费方式、设备授权与延迟特征截然不同。
+      </p>
+      <a href="/ladder/vpn-comparison/">阅读 VPN 与机场对比 →</a>
+    </div>
+
+    <div class="story-card" id="module-20">
+      <span class="chapter-badge">客户端及订阅兼容性</span>
+      <h3>官方客户端与第三方订阅的政策边界</h3>
+      <p>
+        在 18 家品牌中，部分品牌主推自研官方客户端（账号登录即用，第三方订阅需满足条件或联系客服申请），也有品牌原生提供 Clash / Mihomo / Shadowrocket / sing-box 标准订阅链接。购买前应优先核对自己的主力设备支持情况。
+      </p>
+      <a href="/clients/">查看客户端兼容档案 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Module 21, 22, 23: AI, Streaming, Multi-Device -->
+<section class="section-block" id="module-21">
+  <div class="container three-col">
+    <div class="story-card">
+      <span class="chapter-badge">AI 工具应用物语</span>
+      <h3>ChatGPT / Claude / Gemini 地区与风控条件</h3>
+      <p>
+        AI 平台对出口 IP 所属国家、纯净度及频繁切换行为较为敏感。任何机场的历史解锁记录都不构成对未来可用性的永久保证，使用时应遵守对应平台的服务条款。
+      </p>
+      <a href="/applications/ai/">查看 AI 应用研究 →</a>
+    </div>
+
+    <div class="story-card" id="module-22">
+      <span class="chapter-badge">视频及流媒体应用物语</span>
+      <h3>Netflix / YouTube / Disney+ 带宽与解锁边界</h3>
+      <p>
+        流媒体平台的地区版权库与代理检测机制会动态调整，4K 播放同时依赖本地晚高峰吞吐量与节点出口质量。本站仅整理品牌公开声明与证据边界，不作绝对解锁承诺。
+      </p>
+      <a href="/applications/streaming/">查看流媒体专题 →</a>
+    </div>
+
+    <div class="story-card" id="module-23">
+      <span class="chapter-badge">全平台设备基础使用知识</span>
+      <h3>Windows / Mac / iOS / Android / 路由器</h3>
+      <p>
+        从桌面端到移动端与 OpenWrt 软路由，不同系统的 TUN 模式权限、证书信任与后台保活机制各异。详细零基础图文步骤可参考专业教学站，本站侧重设备兼容性与多端共用策略。
+      </p>
+      <a href="/guide/">查看设备使用知识 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Module 24, 25, 26: Security, Risk Center, Reading Center -->
+<section class="section-block" id="module-24">
+  <div class="container two-col">
+    <div class="story-card">
+      <div class="inline-character">
+        <YumeriaArt pose="thinking" size={115} />
+        <div>
+          <span class="chapter-badge">机场安全与个人隐私</span>
+          <h2>保护订阅链接与账户凭证</h2>
+          <p>
+            订阅链接等同于个人流量与节点访问凭证，切勿在来路不明的第三方网站粘贴或分享。本站个人订阅手账与收藏功能完全运行于浏览器本地存储，不收集任何账户密码或订阅链接。
+          </p>
+          <a href="/risk/privacy-security/">阅读隐私保护指南 →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-card" id="module-25">
+      <span class="chapter-badge">长期服务风险观察中心</span>
+      <h2>理性区分临时故障与长期停运风险</h2>
+      <p>
+        网站临时无法访问或个别节点维护并不等同于“跑路”。机场物语建立公开事件分级制度，明确区分“已确认事实”“服务商公告”“第三方报告”与“待核验信息”，并提供纠错与品牌回应入口。
+      </p>
+      <a href="/risk/">进入消费风险观察中心 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-block" id="module-26">
+  <div class="container">
+    <div class="story-card story-card--gold split-header">
+      <div class="inline-character">
+        <YumeriaArt pose="reading" size={110} />
+        <div>
+          <span class="chapter-badge">原创物语阅读中心</span>
+          <h2>首批 30 篇深度消费研究与消费避坑专题</h2>
+          <p style="margin:0;color:var(--text-secondary);">
+            涵盖套餐成本核算、历史价格变动逻辑、预付风险评估、真假官网辨别、协议原理与隐私保护等核心长文。
+          </p>
+        </div>
+      </div>
+      <a href="/articles/" class="btn btn-gold">浏览全部 30 篇原创文章 →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-block {
+    padding: 26px 0;
+  }
+  .section-header {
+    margin-bottom: 20px;
+  }
+  .section-header h2 {
+    font-size: clamp(21px, 2.5vw, 28px);
+    margin: 10px 0 6px;
+  }
+  .section-header p {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .letter-grid {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+  .letter-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    background: var(--bg-chapter-tint);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--story-gold);
+  }
+  .inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .brand-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .brand-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .brand-order {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 700;
+  }
+  .brand-card h3 {
+    margin: 2px 0 0;
+    font-size: 19px;
+  }
+  .brand-en {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .brand-tagline {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    margin: 2px 0 4px;
+    flex-grow: 1;
+  }
+  .brand-meta {
+    display: grid;
+    gap: 3px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-chapter-tint);
+  }
+  .brand-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .split-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .timeline-preview {
+    margin-top: 18px;
+    display: grid;
+    gap: 12px;
+    border-left: 2px solid var(--story-gold);
+    padding-left: 16px;
+  }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .timeline-date {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--deep-dream);
+    font-weight: 600;
+  }
+  html[data-theme="night"] .timeline-date {
+    color: var(--story-gold);
+  }
+  .timeline-content p {
+    margin: 4px 0;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+  }
+  .timeline-content small {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .clean-list {
+    padding-left: 18px;
+    margin: 10px 0 16px;
+    display: grid;
+    gap: 8px;
+    font-size: 14.5px;
+    color: var(--text-secondary);
+  }
+  .inline-character {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  @media (max-width: 960px) {
+    .letter-grid, .two-col, .three-col, .brands-grid {
+      grid-template-columns: 1fr;
+    }
+    .timeline-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+  @media (max-width: 600px) {
+    .inline-character {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

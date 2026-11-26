@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import YumeriaArt from '../../components/art/YumeriaArt.astro';
+---
+
+<BaseLayout
+  title="关于机场物语｜网站定位与原创世界观｜机场物语"
+  description="了解机场物语（jichangwuyu.blog）的定位、四站差异化分工、原创角色梦璃与星语精灵设定以及内容可信度原则。"
+  canonical="https://jichangwuyu.blog/about/"
+  chapterTone="dawn"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '关于机场物语', url: '/about/' }]}
+>
+  <section class="container reading-container" style="padding:32px 20px;">
+    <div class="story-card story-card--gold" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:20px;">
+      <div style="max-width:480px;">
+        <span class="chapter-badge">ABOUT · 关于本站</span>
+        <h1 style="margin:10px 0 8px;">关于机场物语</h1>
+        <p style="margin:0;color:var(--text-secondary);">每一次连接，都有属于自己的故事。</p>
+      </div>
+      <YumeriaArt pose="welcome" size={140} />
+    </div>
+
+    <div class="story-card" style="display:grid;gap:14px;">
+      <h2>一、网站定位与四站差异化</h2>
+      <p>机场物语（jichangwuyu.blog）专注于机场品牌故事、历史档案、套餐价格研究、历史价格变化、长期消费分析、续费退款研究与服务风险观察。</p>
+      <h2>二、原创虚构角色说明</h2>
+      <p>YUMERIA · 梦璃（24岁档案向导）与 LUMO · 星语精灵（银白淡紫色小狐狸精灵）均为本站原创虚构角色，仅用于视觉叙事与功能引导，不冒充真实消费者或官方技术专家。</p>
+      <h2>三、不冒充官网声明</h2>
+      <p>本站是独立的信息研究与消费档案博客，不是任何机场服务商的官方网站。</p>
+    </div>
+  </section>
+</BaseLayout>

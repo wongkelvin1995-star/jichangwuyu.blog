@@ -1,0 +1,2152 @@
+[
+  {
+    "id": "001",
+    "keyword": "机场推荐",
+    "targetUrl": "/recommend/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "002",
+    "keyword": "2026机场推荐",
+    "targetUrl": "/recommend/annual/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "003",
+    "keyword": "2027机场推荐",
+    "targetUrl": "/recommend/annual/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "004",
+    "keyword": "机场推荐排行榜",
+    "targetUrl": "/recommend/ranking-method/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "005",
+    "keyword": "机场排名",
+    "targetUrl": "/recommend/ranking-method/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "006",
+    "keyword": "机场推荐哪个好",
+    "targetUrl": "/recommend/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "007",
+    "keyword": "稳定机场推荐",
+    "targetUrl": "/recommend/reliability/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "008",
+    "keyword": "靠谱机场推荐",
+    "targetUrl": "/recommend/reliability/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "009",
+    "keyword": "高速机场推荐",
+    "targetUrl": "/recommend/performance/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "010",
+    "keyword": "性价比机场推荐",
+    "targetUrl": "/plans/value/",
+    "intent": "消费对比",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "011",
+    "keyword": "机场测评推荐",
+    "targetUrl": "/stories/",
+    "intent": "品牌档案",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "012",
+    "keyword": "机场推荐最新整理",
+    "targetUrl": "/recommend/annual/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "013",
+    "keyword": "适合新手的机场",
+    "targetUrl": "/recommend/beginner/",
+    "intent": "选购指南",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "014",
+    "keyword": "长期稳定机场推荐",
+    "targetUrl": "/recommend/reliability/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "015",
+    "keyword": "小众机场推荐",
+    "targetUrl": "/recommend/niche/",
+    "intent": "商业研究",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "016",
+    "keyword": "机场服务商推荐",
+    "targetUrl": "/airports/",
+    "intent": "品牌索引",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "017",
+    "keyword": "机场订阅推荐",
+    "targetUrl": "/recommend/subscription/",
+    "intent": "选购指南",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "018",
+    "keyword": "收费机场推荐",
+    "targetUrl": "/recommend/paid/",
+    "intent": "消费对比",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "019",
+    "keyword": "国内用户机场推荐",
+    "targetUrl": "/recommend/network-environment/",
+    "intent": "选购指南",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "020",
+    "keyword": "机场购买指南",
+    "targetUrl": "/guide/buying/",
+    "intent": "选购指南",
+    "cluster": "第01组：核心推荐与榜单",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "021",
+    "keyword": "便宜好用的机场",
+    "targetUrl": "/plans/budget/",
+    "intent": "消费对比",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "022",
+    "keyword": "学生党机场推荐",
+    "targetUrl": "/experiences/student/",
+    "intent": "场景物语",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "023",
+    "keyword": "办公机场推荐",
+    "targetUrl": "/experiences/work/",
+    "intent": "场景物语",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "024",
+    "keyword": "远程办公机场",
+    "targetUrl": "/experiences/work/",
+    "intent": "场景物语",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "025",
+    "keyword": "跨境电商机场推荐",
+    "targetUrl": "/experiences/ecommerce/",
+    "intent": "场景物语",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "026",
+    "keyword": "游戏加速机场推荐",
+    "targetUrl": "/experiences/gaming/",
+    "intent": "场景物语",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "027",
+    "keyword": "低延迟机场推荐",
+    "targetUrl": "/experiences/gaming/",
+    "intent": "场景物语",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "028",
+    "keyword": "多设备机场推荐",
+    "targetUrl": "/experiences/multi-device/",
+    "intent": "场景物语",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "029",
+    "keyword": "适合安卓的机场",
+    "targetUrl": "/guide/android/",
+    "intent": "设备兼容",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "030",
+    "keyword": "适合苹果手机的机场",
+    "targetUrl": "/guide/ios/",
+    "intent": "设备兼容",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "031",
+    "keyword": "适合Windows的机场",
+    "targetUrl": "/guide/windows/",
+    "intent": "设备兼容",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "032",
+    "keyword": "适合Mac的机场",
+    "targetUrl": "/guide/macos/",
+    "intent": "设备兼容",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "033",
+    "keyword": "路由器机场推荐",
+    "targetUrl": "/guide/router/",
+    "intent": "设备兼容",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "034",
+    "keyword": "轻度使用机场推荐",
+    "targetUrl": "/experiences/traffic-needs/",
+    "intent": "场景物语",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "035",
+    "keyword": "重度使用机场推荐",
+    "targetUrl": "/experiences/traffic-needs/",
+    "intent": "场景物语",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "036",
+    "keyword": "晚上稳定的机场",
+    "targetUrl": "/test/time-periods/",
+    "intent": "性能研究",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "037",
+    "keyword": "白天稳定的机场",
+    "targetUrl": "/test/time-periods/",
+    "intent": "性能研究",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "038",
+    "keyword": "看视频机场推荐",
+    "targetUrl": "/applications/streaming/",
+    "intent": "应用研究",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "039",
+    "keyword": "访问AI工具的机场",
+    "targetUrl": "/applications/ai/",
+    "intent": "应用研究",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "040",
+    "keyword": "出国旅行代理工具推荐",
+    "targetUrl": "/experiences/travel/",
+    "intent": "场景物语",
+    "cluster": "第02组：按用途选择机场",
+    "priority": "辅助内容",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "041",
+    "keyword": "便宜机场推荐",
+    "targetUrl": "/plans/budget/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "042",
+    "keyword": "低价机场推荐",
+    "targetUrl": "/plans/budget/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "043",
+    "keyword": "10元机场推荐",
+    "targetUrl": "/plans/budget-tiers/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "044",
+    "keyword": "20元机场推荐",
+    "targetUrl": "/plans/budget-tiers/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "045",
+    "keyword": "月付机场推荐",
+    "targetUrl": "/plans/monthly/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "046",
+    "keyword": "年付机场推荐",
+    "targetUrl": "/plans/yearly/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "047",
+    "keyword": "季付机场推荐",
+    "targetUrl": "/plans/quarterly/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "048",
+    "keyword": "按量付费机场推荐",
+    "targetUrl": "/plans/pay-as-you-go/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "049",
+    "keyword": "不限时流量机场",
+    "targetUrl": "/plans/one-time-traffic/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "050",
+    "keyword": "一次性流量机场",
+    "targetUrl": "/plans/one-time-traffic/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "051",
+    "keyword": "大流量机场推荐",
+    "targetUrl": "/plans/traffic-tiers/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "052",
+    "keyword": "小流量机场套餐",
+    "targetUrl": "/plans/traffic-tiers/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "053",
+    "keyword": "机场套餐价格对比",
+    "targetUrl": "/plans/compare/",
+    "intent": "消费对比",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "054",
+    "keyword": "机场月付和年付哪个好",
+    "targetUrl": "/plans/monthly-vs-yearly/",
+    "intent": "消费研究",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "055",
+    "keyword": "机场流量倍率怎么算",
+    "targetUrl": "/plans/multiplier/",
+    "intent": "消费研究",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "056",
+    "keyword": "机场流量不够用怎么办",
+    "targetUrl": "/plans/traffic-limit/",
+    "intent": "消费研究",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "057",
+    "keyword": "机场优惠码查询",
+    "targetUrl": "/coupons/",
+    "intent": "优惠档案",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "058",
+    "keyword": "机场试用申请方法",
+    "targetUrl": "/plans/trial-policy/",
+    "intent": "政策研究",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "059",
+    "keyword": "机场续费注意事项",
+    "targetUrl": "/plans/renewal/",
+    "intent": "政策研究",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "060",
+    "keyword": "机场套餐升级教程",
+    "targetUrl": "/plans/upgrade/",
+    "intent": "政策研究",
+    "cluster": "第03组：套餐价格与流量",
+    "priority": "S级核心",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "061",
+    "keyword": "机场实测",
+    "targetUrl": "/test/",
+    "intent": "证据研究",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "062",
+    "keyword": "机场测速",
+    "targetUrl": "/test/methodology/",
+    "intent": "方法论",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "063",
+    "keyword": "机场测评",
+    "targetUrl": "/test/",
+    "intent": "证据研究",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "064",
+    "keyword": "机场实测排行榜",
+    "targetUrl": "/test/ranking-evidence/",
+    "intent": "证据研究",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "065",
+    "keyword": "机场测速报告",
+    "targetUrl": "/test/report-analysis/",
+    "intent": "证据解读",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "066",
+    "keyword": "机场节点测速",
+    "targetUrl": "/test/methodology/",
+    "intent": "方法论",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "067",
+    "keyword": "机场晚高峰测速",
+    "targetUrl": "/test/time-periods/",
+    "intent": "性能研究",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "068",
+    "keyword": "机场早高峰测速",
+    "targetUrl": "/test/time-periods/",
+    "intent": "性能研究",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "069",
+    "keyword": "机场深夜测速",
+    "targetUrl": "/test/time-periods/",
+    "intent": "性能研究",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "070",
+    "keyword": "机场延迟测试",
+    "targetUrl": "/test/latency/",
+    "intent": "指标解释",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "071",
+    "keyword": "机场抖动测试",
+    "targetUrl": "/test/jitter/",
+    "intent": "指标解释",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "072",
+    "keyword": "机场丢包率测试",
+    "targetUrl": "/test/packet-loss/",
+    "intent": "指标解释",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "073",
+    "keyword": "机场下载速度测试",
+    "targetUrl": "/test/throughput/",
+    "intent": "指标解释",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "074",
+    "keyword": "机场上传速度测试",
+    "targetUrl": "/test/throughput/",
+    "intent": "指标解释",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "075",
+    "keyword": "机场带宽测试",
+    "targetUrl": "/test/throughput/",
+    "intent": "指标解释",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "076",
+    "keyword": "机场稳定性测试",
+    "targetUrl": "/test/stability-method/",
+    "intent": "方法论",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "077",
+    "keyword": "机场连续多日测试",
+    "targetUrl": "/test/stability-method/",
+    "intent": "方法论",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "078",
+    "keyword": "机场测速怎么看",
+    "targetUrl": "/test/report-analysis/",
+    "intent": "证据解读",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "079",
+    "keyword": "机场测试工具推荐",
+    "targetUrl": "/test/tools/",
+    "intent": "工具方法",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "080",
+    "keyword": "机场线路实测对比",
+    "targetUrl": "/test/route-evidence/",
+    "intent": "证据解读",
+    "cluster": "第04组：机场实测与质量",
+    "priority": "测试知识与证据解读",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "081",
+    "keyword": "IEPL机场推荐",
+    "targetUrl": "/nodes/dedicated-lines/",
+    "intent": "线路百科",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "082",
+    "keyword": "IPLC机场推荐",
+    "targetUrl": "/nodes/dedicated-lines/",
+    "intent": "线路百科",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "083",
+    "keyword": "专线机场推荐",
+    "targetUrl": "/nodes/dedicated-lines/",
+    "intent": "线路百科",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "084",
+    "keyword": "中转机场推荐",
+    "targetUrl": "/nodes/direct-vs-relay/",
+    "intent": "线路百科",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "085",
+    "keyword": "直连机场推荐",
+    "targetUrl": "/nodes/direct-vs-relay/",
+    "intent": "线路百科",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "086",
+    "keyword": "BGP中转机场",
+    "targetUrl": "/nodes/bgp/",
+    "intent": "线路百科",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "087",
+    "keyword": "香港节点推荐",
+    "targetUrl": "/nodes/hong-kong/",
+    "intent": "地区节点",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "088",
+    "keyword": "日本节点推荐",
+    "targetUrl": "/nodes/japan/",
+    "intent": "地区节点",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "089",
+    "keyword": "新加坡节点推荐",
+    "targetUrl": "/nodes/singapore/",
+    "intent": "地区节点",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "090",
+    "keyword": "美国节点推荐",
+    "targetUrl": "/nodes/united-states/",
+    "intent": "地区节点",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "091",
+    "keyword": "台湾节点推荐",
+    "targetUrl": "/nodes/taiwan/",
+    "intent": "地区节点",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "092",
+    "keyword": "韩国节点推荐",
+    "targetUrl": "/nodes/south-korea/",
+    "intent": "地区节点",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "093",
+    "keyword": "欧洲节点机场",
+    "targetUrl": "/nodes/europe/",
+    "intent": "地区节点",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "094",
+    "keyword": "IEPL与IPLC区别",
+    "targetUrl": "/nodes/dedicated-lines/",
+    "intent": "线路百科",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "095",
+    "keyword": "直连与中转区别",
+    "targetUrl": "/nodes/direct-vs-relay/",
+    "intent": "线路百科",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "096",
+    "keyword": "Shadowsocks机场",
+    "targetUrl": "/nodes/protocols/shadowsocks/",
+    "intent": "协议知识",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "097",
+    "keyword": "VLESS机场",
+    "targetUrl": "/nodes/protocols/vless/",
+    "intent": "协议知识",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "098",
+    "keyword": "Trojan机场",
+    "targetUrl": "/nodes/protocols/trojan/",
+    "intent": "协议知识",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "099",
+    "keyword": "Hysteria2机场",
+    "targetUrl": "/nodes/protocols/hysteria2/",
+    "intent": "协议知识",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "100",
+    "keyword": "机场节点地区怎么选",
+    "targetUrl": "/nodes/region-selection/",
+    "intent": "选购知识",
+    "cluster": "第05组：线路与地区节点",
+    "priority": "A级独立知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "101",
+    "keyword": "梯子推荐",
+    "targetUrl": "/ladder/",
+    "intent": "基础概念",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "102",
+    "keyword": "2026梯子推荐",
+    "targetUrl": "/ladder/",
+    "intent": "基础概念",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "103",
+    "keyword": "2027梯子推荐",
+    "targetUrl": "/ladder/",
+    "intent": "基础概念",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "104",
+    "keyword": "稳定梯子推荐",
+    "targetUrl": "/ladder/service-quality/",
+    "intent": "服务质量",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "105",
+    "keyword": "便宜梯子推荐",
+    "targetUrl": "/plans/budget/",
+    "intent": "消费对比",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "106",
+    "keyword": "高速梯子推荐",
+    "targetUrl": "/ladder/service-quality/",
+    "intent": "服务质量",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "107",
+    "keyword": "科学上网梯子",
+    "targetUrl": "/ladder/network-services/",
+    "intent": "技术概念",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "108",
+    "keyword": "魔法梯子推荐",
+    "targetUrl": "/ladder/",
+    "intent": "基础概念",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "109",
+    "keyword": "魔法机场推荐",
+    "targetUrl": "/ladder/",
+    "intent": "基础概念",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "110",
+    "keyword": "魔法上网教程",
+    "targetUrl": "/ladder/basics/",
+    "intent": "入门知识",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "111",
+    "keyword": "科学上网机场推荐",
+    "targetUrl": "/ladder/network-services/",
+    "intent": "技术概念",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "112",
+    "keyword": "翻墙梯子推荐",
+    "targetUrl": "/ladder/network-services/",
+    "intent": "技术概念",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "113",
+    "keyword": "翻墙机场推荐",
+    "targetUrl": "/ladder/network-services/",
+    "intent": "技术概念",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "114",
+    "keyword": "VPN梯子哪个好",
+    "targetUrl": "/ladder/vpn-comparison/",
+    "intent": "概念对比",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "115",
+    "keyword": "VPN与机场区别",
+    "targetUrl": "/ladder/vpn-comparison/",
+    "intent": "概念对比",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "116",
+    "keyword": "机场与VPN哪个划算",
+    "targetUrl": "/ladder/vpn-comparison/",
+    "intent": "概念对比",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "117",
+    "keyword": "科学上网入门指南",
+    "targetUrl": "/ladder/basics/",
+    "intent": "入门知识",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "118",
+    "keyword": "魔法上网工具有哪些",
+    "targetUrl": "/ladder/tools/",
+    "intent": "工具概念",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "119",
+    "keyword": "梯子订阅怎么买",
+    "targetUrl": "/guide/buying/",
+    "intent": "选购指南",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "120",
+    "keyword": "梯子节点怎么切换",
+    "targetUrl": "/guide/node-management/",
+    "intent": "使用知识",
+    "cluster": "第06组：梯子与魔法上网",
+    "priority": "A级知识",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "121",
+    "keyword": "Clash机场推荐",
+    "targetUrl": "/clients/clash-compatibility/",
+    "intent": "客户端兼容",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "122",
+    "keyword": "Clash订阅教程",
+    "targetUrl": "/clients/clash-subscription/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "123",
+    "keyword": "Clash节点导入教程",
+    "targetUrl": "/clients/clash-subscription/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "124",
+    "keyword": "Clash Verge Rev教程",
+    "targetUrl": "/clients/clash-verge/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "125",
+    "keyword": "Clash Verge Rev订阅导入",
+    "targetUrl": "/clients/clash-verge/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "126",
+    "keyword": "Clash Meta配置教程",
+    "targetUrl": "/clients/mihomo/",
+    "intent": "内核档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "127",
+    "keyword": "Mihomo内核配置",
+    "targetUrl": "/clients/mihomo/",
+    "intent": "内核档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "128",
+    "keyword": "Clash规则模式教程",
+    "targetUrl": "/clients/clash-modes/",
+    "intent": "模式解析",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "129",
+    "keyword": "Clash TUN模式教程",
+    "targetUrl": "/clients/clash-modes/",
+    "intent": "模式解析",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "130",
+    "keyword": "Clash订阅更新失败",
+    "targetUrl": "/faq/subscription/",
+    "intent": "故障排查",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "131",
+    "keyword": "Shadowrocket使用教程",
+    "targetUrl": "/clients/shadowrocket/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "132",
+    "keyword": "Shadowrocket订阅导入",
+    "targetUrl": "/clients/shadowrocket/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "133",
+    "keyword": "小火箭节点添加教程",
+    "targetUrl": "/clients/shadowrocket/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "134",
+    "keyword": "v2rayN使用教程",
+    "targetUrl": "/clients/v2rayn/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "135",
+    "keyword": "v2rayNG使用教程",
+    "targetUrl": "/clients/v2rayng/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "136",
+    "keyword": "sing-box使用教程",
+    "targetUrl": "/clients/sing-box/",
+    "intent": "内核档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "137",
+    "keyword": "Hiddify使用教程",
+    "targetUrl": "/clients/hiddify/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "138",
+    "keyword": "FlClash使用教程",
+    "targetUrl": "/clients/flclash/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "139",
+    "keyword": "OpenClash订阅教程",
+    "targetUrl": "/clients/openclash/",
+    "intent": "客户端档案",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "140",
+    "keyword": "代理客户端怎么选",
+    "targetUrl": "/clients/comparison/",
+    "intent": "客户端对比",
+    "cluster": "第07组：客户端与订阅教程",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "141",
+    "keyword": "ChatGPT机场推荐",
+    "targetUrl": "/applications/chatgpt/",
+    "intent": "AI应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "142",
+    "keyword": "Claude机场推荐",
+    "targetUrl": "/applications/claude/",
+    "intent": "AI应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "143",
+    "keyword": "Gemini机场推荐",
+    "targetUrl": "/applications/gemini/",
+    "intent": "AI应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "144",
+    "keyword": "AI解锁机场",
+    "targetUrl": "/applications/ai/",
+    "intent": "AI应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "145",
+    "keyword": "AI工具节点推荐",
+    "targetUrl": "/applications/ai/",
+    "intent": "AI应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "146",
+    "keyword": "ChatGPT地区限制怎么办",
+    "targetUrl": "/applications/chatgpt/",
+    "intent": "AI应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "147",
+    "keyword": "Claude无法访问怎么办",
+    "targetUrl": "/applications/claude/",
+    "intent": "AI应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "148",
+    "keyword": "Gemini网络错误怎么办",
+    "targetUrl": "/applications/gemini/",
+    "intent": "AI应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "149",
+    "keyword": "OpenAI节点选择",
+    "targetUrl": "/applications/chatgpt/",
+    "intent": "AI应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "150",
+    "keyword": "AI应用专用线路",
+    "targetUrl": "/applications/ai/",
+    "intent": "AI应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "151",
+    "keyword": "Netflix机场推荐",
+    "targetUrl": "/applications/netflix/",
+    "intent": "流媒体应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "152",
+    "keyword": "YouTube机场推荐",
+    "targetUrl": "/applications/youtube/",
+    "intent": "流媒体应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "153",
+    "keyword": "Disney Plus机场推荐",
+    "targetUrl": "/applications/disney-plus/",
+    "intent": "流媒体应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "154",
+    "keyword": "TikTok节点推荐",
+    "targetUrl": "/applications/tiktok/",
+    "intent": "流媒体应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "155",
+    "keyword": "流媒体机场推荐",
+    "targetUrl": "/applications/streaming/",
+    "intent": "流媒体应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "156",
+    "keyword": "Netflix解锁测试",
+    "targetUrl": "/applications/netflix/",
+    "intent": "流媒体应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "157",
+    "keyword": "YouTube 4K节点",
+    "targetUrl": "/applications/youtube/",
+    "intent": "流媒体应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "158",
+    "keyword": "Disney Plus地区节点",
+    "targetUrl": "/applications/disney-plus/",
+    "intent": "流媒体应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "159",
+    "keyword": "流媒体解锁检测教程",
+    "targetUrl": "/applications/availability-check/",
+    "intent": "检测方法",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "160",
+    "keyword": "看海外直播用什么机场",
+    "targetUrl": "/applications/live-streaming/",
+    "intent": "流媒体应用",
+    "cluster": "第08组：AI与流媒体场景",
+    "priority": "A级应用研究",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "161",
+    "keyword": "机场是什么",
+    "targetUrl": "/guide/basics/",
+    "intent": "基础科普",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "162",
+    "keyword": "机场订阅是什么",
+    "targetUrl": "/guide/subscription/",
+    "intent": "基础科普",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "163",
+    "keyword": "机场怎么注册",
+    "targetUrl": "/guide/buying/",
+    "intent": "选购指南",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "164",
+    "keyword": "机场怎么使用",
+    "targetUrl": "/guide/getting-started/",
+    "intent": "基础使用",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "165",
+    "keyword": "机场购买后怎么连接",
+    "targetUrl": "/guide/getting-started/",
+    "intent": "基础使用",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "166",
+    "keyword": "机场订阅怎么导入",
+    "targetUrl": "/guide/subscription-import/",
+    "intent": "基础使用",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "167",
+    "keyword": "订阅链接在哪里找",
+    "targetUrl": "/guide/subscription/",
+    "intent": "基础科普",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "168",
+    "keyword": "机场节点怎么选择",
+    "targetUrl": "/guide/node-management/",
+    "intent": "使用知识",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "169",
+    "keyword": "Windows 11科学上网教程",
+    "targetUrl": "/guide/windows/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "170",
+    "keyword": "Windows 10机场教程",
+    "targetUrl": "/guide/windows/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "171",
+    "keyword": "Mac科学上网教程",
+    "targetUrl": "/guide/macos/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "172",
+    "keyword": "iPhone机场使用教程",
+    "targetUrl": "/guide/ios/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "173",
+    "keyword": "iPad机场配置教程",
+    "targetUrl": "/guide/ios/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "174",
+    "keyword": "Android机场使用教程",
+    "targetUrl": "/guide/android/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "175",
+    "keyword": "小米手机机场教程",
+    "targetUrl": "/guide/android/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "176",
+    "keyword": "华为手机代理教程",
+    "targetUrl": "/guide/android/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "177",
+    "keyword": "OpenWrt科学上网教程",
+    "targetUrl": "/guide/router/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "178",
+    "keyword": "Chrome代理设置教程",
+    "targetUrl": "/guide/browser/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "179",
+    "keyword": "Edge代理设置教程",
+    "targetUrl": "/guide/browser/",
+    "intent": "设备兼容",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "180",
+    "keyword": "电脑手机共用机场教程",
+    "targetUrl": "/experiences/multi-device/",
+    "intent": "场景物语",
+    "cluster": "第09组：设备与基础使用",
+    "priority": "B级辅助",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "181",
+    "keyword": "机场节点连接失败",
+    "targetUrl": "/faq/connection/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "182",
+    "keyword": "机场节点超时怎么办",
+    "targetUrl": "/faq/connection/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "183",
+    "keyword": "机场连接成功却无法上网",
+    "targetUrl": "/faq/no-internet/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "184",
+    "keyword": "机场订阅链接失效",
+    "targetUrl": "/faq/subscription/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "185",
+    "keyword": "机场速度慢怎么办",
+    "targetUrl": "/faq/slow-network/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "186",
+    "keyword": "机场频繁断线怎么办",
+    "targetUrl": "/faq/connection/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "187",
+    "keyword": "机场DNS故障排查",
+    "targetUrl": "/faq/dns/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "188",
+    "keyword": "Clash无法连接网络",
+    "targetUrl": "/faq/clash/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "189",
+    "keyword": "Shadowrocket连不上怎么办",
+    "targetUrl": "/faq/shadowrocket/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "190",
+    "keyword": "v2rayN无法联网",
+    "targetUrl": "/faq/v2rayn/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "191",
+    "keyword": "机场打不开怎么办",
+    "targetUrl": "/faq/service-availability/",
+    "intent": "服务可用性",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "192",
+    "keyword": "机场官网真假辨别",
+    "targetUrl": "/risk/website-verification/",
+    "intent": "消费安全",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "193",
+    "keyword": "机场会不会跑路",
+    "targetUrl": "/risk/service-continuity/",
+    "intent": "长期风险",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "194",
+    "keyword": "机场安全性分析",
+    "targetUrl": "/risk/privacy-security/",
+    "intent": "安全隐私",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "195",
+    "keyword": "机场隐私保护指南",
+    "targetUrl": "/risk/privacy-security/",
+    "intent": "安全隐私",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "196",
+    "keyword": "机场退款政策怎么看",
+    "targetUrl": "/risk/refund-policy/",
+    "intent": "售后政策",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "197",
+    "keyword": "机场客服怎么联系",
+    "targetUrl": "/faq/customer-service/",
+    "intent": "售后支持",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "198",
+    "keyword": "机场流量什么时候重置",
+    "targetUrl": "/plans/traffic-reset/",
+    "intent": "消费规则",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "199",
+    "keyword": "机场限速怎么判断",
+    "targetUrl": "/faq/slow-network/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "200",
+    "keyword": "机场晚高峰卡顿怎么办",
+    "targetUrl": "/faq/slow-network/",
+    "intent": "故障排查",
+    "cluster": "第10组：故障排查与安全",
+    "priority": "S级风险安全",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-01",
+    "keyword": "机场物语",
+    "targetUrl": "/",
+    "intent": "品牌核心词",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-02",
+    "keyword": "机场品牌故事",
+    "targetUrl": "/stories/",
+    "intent": "品牌档案",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-03",
+    "keyword": "机场品牌历史",
+    "targetUrl": "/archives/",
+    "intent": "历史档案",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-04",
+    "keyword": "机场套餐历史价格",
+    "targetUrl": "/price-history/",
+    "intent": "历史价格",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-05",
+    "keyword": "机场套餐涨价记录",
+    "targetUrl": "/price-history/changes/",
+    "intent": "历史价格",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-06",
+    "keyword": "机场长期使用成本",
+    "targetUrl": "/plans/long-term-cost/",
+    "intent": "消费研究",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-07",
+    "keyword": "机场服务变更记录",
+    "targetUrl": "/observations/",
+    "intent": "服务观察",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-08",
+    "keyword": "机场订阅政策变化",
+    "targetUrl": "/observations/subscription-policy/",
+    "intent": "服务观察",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-09",
+    "keyword": "机场优惠历史",
+    "targetUrl": "/coupons/history/",
+    "intent": "优惠档案",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-10",
+    "keyword": "机场年付风险",
+    "targetUrl": "/risk/prepayment/",
+    "intent": "消费风险",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-11",
+    "keyword": "机场服务异常记录",
+    "targetUrl": "/risk/service-events/",
+    "intent": "服务观察",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-12",
+    "keyword": "机场消费避坑指南",
+    "targetUrl": "/risk/",
+    "intent": "消费风险",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-13",
+    "keyword": "机场测评证据怎么看",
+    "targetUrl": "/evidence/",
+    "intent": "证据研究",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-14",
+    "keyword": "机场订阅续费记录",
+    "targetUrl": "/tools/subscription-calendar/",
+    "intent": "独家工具",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  },
+  {
+    "id": "EX-15",
+    "keyword": "机场价格变化分析",
+    "targetUrl": "/price-history/",
+    "intent": "历史价格",
+    "cluster": "机场物语专属扩展",
+    "priority": "品牌旗舰",
+    "publishStatus": "published",
+    "verificationStatus": "mapped-unverified-search-volume"
+  }
+]

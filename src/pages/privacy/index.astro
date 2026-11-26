@@ -1,0 +1,267 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import YumeriaArt from '../../components/art/YumeriaArt.astro';
+import LumoArt from '../../components/art/LumoArt.astro';
+import PrivacyDataManager from '../../components/privacy/PrivacyDataManager';
+
+const policySections = [
+  {
+    id: 'overview',
+    title: '隐私政策概述',
+    body: '欢迎访问机场物语（https://jichangwuyu.blog/）。我们深知个人数据与消费记录的敏感性，致力于以公开、克制与可核验的方式说明本站的数据处理机制。本政策适用于您在浏览机场物语网页、使用本地实用工具（包括我的物语、个人订阅手账、套餐消费计算器及全站搜索）过程中的本地数据存储与外部链接交互说明。',
+  },
+  {
+    id: 'service-nature',
+    title: '网站服务性质',
+    body: '机场物语是一家专注于机场品牌历史档案、套餐价格对比、消费成本核算、网络知识百科及长期服务风险观察的中文信息研究博客。本站并非任何机场服务商的官方网站，不直接销售网络代理套餐，亦不参与任何第三方服务商的账号认证、支付结算或节点流量转发。',
+  },
+  {
+    id: 'personal-info',
+    title: '个人信息收集说明',
+    body: '经核查本站前端与构建代码，机场物语目前未接入服务端用户数据库，不提供在线账户注册或登录功能。本站绝不会向您主动索要机场账号、登录密码、个人私有订阅链接（Subscription URL）、支付订单截图或真实身份证件信息。您在站内计算器或本地手账中输入的预算参数仅在当前浏览器本地运行。',
+  },
+  {
+    id: 'local-storage',
+    title: '浏览器本地数据存储',
+    body: '为了在不建立服务器端个人档案的前提下提供便利功能，本站使用浏览器标准 localStorage 机制在您的本地设备中保存有限的偏好与记录。此类数据完全留存于您当前使用的浏览器实例内，不会自动跨设备同步；当您清理浏览器站点数据、使用无痕/隐私浏览模式关闭窗口、卸载浏览器或更换设备时，相关本地记录将会丢失。',
+  },
+  {
+    id: 'my-monogatari',
+    title: '我的物语功能',
+    body: '在“我的物语”（/profile/）及品牌物语页面的收藏按钮中，您的品牌收藏清单、阅读历史、对比清单及个人消费笔记均以 JSON 格式统一保存于专属 localStorage 键名 jichangwuyu_monogatari_profile_v1 下。上述记录仅用于方便您在本机回溯查看，本站服务端不会读取或备份这些内容。',
+  },
+  {
+    id: 'subscription-calendar',
+    title: '个人订阅手账',
+    body: '“个人订阅手账”（/tools/subscription-calendar/）同样基于上述 jichangwuyu_monogatari_profile_v1 本地键名运行，用于记录您自行填写的品牌名称、购买日期、实付金额、周期及到期日期，并支持本地生成 .ics 日历文件。请务必注意：切勿在备注栏或笔记栏中输入任何机场账户密码、完整个人订阅链接、API 密钥或支付凭证。',
+  },
+  {
+    id: 'cookies-storage',
+    title: 'Cookie与浏览器存储',
+    body: '经全面核查本站源代码（src/ 目录），机场物语自身应用逻辑未使用 document.cookie、sessionStorage、IndexedDB 或 Service Worker，亦未嵌入第三方统计追踪脚本（如 Google Analytics 等）。除上述个人档案键名外，本站仅使用 jichangwuyu_theme 与 jichangwuyu_motion 两个 localStorage 键名分别记忆您的日间/夜间阅读模式及动画减弱偏好。',
+  },
+  {
+    id: 'access-logs',
+    title: '网站访问日志',
+    body: '需要诚实说明的是，“静态网站架构”并不等同于网络传输层完全零日志。当本站部署至网站托管平台或 CDN 安全防护服务（如 Cloudflare Pages）后，托管与 CDN 基础设施在响应 HTTP 请求、防御恶意攻击与保障可用性时，可能会依据其自身服务配置记录标准网络访问日志（通常包括访问 IP 地址、请求时间、访问路径、HTTP 状态码及浏览器 User-Agent 等信息）。',
+  },
+  {
+    id: 'third-party-services',
+    title: '第三方服务',
+    body: '当前版本中，机场物语全部页面字体均采用系统本地字体栈，全部角色、图标与背景插画均由本站本地静态资源提供，未接入外部字体 CDN 或第三方统计分析脚本。若未来因站点运行需要新增托管分析或搜索增强组件，我们将同步更新本节并列明对应服务名称与官方隐私政策入口。',
+  },
+  {
+    id: 'affiliate-transparency',
+    title: '推广链接与商业透明度',
+    body: '本站收录的 18 家机场品牌注册入口保留了原始推广链接，并在 HTML 属性中统一标注 rel="sponsored"。当您通过此类链接前往第三方平台并完成符合条件的购买时，本站可能获得推广佣金以维持运营。但商业合作关系绝不影响套餐价格核算、规则缺口披露与风险观察内容，本站亦不会将推广合作包装为独立实测结论。',
+  },
+  {
+    id: 'external-sites',
+    title: '外部网站隐私说明',
+    body: '当您点击本站提供的品牌注册入口、官网参考链接或相关资料来源并离开 jichangwuyu.blog 后，您将进入第三方服务商或外部平台控制的网页。第三方网站如何收集、使用或保护您的注册邮箱、支付信息与日志数据，完全受其各自隐私政策与服务条款约束，本站无法控制亦不承担连带责任。',
+  },
+  {
+    id: 'security-measures',
+    title: '数据安全与隐私保护',
+    body: '本站采用纯静态生成架构与本地隔离键名存储，最大限度减少了服务器端数据集中泄露的攻击面；同时坚持“不索取密码与订阅链接”的内容边界。然而互联网不存在绝对安全或绝对匿名，若您的个人电脑或手机存在恶意浏览器扩展、系统木马或多人共用浏览器环境，本地存储中的笔记仍可能被本机其他进程读取。',
+  },
+  {
+    id: 'user-control',
+    title: '用户数据管理',
+    body: '您对本站在您浏览器中保存的所有本地数据拥有完全的查看、导出与删除控制权。您可以通过本页上方的「本地数据管理中心」实时查看当前记录数量、将其导出为 JSON 文件备份，或针对收藏、阅读历史、订阅手账、主题偏好执行分类清除及一键全部清除（操作前均提供二次确认）。由于本站不保存服务器端个人数据，因此无需向服务端提交删号申请。',
+  },
+  {
+    id: 'minors-privacy',
+    title: '未成年人隐私保护',
+    body: '机场物语面向具有独立消费判断能力的成年读者提供网络消费知识与档案资料。由于本站不设账户体系且缺乏技术上可行的年龄核验机制，我们无法主动识别访问者的实际年龄。我们提醒未成年读者在监护人知情与指导下理性浏览网络知识，切勿在未获监护人同意的情况下进行任何跨周期付费订阅。',
+  },
+  {
+    id: 'policy-updates',
+    title: '隐私政策更新',
+    body: '本隐私政策当前核验与更新日期为 2026-11-26（对应机场物语 v1.x 本地存储架构版本）。当本站的数据处理方式、接入的托管/第三方组件或适用的隐私说明发生实质性变化时，我们将及时修订本页面并在全站更新日志（/updates/）中予以说明，不会自动将未审核日期伪装为最新修订日期。',
+  },
+  {
+    id: 'contact-feedback',
+    title: '联系与隐私反馈',
+    body: '如果您对本隐私政策有任何疑问、发现本站存在与实际情况不符的描述、或希望就本地数据管理及资料内容提交纠错反馈，请访问本站「联系与内容纠错」说明页面（/contact/）查看现行反馈规范与核验流程。反馈时切勿附带任何个人订阅链接或账户密码。',
+  },
+];
+
+const privacyFaqs = [
+  { q: '机场物语是否需要注册账户？', a: '不需要。本站是静态信息研究博客，目前不提供在线注册或登录账户功能，所有核心档案与工具均可直接浏览与使用。' },
+  { q: '网站是否保存机场账户密码？', a: '不保存。本站从不要求您填写任何机场服务商的登录账号、密码或个人私有订阅链接。' },
+  { q: '什么是 localStorage？', a: 'localStorage 是现代浏览器内置的本地键值存储空间，允许网页在您当前设备浏览器内保存轻量设置与个人记录，无需经过远程服务器数据库。' },
+  { q: '我的收藏记录保存在哪里？', a: '保存在您当前浏览器的 localStorage 键名 jichangwuyu_monogatari_profile_v1 中，仅在本机本地读取。' },
+  { q: '个人订阅手账会上传到服务器吗？', a: '不会。手账中的所有订阅记录、预算计算与消费笔记全部留存在您的本地浏览器中，不会上传至机场物语服务器。' },
+  { q: '更换浏览器后数据是否仍然存在？', a: '不会自动存在。因为数据保存在原浏览器的本地空间中，更换浏览器或更换电脑后，建议先在本页导出 JSON 文件再手动迁移备份。' },
+  { q: '清除浏览器缓存是否影响个人记录？', a: '仅清除“缓存图片和文件”通常不影响 localStorage；但若勾选了“清除站点数据 / Cookie 及其他网站数据”，则会一并清除本站的本地手账与收藏记录。' },
+  { q: '如何导出个人订阅手账？', a: '可在“个人订阅手账”页面导出 .ics 系统日历文件，或在本页「本地数据管理中心」点击“导出我的本地数据（JSON）”保存完整本地备份。' },
+  { q: '如何删除本站保存的数据？', a: '您可在本页「本地数据管理中心」按分类清除（收藏、阅读历史、订阅手账、主题偏好），或点击“清除本站全部本地记录”，系统会先弹出二次确认提示。' },
+  { q: '网站是否使用 Cookie？', a: '机场物语自身前端逻辑未使用任何业务 Cookie；但部署于 CDN 或托管服务时，基础设施层可能因安全防护或正常网络调度而涉及标准连接处理。' },
+  { q: '推广链接是否涉及第三方数据处理？', a: '当您点击带有推广标识（rel="sponsored"）的链接跳转至第三方机场官网后，目标站点将依据其自身的隐私政策与推广归因规则处理访问与注册数据。' },
+  { q: '如何联系机场物语反馈隐私问题？', a: '请前往本站「联系与内容纠错」页面（/contact/）了解提交流程与注意事项，提交反馈时请勿附带任何个人隐私凭证。' },
+];
+---
+
+<BaseLayout
+  title="机场物语隐私政策 - 本地数据存储与用户隐私保护说明"
+  description="了解机场物语的隐私保护原则、浏览器本地数据存储、收藏与阅读记录、个人订阅手账、Cookie、第三方推广链接及用户数据管理方式。"
+  canonical="https://jichangwuyu.blog/privacy/"
+  ogType="website"
+  chapterTone="moonlight"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '隐私政策与本地数据保护中心', url: '/privacy/' }]}
+>
+  <!-- 04. Hero Section -->
+  <section class="container" style="padding:32px 0 22px;">
+    <div class="story-card story-card--gold priv-hero">
+      <div>
+        <span class="chapter-badge">PRIVACY &amp; TRUST CENTER · 隐私与信任中心</span>
+        <h1 style="margin:12px 0 8px;font-size:clamp(24px,3.2vw,34px);">
+          机场物语隐私政策与本地数据保护中心
+        </h1>
+        <p style="font-size:13px;letter-spacing:0.06em;color:var(--deep-dream);font-weight:600;margin:0 0 6px;">
+          PRIVACY &amp; TRUST CENTER — Your Story, Your Privacy
+        </p>
+        <p style="font-family:var(--font-serif);font-size:16px;font-weight:600;color:var(--twilight-blue);margin:0 0 12px;">
+          每一段物语，都值得被认真守护。
+        </p>
+        <p style="color:var(--text-secondary);margin:0;">
+          机场物语将读者隐私与技术透明度置于核心位置。本中心依据本站真实代码实现与静态托管架构编写，如实说明浏览器本地存储（localStorage）的工作方式、访问日志边界与推广链接披露机制，并为您提供透明的本地记录查看、JSON 导出与分项安全清除工具，让每一段消费记录与阅读偏好始终掌握在您自己手中。
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <YumeriaArt pose="reading" size={180} />
+        <LumoArt mood="bookmark" size={74} />
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. Four Core Privacy Cards -->
+  <section class="container" style="padding:10px 0 22px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+      <article class="story-card story-card--gold">
+        <span class="tag">01 · 个人隐私保护</span>
+        <h2 style="font-size:17px;margin:8px 0 6px;">不索取账户与订阅凭证</h2>
+        <p style="font-size:13.5px;color:var(--text-secondary);margin:0;">
+          本站无在线注册与服务端个人库，绝不向您索要机场账号、密码或完整私有订阅链接。
+        </p>
+      </article>
+      <article class="story-card story-card--gold">
+        <span class="tag">02 · 浏览器本地数据存储</span>
+        <h2 style="font-size:17px;margin:8px 0 6px;">localStorage 本机留存</h2>
+        <p style="font-size:13.5px;color:var(--text-secondary);margin:0;">
+          收藏、阅读历史、订阅手账与主题偏好仅保存于当前浏览器专用键名下，不自动上传或跨设备同步。
+        </p>
+      </article>
+      <article class="story-card story-card--gold">
+        <span class="tag">03 · 用户自主数据控制</span>
+        <h2 style="font-size:17px;margin:8px 0 6px;">随时查看、导出与删除</h2>
+        <p style="font-size:13.5px;color:var(--text-secondary);margin:0;">
+          下方管理中心支持实时查看条数、导出 JSON 备份，并提供带二次确认的分项/全量安全清除。
+        </p>
+      </article>
+      <article class="story-card story-card--gold">
+        <span class="tag">04 · 商业透明度</span>
+        <h2 style="font-size:17px;margin:8px 0 6px;">推广链接如实披露</h2>
+        <p style="font-size:13.5px;color:var(--text-secondary);margin:0;">
+          站内品牌推广链接均标注 rel="sponsored"，不影响价格核算客观性与消费风险提示。
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 07, 08, 09. Interactive Local Data Management Center -->
+  <section class="container" style="padding:10px 0 28px;">
+    <PrivacyDataManager client:load />
+  </section>
+
+  <!-- 05 & 10. Quick Reading TOC + 16 Policy Sections -->
+  <section class="container priv-layout" style="padding:12px 0 28px;">
+    <aside class="priv-toc story-card">
+      <strong style="font-size:15px;display:block;margin-bottom:10px;">隐私政策快速目录</strong>
+      <ol style="margin:0;padding-left:18px;display:grid;gap:6px;font-size:13.5px;">
+        {policySections.map((sec) => (
+          <li><a href={`#${sec.id}`}>{sec.title}</a></li>
+        ))}
+      </ol>
+    </aside>
+
+    <div class="priv-body" style="display:grid;gap:16px;">
+      {policySections.map((sec) => (
+        <section id={sec.id} class="story-card" style="scroll-margin-top:88px;">
+          <h2 style="font-size:20px;margin-bottom:8px;">{sec.title}</h2>
+          <p style="margin:0;color:var(--text-secondary);font-size:15px;">{sec.body}</p>
+        </section>
+      ))}
+    </div>
+  </section>
+
+  <!-- 13. Transparency Internal Links -->
+  <section class="container" style="padding:8px 0 24px;">
+    <div class="story-card">
+      <h2 style="font-size:19px;margin-bottom:10px;">网站透明与信任体系相关页面</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <a href="/about/" class="btn btn-ghost">关于机场物语</a>
+        <a href="/methodology/" class="btn btn-ghost">编辑原则与评价标准</a>
+        <a href="/disclosure/" class="btn btn-ghost">商业推广声明</a>
+        <a href="/contact/" class="btn btn-ghost">联系与资料纠错</a>
+        <a href="/profile/" class="btn btn-ghost">我的物语</a>
+        <a href="/tools/subscription-calendar/" class="btn btn-ghost">个人订阅手账</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. 12 Privacy FAQs -->
+  <section class="container" style="padding:16px 0 48px;" id="privacy-faq">
+    <h2 style="font-size:24px;margin-bottom:14px;">隐私与本地数据常见问题（12项FAQ）</h2>
+    <div class="priv-faq-grid">
+      {privacyFaqs.map((item) => (
+        <details class="story-card priv-faq-item">
+          <summary>{item.q}</summary>
+          <p style="margin:10px 0 0;padding-top:10px;border-top:1px dashed var(--border-subtle);font-size:14px;color:var(--text-secondary);">
+            {item.a}
+          </p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .priv-hero {
+      display: grid;
+      grid-template-columns: 1fr 210px;
+      gap: 24px;
+      align-items: center;
+    }
+    .priv-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .priv-toc {
+      position: sticky;
+      top: 86px;
+    }
+    .priv-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .priv-faq-item summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      list-style: none;
+    }
+    @media (max-width: 960px) {
+      .priv-hero, .priv-layout, .priv-faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .priv-toc {
+        position: static;
+      }
+    }
+  </style>
+</BaseLayout>

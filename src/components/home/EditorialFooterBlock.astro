@@ -1,0 +1,75 @@
+---
+import YumeriaArt from '../art/YumeriaArt.astro';
+---
+
+<section class="section-block" id="module-28">
+  <div class="container">
+    <div class="story-card editorial-box">
+      <div class="editorial-content">
+        <span class="chapter-badge">作者介绍、编辑原则、资料来源与更新纠错记录</span>
+        <h2>机场物语编辑部（资料整理）与透明档案承诺</h2>
+        <div class="editorial-cols">
+          <div>
+            <h3>作者与编辑原则</h3>
+            <p>
+              本站内容由“机场物语编辑部”整理维护。我们严格区分“服务商官方宣传”“服务商正式公开资料”“第三方公开记录”与“尚未独立确认的信息”。站内虚构角色 YUMERIA · 梦璃与 LUMO · 星语精灵仅作为物语世界观向导，不冒充真实消费者或测速工程师。
+            </p>
+          </div>
+          <div>
+            <h3>资料来源与推广披露</h3>
+            <p>
+              18 家初始品牌档案均来自用户提供的原始品牌资料总索引与完整 MD 档案，并保留原始推广链接（标注 <code>rel="sponsored"</code>）与优惠码。商业推广关系不影响消费风险提示与规则缺口披露。
+            </p>
+          </div>
+          <div>
+            <h3>最新更新与纠错记录</h3>
+            <ul class="clean-list" style="margin:6px 0 0;">
+              <li><strong>2026-11-26：</strong>完成 MONOGATARI WORLD MAX 全站上线、18 家品牌 26 节档案及 200+15 SEO 映射部署。</li>
+              <li><strong>2026-11-25：</strong>同步《18家品牌资料总索引》原始 AFF 链接、优惠码及历史价格快照条目数。</li>
+            </ul>
+            <p style="margin-top:10px;"><a href="/contact/">提交资料纠错或品牌补充 →</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="editorial-art">
+        <YumeriaArt pose="farewell" size={175} />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-block {
+    padding: 20px 0 12px;
+  }
+  .editorial-box {
+    display: grid;
+    grid-template-columns: 1fr 190px;
+    gap: 24px;
+    align-items: center;
+  }
+  .editorial-box h2 {
+    margin: 10px 0 14px;
+  }
+  .editorial-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .editorial-cols h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  .clean-list {
+    padding-left: 16px;
+    display: grid;
+    gap: 6px;
+  }
+  @media (max-width: 960px) {
+    .editorial-box, .editorial-cols {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

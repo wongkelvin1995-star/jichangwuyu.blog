@@ -1,0 +1,21 @@
+{
+  "name": "jichangwuyu-blog",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "机场物语 (Airport Monogatari) — MONOGATARI WORLD MAX 旗舰中文机场品牌研究与长期消费观察博客",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^4.0.0",
+    "astro": "^5.0.0",
+    "preact": "^10.25.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

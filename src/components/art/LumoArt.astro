@@ -1,0 +1,44 @@
+---
+interface Props {
+  mood?: 'happy' | 'curious' | 'bookmark' | 'calculate';
+  size?: number;
+  class?: string;
+}
+
+const { mood = 'happy', size = 110, class: className = '' } = Astro.props;
+const moodLabels: Record<NonNullable<Props['mood']>, string> = {
+  happy: '星语精灵向导',
+  curious: '星语搜索联想',
+  bookmark: '订阅手账记录',
+  calculate: '套餐成本计算',
+};
+---
+
+<div class={`lumo-portrait-frame ${className}`} style={`width:100%;max-width:${size}px;flex-shrink:0;`}>
+  <img
+    src="/images/characters/lumo-portrait.jpg"
+    alt={`LUMO · 星语精灵（${moodLabels[mood]}）`}
+    width="304"
+    height="304"
+    loading="lazy"
+    decoding="async"
+    class="lumo-img"
+  />
+</div>
+
+<style>
+  .lumo-portrait-frame {
+    border-radius: 999px;
+    overflow: hidden;
+    border: 2px solid var(--border-gold);
+    box-shadow: 0 6px 18px rgba(57, 65, 93, 0.16);
+    background: var(--bg-surface-solid);
+  }
+  .lumo-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+  }
+</style>

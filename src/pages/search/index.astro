@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LumoArt from '../../components/art/LumoArt.astro';
+import StorySearchApp, { type SearchEntry } from '../../components/tools/StorySearchApp';
+import { brands, plans, serviceEvents, seoKeywords } from '../../lib/db';
+
+const entries: SearchEntry[] = [
+  ...brands.map((b) => ({
+    category: '品牌' as const,
+    title: `${b.name}（${b.nameEn}）`,
+    subtitle: `${b.tagline} · 优惠码：${b.coupon.code}`,
+    url: b.storyPath,
+    keywords: `${b.name} ${b.nameEn} ${b.aliases.join(' ')} ${b.coupon.code} ${b.regions.join(' ')}`,
+  })),
+  ...plans.filter((p) => p.cycle === 'monthly' || p.category === 'dataPack').slice(0, 60).map((p) => ({
+    category: '套餐' as const,
+    title: `${p.brandName} - ${p.planName}（¥${p.price}）`,
+    subtitle: `${p.cycle} · ${p.trafficGb ? p.trafficGb + ' GB' : ''}`,
+    url: `/stories/${p.brandId}/`,
+    keywords: `${p.brandName} ${p.planName} ${p.price}元 ${p.cycle} 10元 20元 年付`,
+  })),
+  ...serviceEvents.slice(0, 20).map((e) => ({
+    category: '服务事件' as const,
+    title: e.title,
+    subtitle: `${e.eventDate} · ${e.evidenceType}`,
+    url: `/archives/`,
+    keywords: `${e.brandName} ${e.summary} 历史价格`,
+  })),
+  { category: '独家工具', title: '个人订阅手账与续费日历', subtitle: '本地记录到期日、计算年消费并导出 .ics', url: '/tools/subscription-calendar/', keywords: '订阅 续费 日历 手账' },
+  { category: '独家工具', title: '套餐消费分析器', subtitle: '计算折合月均价、每GB成本与流量倍率影响', url: '/tools/value-analyzer/', keywords: '计算 成本 倍率 年付 月付' },
+  { category: '独家工具', title: '套餐历史价格研究', subtitle: '按品牌与周期筛选历史价格快照', url: '/price-history/', keywords: '历史价格 涨价' },
+  ...seoKeywords.slice(0, 120).map((k) => ({
+    category: (k.targetUrl.startsWith('/faq/') ? '故障答疑' : k.targetUrl.startsWith('/nodes/') ? '网络知识' : '原创文章') as SearchEntry['category'],
+    title: k.keyword,
+    subtitle: `${k.cluster} · ${k.targetUrl}`,
+    url: k.targetUrl,
+    keywords: `${k.keyword} ${k.cluster}`,
+  })),
+];
+---
+
+<BaseLayout
+  title="全站物语智能搜索｜机场物语"
+  description="支持搜索18家机场品牌、套餐价格、优惠码、历史资料、服务事件、网络协议、故障答疑与独家工具。"
+  canonical="https://jichangwuyu.blog/search/"
+  noindex={true}
+  chapterTone="sky"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '全站搜索', url: '/search/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+      <LumoArt mood="curious" size={72} />
+      <div>
+        <span class="chapter-badge">FEATURE 09 · STORY SEARCH</span>
+        <h1 style="margin:6px 0 4px;">全站物语智能搜索</h1>
+      </div>
+    </div>
+
+    <StorySearchApp client:load items={entries} />
+  </section>
+</BaseLayout>

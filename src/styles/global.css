@@ -1,0 +1,303 @@
+@import "./tokens.css";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.78;
+  font-size: 16px;
+  overflow-x: clip;
+  transition: background-color 0.6s var(--ease-story), color 0.3s ease;
+}
+
+/* Dynamic Color Journey Sections */
+body[data-chapter-tone="dawn"] {
+  background-image: radial-gradient(circle at 12% 10%, rgba(221, 168, 188, 0.18), transparent 45%),
+                    radial-gradient(circle at 88% 18%, rgba(146, 197, 232, 0.22), transparent 50%);
+}
+body[data-chapter-tone="sky"] {
+  background-image: radial-gradient(circle at 15% 15%, rgba(146, 197, 232, 0.22), transparent 50%),
+                    radial-gradient(circle at 85% 30%, rgba(182, 167, 223, 0.18), transparent 50%);
+}
+body[data-chapter-tone="forest"] {
+  background-image: radial-gradient(circle at 20% 20%, rgba(182, 167, 223, 0.2), transparent 50%),
+                    radial-gradient(circle at 80% 40%, rgba(146, 197, 232, 0.16), transparent 50%);
+}
+body[data-chapter-tone="sunset"] {
+  background-image: radial-gradient(circle at 15% 10%, rgba(221, 168, 188, 0.22), transparent 50%),
+                    radial-gradient(circle at 85% 20%, rgba(216, 183, 126, 0.2), transparent 50%);
+}
+body[data-chapter-tone="moonlight"] {
+  background-image: radial-gradient(circle at 20% 10%, rgba(116, 96, 158, 0.22), transparent 55%),
+                    radial-gradient(circle at 80% 20%, rgba(216, 183, 126, 0.14), transparent 50%);
+}
+
+a {
+  color: var(--deep-dream);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+html[data-theme="night"] a {
+  color: var(--fantasy-sky);
+}
+a:hover {
+  text-decoration: underline;
+}
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--story-gold);
+  outline-offset: 2px;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.reading-container {
+  width: 100%;
+  max-width: var(--reading-max);
+  margin: 0 auto;
+}
+
+/* Storybook Card */
+.story-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  position: relative;
+  backdrop-filter: blur(12px);
+}
+.story-card--gold {
+  border-color: var(--border-gold);
+}
+.story-card--interactive {
+  transition: transform 0.28s var(--ease-story), box-shadow 0.28s var(--ease-story), border-color 0.28s ease;
+}
+.story-card--interactive:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--story-gold);
+}
+
+/* Chapter Badge & Headings */
+.chapter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  background: rgba(216, 183, 126, 0.16);
+  color: var(--twilight-blue);
+  border: 1px solid var(--border-gold);
+}
+html[data-theme="night"] .chapter-badge {
+  color: var(--story-gold);
+  background: rgba(216, 183, 126, 0.12);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-top: 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none !important;
+  transition: transform 0.2s var(--ease-story), box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--deep-dream), var(--twilight-blue));
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 18px rgba(116, 96, 158, 0.28);
+}
+.btn-gold {
+  background: linear-gradient(135deg, #D8B77E, #C49B57);
+  color: #182238 !important;
+  box-shadow: 0 6px 18px rgba(216, 183, 126, 0.3);
+}
+.btn-ghost {
+  background: var(--bg-surface);
+  color: var(--text-primary) !important;
+  border-color: var(--border-subtle);
+}
+
+/* Tables (Mobile Scrollable) */
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  font-size: 14px;
+}
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+th {
+  background: rgba(182, 167, 223, 0.14);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Badges & Tags */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: rgba(146, 197, 232, 0.18);
+  color: var(--twilight-blue);
+  border: 1px solid rgba(146, 197, 232, 0.4);
+}
+html[data-theme="night"] .tag {
+  color: var(--fantasy-sky);
+}
+.tag--gold {
+  background: rgba(216, 183, 126, 0.18);
+  border-color: rgba(216, 183, 126, 0.5);
+  color: #7A5A22;
+}
+html[data-theme="night"] .tag--gold {
+  color: var(--story-gold);
+}
+.tag--rose {
+  background: rgba(221, 168, 188, 0.2);
+  border-color: rgba(221, 168, 188, 0.5);
+  color: #7A3852;
+}
+html[data-theme="night"] .tag--rose {
+  color: var(--rose-pink);
+}
+
+/* 12 Cinematic Effects (GPU-friendly, never blocking clicks, respects reduced-motion) */
+.fx-layer {
+  pointer-events: none;
+}
+
+@keyframes fx-float-star {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
+  50% { transform: translate3d(0, -10px, 0) scale(1.15); opacity: 0.95; }
+}
+@keyframes fx-wind-sway {
+  0%, 100% { transform: rotate(0deg) translate3d(0, 0, 0); }
+  50% { transform: rotate(2.5deg) translate3d(4px, -2px, 0); }
+}
+@keyframes fx-railway-glide {
+  0% { transform: translate3d(-6%, 0, 0); }
+  50% { transform: translate3d(6%, 0, 0); }
+  100% { transform: translate3d(-6%, 0, 0); }
+}
+@keyframes fx-crystal-glow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(146, 197, 232, 0.35)); }
+  50% { filter: drop-shadow(0 0 16px rgba(182, 167, 223, 0.7)); }
+}
+
+.fx-star {
+  animation: fx-float-star 5.5s ease-in-out infinite;
+}
+.fx-wind {
+  transform-origin: center bottom;
+  animation: fx-wind-sway 6s ease-in-out infinite;
+}
+.fx-railway {
+  animation: fx-railway-glide 24s ease-in-out infinite;
+}
+.fx-crystal {
+  animation: fx-crystal-glow 4.5s ease-in-out infinite;
+}
+
+/* Storybook Reveal */
+.fx-reveal {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.65s var(--ease-story), transform 0.65s var(--ease-story);
+}
+
+/* Disable animations when user toggles or prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fx-star, .fx-wind, .fx-railway, .fx-crystal {
+    animation: none !important;
+  }
+  .story-card--interactive, .btn, .fx-reveal {
+    transition: none !important;
+  }
+}
+html[data-motion="reduced"] .fx-star,
+html[data-motion="reduced"] .fx-wind,
+html[data-motion="reduced"] .fx-railway,
+html[data-motion="reduced"] .fx-crystal {
+  animation: none !important;
+}
+html[data-motion="reduced"] * {
+  transition-duration: 0.01ms !important;
+}
+
+/* Mobile bottom bar spacing */
+@media (max-width: 900px) {
+  body {
+    padding-bottom: 76px;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { evidenceItems } from '../../lib/db';
+---
+
+<BaseLayout
+  title="网络证据研究中心｜资料来源与核验边界｜机场物语"
+  description="机场物语统一证据管理体系，区分官方资料、官方公告、第三方测试、作者实测与尚未独立核验的信息。"
+  canonical="https://jichangwuyu.blog/evidence/"
+  chapterTone="forest"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '证据研究中心', url: '/evidence/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <span class="chapter-badge">FEATURE 08 · EVIDENCE CENTER</span>
+    <h1 style="margin:10px 0 8px;">网络证据研究中心</h1>
+    <p style="color:var(--text-secondary);max-width:780px;margin-bottom:20px;">
+      真实测试记录必须包含测试日期、测试地区、运营商、套餐、节点、工具与样本数。本站当前未发布独立实测曲线，所有品牌档案均清晰标注资料来源与尚未确认的规则边界。
+    </p>
+
+    <div style="display:grid;gap:14px;">
+      {evidenceItems.map((item) => (
+        <article class="story-card">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+            <h2 style="font-size:18px;margin:0;"><a href={`/stories/${item.brandId}/`}>{item.title}</a></h2>
+            <span class="tag tag--gold">{item.evidenceTag} · {item.date}</span>
+          </div>
+          <p style="font-size:13.5px;color:var(--text-secondary);margin:8px 0;">{item.speedTestNote}</p>
+          <div style="font-size:12.5px;color:var(--text-muted);">
+            来源：{item.sources.map((s: any) => (typeof s === 'string' ? s : `${s.note || s.file || '公开档案'}${s.date ? `（${s.date}）` : ''}`)).join(' ； ')}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

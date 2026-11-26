@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { brands, plans } from '../../lib/db';
+
+const items = brands.map((b) => {
+  const m = plans.filter((p) => p.brandId === b.id && p.cycle === 'monthly');
+  const minMonthly = m.length > 0 ? Math.min(...m.map((x) => x.price)) : null;
+  return { ...b, minMonthly };
+});
+---
+
+<BaseLayout
+  title="全部机场品牌列表（18家）｜机场物语"
+  description="机场物语收录的18家机场服务商目录入口，按原始资料顺序展示品牌名称、线路特征、优惠码与独立物语档案链接。"
+  canonical="https://jichangwuyu.blog/airports/"
+  chapterTone="sky"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '全部机场品牌', url: '/airports/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <span class="chapter-badge">BRAND DIRECTORY · 18家品牌列表入口</span>
+    <h1 style="margin:10px 0 8px;">全部机场品牌列表（18家）</h1>
+    <p style="color:var(--text-secondary);max-width:740px;">
+      本页仅作为 18 家已收录品牌的总览索引入口，排序按原始资料导入顺序，不代表速度或稳定性排名。点击品牌名称进入 26 节独立物语主档案。
+    </p>
+
+    <div class="table-scroll" style="margin-top:20px;">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>品牌名称</th>
+            <th>起步参考</th>
+            <th>倍率与设备</th>
+            <th>优惠码</th>
+            <th>历史价格条目</th>
+            <th>档案入口</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((b) => (
+            <tr>
+              <td>{String(b.order).padStart(2, '0')}</td>
+              <td><strong><a href={b.storyPath}>{b.name}</a></strong><br /><small style="color:var(--text-muted);">{b.nameEn}</small></td>
+              <td>{b.minMonthly !== null ? `月付 ¥${b.minMonthly} 起` : '见档案详情'}</td>
+              <td>{b.ratio}<br /><small style="color:var(--text-muted);">{b.deviceLimit}</small></td>
+              <td><code>{b.coupon.code}</code></td>
+              <td>{b.historicalRecordCount} 条（{b.historicalPriceDate}）</td>
+              <td><a href={b.storyPath} class="btn btn-primary" style="padding:6px 12px;font-size:12px;">物语档案</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</BaseLayout>

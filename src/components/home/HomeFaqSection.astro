@@ -1,0 +1,143 @@
+---
+import YumeriaArt from '../art/YumeriaArt.astro';
+
+const faqs: Array<{ q: string; a: string; href: string; topic: string }> = [
+  { q: '1. 机场物语是什么？', a: '机场物语（jichangwuyu.blog）是专注于机场品牌历史档案、套餐价格对比、长期使用成本核算与服务风险观察的中文信息研究博客，不隶属于任何机场服务商。', href: '/about/', topic: '关于本站' },
+  { q: '2. 机场品牌资料从哪里获得？', a: '品牌资料整理自服务商公开说明页、历史公开价格索引、用户提供的原始推广资料以及编辑团队的交叉核对记录，并在每篇档案末尾标注具体来源。', href: '/evidence/', topic: '证据中心' },
+  { q: '3. 机场物语如何评价服务商？', a: '我们采用 Monogatari Long-Term Evaluation 六维框架（服务连续性、价格政策透明度、长期消费价值、证据完整度、售后政策、客户端支持），缺少充分证据时不强行打分或排榜。', href: '/methodology/', topic: '评价标准' },
+  { q: '4. 历史品牌资料是否代表当前情况？', a: '不代表永久有效。机场服务的价格、优惠码、节点数量和客户端政策可能随时变动，阅读时请以档案标注的核验日期与官网实时结算页为准。', href: '/price-history/', topic: '历史价格' },
+  { q: '5. 哪种机场适合长期使用？', a: '适合长期使用的服务通常具备清晰的套餐规则、稳定的官方公告渠道、合理的续费政策以及公开透明的流量与设备限制说明，而非仅靠超低首购价吸引用户。', href: '/recommend/reliability/', topic: '长期可靠性' },
+  { q: '6. 机场推荐应该关注哪些因素？', a: '建议依次核对：付款周期风险（能否月付试错）、客户端与系统兼容性、流量倍率与重置规则、本地运营商适配情况以及退款与客服政策。', href: '/recommend/', topic: '选购研究' },
+  { q: '7. 便宜机场是否值得购买？', a: '低价套餐适合预算有限或作为备用线路，但需要警惕“仅限年付才能做到单月几元”“高倍率节点”或“限制同时在线设备”等隐性成本。', href: '/plans/budget/', topic: '便宜套餐研究' },
+  { q: '8. 小众机场有哪些消费风险？', a: '小众服务商在价格上可能更有弹性，但往往公开历史记录较少、抗风险能力不明确，因此不建议新手在未体验月付前直接大额年付。', href: '/recommend/niche/', topic: '小众品牌观察' },
+  { q: '9. 月付和年付哪个更划算？', a: '单从折合月均价看，年付通常更便宜；但从资金风险与灵活性看，月付能将试错成本控制在单月以内。建议先月付确认体验后再考虑长周期。', href: '/plans/monthly-vs-yearly/', topic: '月付 vs 年付' },
+  { q: '10. 10元机场指的是实际月付吗？', a: '不一定。部分标榜“每月10元以内”的方案实际上是年付套餐按 12 个月分摊后的折算价，或者限制在极小流量额度内，选购前需看清整期实付金额。', href: '/plans/budget-tiers/', topic: '10元/20元档位' },
+  { q: '11. 为什么机场套餐会涨价？', a: '常见原因包括上游专线（如 IEPL/IPLC）采购成本变化、运营策略从拉新转向存量利润、或旧版优惠档位下架改版。', href: '/price-history/changes/', topic: '价格变化分析' },
+  { q: '12. 机场优惠码如何确认有效性？', a: '优惠码可能存在有效期、适用套餐限制（如排除年付小包或不限时流量包）及名额上限，唯一确认方式是在官网结算页输入并核对最终实付金额。', href: '/coupons/', topic: '优惠码中心' },
+  { q: '13. 不限时流量包是什么意思？', a: '指购买固定 GB 总额度后，不按自然月清零流量，用完为止。但购买前仍需确认服务商是否设有长期未登录回收或最低账户活跃要求。', href: '/plans/one-time-traffic/', topic: '一次性流量包' },
+  { q: '14. 机场流量倍率如何计算？', a: '实际扣除流量 = 真实使用流量 × 节点倍率。例如在 2x 倍率节点下载 5 GB 文件，账户会扣除 10 GB 额度，等效每 GB 成本翻倍。', href: '/plans/multiplier/', topic: '流量倍率计算' },
+  { q: '15. 机场流量什么时候重置？', a: '不同品牌规则不同：有的按自然月 1 日重置，有的按购买日起每 30 天周期重置，也有部分支持月内付费购买流量重置包。', href: '/plans/traffic-reset/', topic: '重置规则' },
+  { q: '16. 流量不够用应该怎么办？', a: '首先检查后台是否有大流量同步或软件更新占用，其次确认是否误用了高倍率节点；如需扩容，可对比“购买重置包”与“升级更高档位”的差价。', href: '/plans/traffic-limit/', topic: '流量管理' },
+  { q: '17. 机场测速报告怎么看？', a: '应重点查看测试日期、测试地区、本地宽带运营商、测试时段（是否含晚高峰）及样本数量，避免仅凭单张满速截图做消费决策。', href: '/test/report-analysis/', topic: '报告解读' },
+  { q: '18. 延迟低就一定稳定吗？', a: '不一定。低延迟只代表数据包往返时间短，若同时存在高抖动或间歇性丢包，实际网页加载与视频缓冲仍会频繁卡顿。', href: '/test/latency/', topic: '延迟与稳定性' },
+  { q: '19. 机场晚高峰为什么可能变慢？', a: '每天 20:00 至 23:00 是跨境民用带宽与共享节点并发访问最高峰，若服务商出口带宽冗余不足或运营商国际出口拥塞，速度便会明显下降。', href: '/test/time-periods/', topic: '时段性能知识' },
+  { q: '20. 单次测速可以代表长期表现吗？', a: '不能。网络路由与节点负载随时间动态变化，单次测速仅反映当刻状态，长期参考需依赖连续多日、多时段的观测记录。', href: '/test/stability-method/', topic: '连续测试方法' },
+  { q: '21. IEPL和IPLC有什么区别？', a: '两者均为跨境专线技术概念，通常具备较低延迟与较好的线路隔离度，但在具体路由架构、运营商计费与适用场景上存在差异，实际体验仍取决于带宽冗余与调度策略。', href: '/nodes/dedicated-lines/', topic: '专线百科' },
+  { q: '22. 机场直连与中转有什么区别？', a: '直连由本地网络直接连接海外落地服务器，成本低但易受公网波动影响；中转则先连接国内入口服务器再转发至海外，通常能改善跨网稳定性。', href: '/nodes/direct-vs-relay/', topic: '直连与中转' },
+  { q: '23. 机场节点地区应该怎么选择？', a: '日常网页与流媒体优先选择物理距离较近的香港、台湾、日本、新加坡；涉及特定地区版权内容或 AI 服务时，再按目标平台支持地区切换美国、韩国或欧洲节点。', href: '/nodes/region-selection/', topic: '节点地区选择' },
+  { q: '24. 不同代理协议有什么区别？', a: 'Shadowsocks、Trojan、VLESS 与 Hysteria2 在加密方式、传输伪装（如 Reality）及弱网抗丢包（如基于 QUIC 的 Hysteria2）上各有侧重，需客户端内核配合支持。', href: '/nodes/protocols/hysteria2/', topic: '协议百科' },
+  { q: '25. 机场一定支持第三方客户端吗？', a: '不一定。部分品牌出于防滥用或新手简化考虑，主推自研官方客户端，不直接公开标准订阅链接，或仅对高阶套餐开放申请。', href: '/clients/clash-compatibility/', topic: '客户端政策' },
+  { q: '26. Clash与其他代理客户端有什么区别？', a: 'Clash 生态（现多基于 Mihomo 内核）以灵活的分流规则与策略组著称；sing-box 与 v2rayN/v2rayNG、Shadowrocket 则在跨平台轻量性或协议新特性上各有优势。', href: '/clients/comparison/', topic: '客户端对比' },
+  { q: '27. 手机和电脑能否共用一个套餐？', a: '多数支持多端登录，但必须核对品牌设定的“同时在线设备数”或 IP 限制。超出限制可能导致账号被临时封禁或强制下线。', href: '/experiences/multi-device/', topic: '多设备共用' },
+  { q: '28. 为什么客户端更新后可能出现问题？', a: '内核升级（如规则语法变更或 TUN 权限模型调整）可能与旧版订阅模板不兼容，更新前建议保留旧版安装包或向服务商确认配置兼容性。', href: '/clients/', topic: '客户端兼容' },
+  { q: '29. 机场一定支持ChatGPT吗？', a: '不作永久保证。AI 服务商会持续更新数据中心 IP 风控策略，节点能否访问取决于当前落地 IP 纯净度与地区合规条件。', href: '/applications/chatgpt/', topic: 'ChatGPT 研究' },
+  { q: '30. Claude无法访问有哪些可能原因？', a: '常见原因包括当前节点 IP 被判定为高风险共享代理、出口地区不在支持列表、浏览器残留非支持区 Cookie 或开启了全局定位冲突。', href: '/applications/claude/', topic: 'Claude 研究' },
+  { q: '31. 机场一定支持Netflix吗？', a: '流媒体解锁会随版权检测策略动态变化。部分节点可能仅支持自制剧或阶段性可用，不应将过去记录当作当前绝对承诺。', href: '/applications/netflix/', topic: 'Netflix 研究' },
+  { q: '32. YouTube 4K视频需要关注哪些条件？', a: '流畅播放 4K 通常需要持续稳定的 25 Mbps 以上下行吞吐量以及较低的丢包率，否则容易频繁降画质。', href: '/applications/youtube/', topic: 'YouTube 研究' },
+  { q: '33. 机场连接失败应该先检查什么？', a: '依次排查：本地系统时间是否准确（误差过大导致 TLS 握手失败）、套餐是否过期或流量耗尽、订阅是否已更新到最新节点列表。', href: '/faq/connection/', topic: '连接故障排查' },
+  { q: '34. 订阅链接失效怎么办？', a: '首先尝试在官网后台重置订阅链接并重新导入；若仍提示解析失败，检查客户端内核版本是否支持该订阅格式或联系官方工单。', href: '/faq/subscription/', topic: '订阅失效排查' },
+  { q: '35. 机场官网打不开怎么办？', a: '部分服务商主域名可能因网络策略变动而更换备用域名，切勿通过来路不明的搜索引擎广告寻找替代网址，应优先核对官方发布渠道。', href: '/faq/service-availability/', topic: '官网访问说明' },
+  { q: '36. 如何辨别真假机场官网？', a: '核对历史发布页域名、避免轻信高仿名称的陌生推广站、检查官网登录与工单体系是否与官方客户端内链一致。', href: '/risk/website-verification/', topic: '真假官网辨别' },
+  { q: '37. 如何判断机场是否停止运营？', a: '不应因单次域名无法访问或短期维护断定跑路。需综合观察官方公告渠道是否长期停更、工单是否失联、全部节点是否持续多日无响应等交叉证据。', href: '/risk/service-continuity/', topic: '跑路风险判断' },
+  { q: '38. 机场退款政策应该在哪里查看？', a: '通常位于官网服务条款（ToS）、购买结算页底部或工单帮助中心。多数机场在账号产生流量或激活订阅后不支持无理由退款，下单前务必先行确认。', href: '/risk/refund-policy/', topic: '退款政策指南' },
+  { q: '39. 如何保护个人订阅链接？', a: '切勿将完整订阅 URL 发送到公开群组、陌生在线转换工具或不可信网页，建议开启订阅转换自部署或定期在后台重置订阅 Token。', href: '/risk/privacy-security/', topic: '隐私保护指南' },
+  { q: '40. 机场物语是否为机场服务商官方网站？', a: '不是。机场物语（jichangwuyu.blog）是独立的中文信息研究与消费档案博客，不销售任何机场套餐，也不代表所收录品牌的官方立场。', href: '/disclosure/', topic: '关系披露说明' },
+];
+---
+
+<section class="section-block" id="module-27">
+  <div class="container">
+    <div class="faq-header story-card story-card--gold">
+      <div class="faq-intro">
+        <span class="chapter-badge">40项首页FAQ（梦璃物语式答疑）</span>
+        <h2>旅行者常见消费、技术与风险疑问解答</h2>
+        <p>所有 40 项问答正文均直接渲染于静态 HTML 中，点击任意条目即可展开阅读并跳转至对应专题。</p>
+      </div>
+      <YumeriaArt pose="qa" size={140} />
+    </div>
+
+    <div class="faq-grid">
+      {faqs.map((item) => (
+        <details class="story-card faq-item">
+          <summary>{item.q}</summary>
+          <div class="faq-answer">
+            <p>{item.a}</p>
+            <a href={item.href} class="faq-link">相关专题：{item.topic} →</a>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-block {
+    padding: 28px 0;
+  }
+  .faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .faq-header h2 {
+    margin: 10px 0 6px;
+  }
+  .faq-header p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .faq-item {
+    padding: 16px 18px;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-primary);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .faq-item summary::after {
+    content: "＋";
+    color: var(--story-gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after {
+    content: "－";
+  }
+  .faq-answer {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-subtle);
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .faq-answer p {
+    margin: 0 0 8px;
+  }
+  .faq-link {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  @media (max-width: 860px) {
+    .faq-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,175 @@
+---
+interface Props {
+  type:
+    | 'direct-vs-relay'
+    | 'iepl-vs-iplc'
+    | 'bgp-routing'
+    | 'global-nodes'
+    | 'tcp-vs-udp'
+    | 'latency-rtt'
+    | 'packet-loss'
+    | 'dns-flow'
+    | 'bandwidth-speed';
+  title: string;
+}
+
+const { type, title } = Astro.props;
+---
+
+<figure class="story-card diagram-card">
+  <figcaption class="diagram-head">
+    <strong>{title}</strong>
+    <span class="tag">原理示意图（非实测数据）</span>
+  </figcaption>
+
+  {type === 'direct-vs-relay' && (
+    <svg viewBox="0 0 640 160" role="img" aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="24" width="120" height="44" rx="8" fill="#F9F4EF" stroke="#74609E" stroke-width="1.5"/>
+      <text x="76" y="50" text-anchor="middle" font-size="13" fill="#182238">本地设备</text>
+      <line x1="136" y1="46" x2="484" y2="46" stroke="#DDA8BC" stroke-width="2" stroke-dasharray="5 4"/>
+      <text x="310" y="38" text-anchor="middle" font-size="11" fill="#525B76">直连：公网直接跨境（易受波动影响）</text>
+      <rect x="484" y="24" width="140" height="44" rx="8" fill="#F9F4EF" stroke="#74609E" stroke-width="1.5"/>
+      <text x="554" y="50" text-anchor="middle" font-size="13" fill="#182238">海外落地节点</text>
+
+      <rect x="16" y="96" width="120" height="44" rx="8" fill="#F9F4EF" stroke="#D8B77E" stroke-width="1.8"/>
+      <text x="76" y="122" text-anchor="middle" font-size="13" fill="#182238">本地设备</text>
+      <line x1="136" y1="118" x2="250" y2="118" stroke="#92C5E8" stroke-width="2.5"/>
+      <rect x="250" y="96" width="130" height="44" rx="8" fill="#39415D" stroke="#D8B77E" stroke-width="1.5"/>
+      <text x="315" y="122" text-anchor="middle" font-size="13" fill="#F9F4EF">国内中转入口</text>
+      <line x1="380" y1="118" x2="484" y2="118" stroke="#D8B77E" stroke-width="2.5"/>
+      <rect x="484" y="96" width="140" height="44" rx="8" fill="#F9F4EF" stroke="#D8B77E" stroke-width="1.8"/>
+      <text x="554" y="122" text-anchor="middle" font-size="13" fill="#182238">海外落地节点</text>
+    </svg>
+  )}
+
+  {type === 'iepl-vs-iplc' && (
+    <svg viewBox="0 0 640 140" role="img" aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="18" width="290" height="104" rx="10" fill="rgba(146,197,232,0.16)" stroke="#92C5E8" stroke-width="1.5"/>
+      <text x="161" y="44" text-anchor="middle" font-size="14" font-weight="bold" fill="#182238">IEPL（国际以太网专线）</text>
+      <text x="161" y="70" text-anchor="middle" font-size="12" fill="#39415D">二层以太网透传 · 弹性带宽调度</text>
+      <text x="161" y="94" text-anchor="middle" font-size="12" fill="#39415D">机场跨境专线常见主流架构</text>
+
+      <rect x="334" y="18" width="290" height="104" rx="10" fill="rgba(182,167,223,0.18)" stroke="#74609E" stroke-width="1.5"/>
+      <text x="479" y="44" text-anchor="middle" font-size="14" font-weight="bold" fill="#182238">IPLC（国际专线租用电路）</text>
+      <text x="479" y="70" text-anchor="middle" font-size="12" fill="#39415D">传统点对点物理/TDM租用电路</text>
+      <text x="479" y="94" text-anchor="middle" font-size="12" fill="#39415D">两者均依赖出口冗余与不超售</text>
+    </svg>
+  )}
+
+  {type === 'bgp-routing' && (
+    <svg viewBox="0 0 640 150" role="img" aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      <rect x="18" y="16" width="110" height="30" rx="6" fill="#F9F4EF" stroke="#74609E"/><text x="73" y="36" text-anchor="middle" font-size="12" fill="#182238">中国电信</text>
+      <rect x="18" y="60" width="110" height="30" rx="6" fill="#F9F4EF" stroke="#74609E"/><text x="73" y="80" text-anchor="middle" font-size="12" fill="#182238">中国联通</text>
+      <rect x="18" y="104" width="110" height="30" rx="6" fill="#F9F4EF" stroke="#74609E"/><text x="73" y="124" text-anchor="middle" font-size="12" fill="#182238">中国移动</text>
+      <line x1="128" y1="31" x2="250" y2="75" stroke="#92C5E8" stroke-width="2"/>
+      <line x1="128" y1="75" x2="250" y2="75" stroke="#B6A7DF" stroke-width="2"/>
+      <line x1="128" y1="119" x2="250" y2="75" stroke="#DDA8BC" stroke-width="2"/>
+      <rect x="250" y="45" width="150" height="60" rx="10" fill="#39415D" stroke="#D8B77E" stroke-width="1.8"/>
+      <text x="325" y="72" text-anchor="middle" font-size="13" fill="#F9F4EF">多线 BGP 入口</text>
+      <text x="325" y="90" text-anchor="middle" font-size="11" fill="#D8B77E">自动选路优化</text>
+      <line x1="400" y1="75" x2="490" y2="75" stroke="#D8B77E" stroke-width="2.5"/>
+      <rect x="490" y="48" width="130" height="54" rx="10" fill="#F9F4EF" stroke="#74609E" stroke-width="1.5"/>
+      <text x="555" y="79" text-anchor="middle" font-size="13" fill="#182238">海外目标集群</text>
+    </svg>
+  )}
+
+  {type === 'global-nodes' && (
+    <svg viewBox="0 0 640 130" role="img" aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="20" width="185" height="90" rx="10" fill="rgba(146,197,232,0.16)" stroke="#92C5E8"/>
+      <text x="108" y="46" text-anchor="middle" font-size="13" font-weight="bold" fill="#182238">东亚低延迟圈</text>
+      <text x="108" y="70" text-anchor="middle" font-size="12" fill="#39415D">香港 · 台湾 · 日本 · 韩国</text>
+      <text x="108" y="92" text-anchor="middle" font-size="11" fill="#525B76">日常网页 / 亚太流媒体</text>
+
+      <rect x="226" y="20" width="185" height="90" rx="10" fill="rgba(182,167,223,0.18)" stroke="#74609E"/>
+      <text x="318" y="46" text-anchor="middle" font-size="13" font-weight="bold" fill="#182238">东南亚枢纽</text>
+      <text x="318" y="70" text-anchor="middle" font-size="12" fill="#39415D">新加坡</text>
+      <text x="318" y="92" text-anchor="middle" font-size="11" fill="#525B76">跨区云服务 / AI 常用区</text>
+
+      <rect x="436" y="20" width="188" height="90" rx="10" fill="rgba(216,183,126,0.18)" stroke="#D8B77E"/>
+      <text x="530" y="46" text-anchor="middle" font-size="13" font-weight="bold" fill="#182238">欧美远端出口</text>
+      <text x="530" y="70" text-anchor="middle" font-size="12" fill="#39415D">美国 · 英国 · 德国等</text>
+      <text x="530" y="92" text-anchor="middle" font-size="11" fill="#525B76">北美版权库 / 特定AI平台</text>
+    </svg>
+  )}
+
+  {type === 'tcp-vs-udp' && (
+    <svg viewBox="0 0 640 130" role="img" aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="18" width="290" height="94" rx="10" fill="#F9F4EF" stroke="#74609E" stroke-width="1.5"/>
+      <text x="161" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#182238">TCP（面向连接 · 确认重传）</text>
+      <text x="161" y="68" text-anchor="middle" font-size="12" fill="#39415D">三次握手 + 按序到达校验</text>
+      <text x="161" y="90" text-anchor="middle" font-size="11" fill="#525B76">代表：Shadowsocks / Trojan / VLESS-TCP</text>
+
+      <rect x="334" y="18" width="290" height="94" rx="10" fill="#F9F4EF" stroke="#92C5E8" stroke-width="1.5"/>
+      <text x="479" y="44" text-anchor="middle" font-size="13" font-weight="bold" fill="#182238">UDP / QUIC（无连接 · 拥塞优化）</text>
+      <text x="479" y="68" text-anchor="middle" font-size="12" fill="#39415D">快速建连 · 弱网抗丢包优势</text>
+      <text x="479" y="90" text-anchor="middle" font-size="11" fill="#525B76">代表：Hysteria2（高丢包环境表现突出）</text>
+    </svg>
+  )}
+
+  {type === 'latency-rtt' && (
+    <svg viewBox="0 0 640 120" role="img" aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      <rect x="20" y="34" width="110" height="50" rx="8" fill="#39415D"/><text x="75" y="64" text-anchor="middle" font-size="13" fill="#F9F4EF">发送端</text>
+      <line x1="130" y1="48" x2="500" y2="48" stroke="#92C5E8" stroke-width="2.5"/><text x="315" y="40" text-anchor="middle" font-size="11" fill="#182238">去程传输时间 (T1)</text>
+      <line x1="500" y1="70" x2="130" y2="70" stroke="#D8B77E" stroke-width="2.5"/><text x="315" y="88" text-anchor="middle" font-size="11" fill="#182238">回程确认时间 (T2) · RTT = T1 + T2</text>
+      <rect x="500" y="34" width="120" height="50" rx="8" fill="#74609E"/><text x="560" y="64" text-anchor="middle" font-size="13" fill="#F9F4EF">目标服务器</text>
+    </svg>
+  )}
+
+  {type === 'packet-loss' && (
+    <svg viewBox="0 0 640 120" role="img" aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      <circle cx="80" cy="60" r="18" fill="#92C5E8"/><text x="80" y="64" text-anchor="middle" font-size="11" fill="#182238">包1</text>
+      <circle cx="170" cy="60" r="18" fill="#92C5E8"/><text x="170" y="64" text-anchor="middle" font-size="11" fill="#182238">包2</text>
+      <circle cx="260" cy="60" r="18" fill="#DDA8BC" stroke="#7A3852" stroke-dasharray="3 3"/><text x="260" y="64" text-anchor="middle" font-size="11" fill="#7A3852">丢失!</text>
+      <circle cx="350" cy="60" r="18" fill="#92C5E8"/><text x="350" y="64" text-anchor="middle" font-size="11" fill="#182238">包4</text>
+      <text x="505" y="54" text-anchor="middle" font-size="12" font-weight="bold" fill="#182238">触发重传等待</text>
+      <text x="505" y="76" text-anchor="middle" font-size="11" fill="#525B76">吞吐量骤降 · 网页卡顿</text>
+    </svg>
+  )}
+
+  {type === 'dns-flow' && (
+    <svg viewBox="0 0 640 120" role="img" aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="34" width="120" height="50" rx="8" fill="#F9F4EF" stroke="#74609E"/><text x="76" y="64" text-anchor="middle" font-size="12" fill="#182238">1. 输入域名</text>
+      <line x1="136" y1="59" x2="184" y2="59" stroke="#D8B77E" stroke-width="2"/>
+      <rect x="184" y="34" width="136" height="50" rx="8" fill="#39415D"/><text x="252" y="64" text-anchor="middle" font-size="12" fill="#F9F4EF">2. 分流/DoH查询</text>
+      <line x1="320" y1="59" x2="368" y2="59" stroke="#D8B77E" stroke-width="2"/>
+      <rect x="368" y="34" width="120" height="50" rx="8" fill="#F9F4EF" stroke="#74609E"/><text x="428" y="64" text-anchor="middle" font-size="12" fill="#182238">3. 返回真实IP</text>
+      <line x1="488" y1="59" x2="526" y2="59" stroke="#D8B77E" stroke-width="2"/>
+      <rect x="526" y="34" width="98" height="50" rx="8" fill="#74609E"/><text x="575" y="64" text-anchor="middle" font-size="12" fill="#F9F4EF">4. 建立连接</text>
+    </svg>
+  )}
+
+  {type === 'bandwidth-speed' && (
+    <svg viewBox="0 0 640 120" role="img" aria-label={title} xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="20" width="280" height="80" rx="10" fill="rgba(146,197,232,0.18)" stroke="#92C5E8"/>
+      <text x="156" y="48" text-anchor="middle" font-size="13" font-weight="bold" fill="#182238">标称带宽（Mbps ÷ 8）</text>
+      <text x="156" y="74" text-anchor="middle" font-size="12" fill="#39415D">例：100 Mbps 理论上限 = 12.5 MB/s</text>
+
+      <rect x="334" y="20" width="290" height="80" rx="10" fill="rgba(216,183,126,0.18)" stroke="#D8B77E"/>
+      <text x="479" y="48" text-anchor="middle" font-size="13" font-weight="bold" fill="#182238">实际下载速度（MB/s）</text>
+      <text x="479" y="74" text-anchor="middle" font-size="12" fill="#39415D">受协议开销、RTT、丢包与节点负载制约</text>
+    </svg>
+  )}
+</figure>
+
+<style>
+  .diagram-card {
+    padding: 16px 18px;
+    background: var(--bg-surface);
+  }
+  .diagram-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 14.5px;
+  }
+  .diagram-card svg {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: rgba(249, 244, 239, 0.72);
+    border: 1px solid var(--border-subtle);
+  }
+</style>

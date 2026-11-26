@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { seoKeywords, brands, plans, type SeoKeywordRecord } from '../lib/db';
+
+export function getStaticPaths() {
+  const dedicatedRoutes = new Set([
+    '/',
+    '/airports/',
+    '/stories/',
+    '/archives/',
+    '/price-history/',
+    '/coupons/',
+    '/risk/',
+    '/nodes/',
+    '/evidence/',
+    '/observations/',
+    '/articles/',
+    '/search/',
+    '/profile/',
+    '/tools/subscription-calendar/',
+    '/tools/value-analyzer/',
+    '/about/',
+    '/methodology/',
+    '/contact/',
+    '/disclosure/',
+    '/privacy/',
+    '/updates/',
+  ]);
+
+  const byUrl = new Map<string, SeoKeywordRecord[]>();
+  for (const k of seoKeywords) {
+    if (dedicatedRoutes.has(k.targetUrl)) continue;
+    const list = byUrl.get(k.targetUrl) || [];
+    list.push(k);
+    byUrl.set(k.targetUrl, list);
+  }
+
+  return Array.from(byUrl.entries()).map(([targetUrl, keywords]) => {
+    const slug = targetUrl.replace(/^\/|\/$/g, '');
+    return {
+      params: { slug },
+      props: { targetUrl, keywords },
+    };
+  });
+}
+
+interface Props {
+  targetUrl: string;
+  keywords: SeoKeywordRecord[];
+}
+
+const { targetUrl, keywords } = Astro.props;
+const primary = keywords[0];
+const cluster = primary.cluster;
+const sectionRoot = '/' + targetUrl.split('/').filter(Boolean)[0] + '/';
+
+// Select relevant real plans for plan-related URLs
+const budgetPlans = plans.filter((p) => p.cycle === 'monthly' && p.price <= 20).slice(0, 8);
+const yearlyPlans = plans.filter((p) => p.cycle === 'yearly').slice(0, 8);
+const oneTimePlans = plans.filter((p) => p.category === 'dataPack').slice(0, 8);
+const showPlans = targetUrl.startsWith('/plans/')
+  ? (targetUrl.includes('one-time') ? oneTimePlans : targetUrl.includes('yearly') ? yearlyPlans : budgetPlans)
+  : [];
+
+const toneMap: Record<string, 'dawn' | 'sky' | 'forest' | 'sunset' | 'moonlight'> = {
+  '/recommend/': 'dawn',
+  '/experiences/': 'sky',
+  '/plans/': 'sunset',
+  '/test/': 'moonlight',
+  '/nodes/': 'sky',
+  '/ladder/': 'forest',
+  '/clients/': 'sky',
+  '/applications/': 'sunset',
+  '/guide/': 'dawn',
+  '/faq/': 'moonlight',
+  '/risk/': 'moonlight',
+  '/price-history/': 'sunset',
+  '/coupons/': 'sunset',
+  '/observations/': 'moonlight',
+};
+const chapterTone = toneMap[sectionRoot] || 'dawn';
+const pageTitle = `${primary.keyword}｜${cluster}专题研究｜机场物语`;
+const pageDesc = `机场物语围绕“${keywords.map((k) => k.keyword).slice(0, 4).join('、')}”整理的消费研究、规则边界与真实品牌档案参考，助您理清购买条件与长期成本。`;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  canonical={`https://jichangwuyu.blog${targetUrl}`}
+  ogType="article"
+  chapterTone={chapterTone}
+  breadcrumbs={[
+    { name: '首页', url: '/' },
+    { name: cluster, url: targetUrl },
+    { name: primary.keyword, url: targetUrl },
+  ]}
+>
+  <article class="container reading-container" style="padding:32px 20px 48px;">
+    <header class="story-card story-card--gold" style="margin-bottom:22px;">
+      <span class="chapter-badge">{cluster} · {primary.priority}</span>
+      <h1 style="margin:10px 0 10px;font-size:clamp(24px,3vw,32px);">{primary.keyword}：规则、成本与消费研究</h1>
+      <p style="color:var(--text-secondary);margin:0;">{pageDesc}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+        {keywords.map((k) => (
+          <span class="tag">{k.id} · {k.keyword}</span>
+        ))}
+      </div>
+    </header>
+
+    <div class="story-card" style="display:grid;gap:16px;margin-bottom:20px;">
+      <section>
+        <h2 style="font-size:20px;">一、机场物语视角下的核心关注点</h2>
+        <p style="color:var(--text-secondary);">
+          在“{primary.keyword}”这一主题下，机场物语（jichangwuyu.blog）重点关注长期使用条件、计费透明度与服务政策边界，而不重复综合榜单排名或零基础软件安装步骤。无论您关注价格门槛、客户端兼容还是线路原理，都建议将“整期实付金额”“流量倍率”“设备数量限制”与“售后退款条款”作为核心核对项。
+        </p>
+      </section>
+
+      <section>
+        <h2 style="font-size:20px;">二、证据边界与消费核查清单</h2>
+        <ul style="padding-left:18px;display:grid;gap:6px;color:var(--text-secondary);">
+          <li><strong>价格核验：</strong>区分单月标价与年付折算月均价，结算前确认优惠码是否排除特定档位。</li>
+          <li><strong>客户端政策：</strong>确认服务商是否原生提供 Clash / Mihomo / Shadowrocket / sing-box 订阅，或仅限官方客户端。</li>
+          <li><strong>证据声明：</strong>本站不虚构实时测速或用户好评，节点可用性与流媒体/AI支持情况请以实测及官网最新公告为准。</li>
+        </ul>
+      </section>
+
+      {showPlans.length > 0 && (
+        <section>
+          <h2 style="font-size:20px;">三、数据库相关套餐实录参考</h2>
+          <div class="table-scroll" style="margin-top:10px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>品牌</th>
+                  <th>套餐名称</th>
+                  <th>周期</th>
+                  <th>标价</th>
+                  <th>流量</th>
+                  <th>每 GB 约合</th>
+                </tr>
+              </thead>
+              <tbody>
+                {showPlans.map((p) => (
+                  <tr>
+                    <td><a href={`/stories/${p.brandId}/`}>{p.brandName}</a></td>
+                    <td>{p.planName}</td>
+                    <td>{p.cycle}</td>
+                    <td>¥{p.price}</td>
+                    <td>{p.trafficGb ? `${p.trafficGb} GB` : '—'}</td>
+                    <td>{p.pricePerGb ? `¥${p.pricePerGb}` : '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+    </div>
+
+    <div class="story-card" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;">
+      <div>
+        <strong>继续探索：</strong>
+        <a href="/stories/" style="margin-left:8px;">18家品牌物语</a> ·
+        <a href="/tools/value-analyzer/">套餐消费分析器</a> ·
+        <a href="/tools/subscription-calendar/">个人订阅手账</a>
+      </div>
+      <a href="/contact/" class="btn btn-ghost">提交内容纠错</a>
+    </div>
+  </article>
+</BaseLayout>

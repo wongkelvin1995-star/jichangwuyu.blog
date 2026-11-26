@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#182238"/>
+      <stop offset="50%" stop-color="#39415D"/>
+      <stop offset="100%" stop-color="#74609E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <circle cx="940" cy="180" r="140" fill="#B6A7DF" opacity="0.22"/>
+  <path d="M0,500 L180,380 L380,470 L620,350 L880,460 L1200,370 L1200,630 L0,630 Z" fill="#182238" opacity="0.7"/>
+  <rect x="70" y="90" width="1060" height="450" rx="28" fill="none" stroke="#D8B77E" stroke-width="2" opacity="0.65"/>
+  <text x="120" y="210" fill="#D8B77E" font-size="24" font-family="sans-serif" letter-spacing="4">MONOGATARI WORLD MAX · AIRPORT MONOGATARI</text>
+  <text x="120" y="300" fill="#F9F4EF" font-size="68" font-weight="bold" font-family="serif">机场物语</text>
+  <text x="120" y="365" fill="#92C5E8" font-size="30" font-family="sans-serif">每一次连接，都有属于自己的故事。</text>
+  <text x="120" y="430" fill="#DDA8BC" font-size="22" font-family="sans-serif">2027机场品牌研究 · 套餐价格对比 · 历史档案 · 长期服务观察</text>
+</svg>

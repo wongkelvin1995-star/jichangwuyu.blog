@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LumoArt from '../../../components/art/LumoArt.astro';
+import SubscriptionCalendarApp from '../../../components/tools/SubscriptionCalendarApp';
+import { brands } from '../../../lib/db';
+
+const brandNames = brands.map((b) => b.name);
+---
+
+<BaseLayout
+  title="个人订阅手账与续费日历｜机场订阅续费记录｜机场物语"
+  description="本地记录机场品牌、购买日期、整期实付金额、付款周期与实际到期日，自动核算月均消费并支持导出 .ics 本地日历文件。"
+  canonical="https://jichangwuyu.blog/tools/subscription-calendar/"
+  chapterTone="sky"
+  breadcrumbs={[
+    { name: '首页', url: '/' },
+    { name: '个人订阅手账', url: '/tools/subscription-calendar/' },
+  ]}
+>
+  <section class="container" style="padding:32px 0;">
+    <div class="story-card story-card--gold" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
+      <div style="max-width:740px;">
+        <span class="chapter-badge">FEATURE 04 · SUBSCRIPTION CALENDAR</span>
+        <h1 style="margin:10px 0 8px;">个人订阅手账与续费日历</h1>
+        <p style="margin:0;color:var(--text-secondary);">
+          所有消费记录仅保存在您的浏览器本地存储中，不收集任何账户密码或个人订阅链接。支持手动修改实际到期日与导出系统日历。
+        </p>
+      </div>
+      <LumoArt mood="bookmark" size={96} />
+    </div>
+
+    <SubscriptionCalendarApp client:load brandNames={brandNames} />
+  </section>
+</BaseLayout>

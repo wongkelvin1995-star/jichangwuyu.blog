@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { networkArticles, type NetworkArticle } from '../../../data/network-articles';
+import { networkGlossary } from '../../../data/network-glossary';
+
+export function getStaticPaths() {
+  return networkArticles.map((article, idx) => ({
+    params: { slug: article.slug },
+    props: {
+      article,
+      prevArticle: idx > 0 ? networkArticles[idx - 1] : null,
+      nextArticle: idx < networkArticles.length - 1 ? networkArticles[idx + 1] : null,
+    },
+  }));
+}
+
+interface Props {
+  article: NetworkArticle;
+  prevArticle: NetworkArticle | null;
+  nextArticle: NetworkArticle | null;
+}
+
+const { article, prevArticle, nextArticle } = Astro.props;
+const relatedArticles = networkArticles
+  .filter((a) => a.category === article.category && a.slug !== article.slug)
+  .slice(0, 3);
+const relatedGlossary = networkGlossary.filter((t) => article.terms.includes(t.term));
+---
+
+<BaseLayout
+  title={article.seoTitle}
+  description={article.description}
+  canonical={`https://jichangwuyu.blog/network/${article.slug}/`}
+  ogType="article"
+  chapterTone="sky"
+  publishedAt="2026-11-26"
+  updatedAt="2026-11-26"
+  breadcrumbs={[
+    { name: '首页', url: '/' },
+    { name: '网络知识百科', url: '/nodes/' },
+    { name: article.category, url: '/nodes/#network-articles' },
+    { name: article.title, url: `/network/${article.slug}/` },
+  ]}
+>
+  <div id="reading-progress" style="position:fixed;top:var(--nav-height);left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--story-gold),var(--deep-dream));z-index:55;transition:width 0.1s linear;"></div>
+
+  <article class="container reading-container" style="padding:32px 20px 48px;">
+    <div style="margin-bottom:14px;">
+      <a href="/nodes/" class="btn btn-ghost" style="padding:6px 14px;font-size:13px;">← 返回全球网络知识百科目录</a>
+    </div>
+
+    <header class="story-card story-card--gold" style="margin-bottom:20px;">
+      <span class="chapter-badge">{article.category} · 篇目 #{String(article.id).padStart(2, '0')}</span>
+      <h1 style="margin:10px 0 10px;font-size:clamp(24px,3vw,32px);">{article.title}</h1>
+      <p style="margin:0 0 12px;color:var(--text-secondary);">{article.summary}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        {article.terms.map((t) => (
+          <span class="tag">{t}</span>
+        ))}
+      </div>
+    </header>
+
+    <nav class="story-card" style="margin-bottom:20px;">
+      <strong style="font-size:14px;">文章目录</strong>
+      <ul style="margin:8px 0 0;padding-left:18px;font-size:14px;">
+        {article.sections.map((s) => <li>{s.heading}</li>)}
+        {article.faq.length > 0 && <li>常见问题解答（FAQ）</li>}
+      </ul>
+    </nav>
+
+    <div class="story-card" style="display:grid;gap:18px;margin-bottom:20px;">
+      {article.sections.map((s) => (
+        <section>
+          <h2 style="font-size:20px;margin-bottom:8px;">{s.heading}</h2>
+          <p style="margin:0;color:var(--text-secondary);">{s.body}</p>
+        </section>
+      ))}
+
+      {article.faq.length > 0 && (
+        <section>
+          <h2 style="font-size:20px;margin-bottom:10px;">常见问题解答（FAQ）</h2>
+          <div style="display:grid;gap:10px;">
+            {article.faq.map((f) => (
+              <div style="padding:12px;border-radius:8px;background:var(--bg-chapter-tint);">
+                <strong>{f.q}</strong>
+                <p style="margin:4px 0 0;font-size:14px;color:var(--text-secondary);">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+
+    {relatedGlossary.length > 0 && (
+      <section class="story-card" style="margin-bottom:20px;">
+        <h2 style="font-size:18px;margin-bottom:10px;">本文涉及的专业术语速查</h2>
+        <div style="display:grid;gap:8px;font-size:13.5px;">
+          {relatedGlossary.map((g) => (
+            <div><strong>{g.term}（{g.en}）：</strong>{g.definition} {g.significance}</div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <nav class="story-card" style="display:grid;gap:12px;">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        {prevArticle ? <a href={`/network/${prevArticle.slug}/`}>← 上一篇：{prevArticle.title}</a> : <span />}
+        {nextArticle ? <a href={`/network/${nextArticle.slug}/`}>下一篇：{nextArticle.title} →</a> : <span />}
+      </div>
+      {relatedArticles.length > 0 && (
+        <div style="padding-top:10px;border-top:1px dashed var(--border-subtle);">
+          <strong style="font-size:14px;">同分类延伸阅读：</strong>
+          <ul style="margin:6px 0 0;padding-left:18px;font-size:14px;">
+            {relatedArticles.map((ra) => (
+              <li><a href={`/network/${ra.slug}/`}>{ra.title}</a></li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <div style="font-size:13px;color:var(--text-muted);">
+        相关栏目：<a href="/stories/">品牌物语档案</a> · <a href="/plans/">套餐研究中心</a> · <a href="/risk/">消费风险中心</a> · <a href="/contact/">内容纠错</a>
+      </div>
+    </nav>
+  </article>
+
+  <script is:inline>
+    (function () {
+      var bar = document.getElementById('reading-progress');
+      if (!bar) return;
+      window.addEventListener('scroll', function () {
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        if (max > 0) bar.style.width = Math.min(100, Math.round((h.scrollTop / max) * 100)) + '%';
+      }, { passive: true });
+    })();
+  </script>
+</BaseLayout>

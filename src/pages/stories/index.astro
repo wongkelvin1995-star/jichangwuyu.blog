@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import YumeriaArt from '../../components/art/YumeriaArt.astro';
+import { brands, plans } from '../../lib/db';
+---
+
+<BaseLayout
+  title="品牌物语档案中心｜18家机场品牌故事、套餐价格与订阅指南｜机场物语"
+  description="浏览机场物语收录的18家机场品牌独立档案，涵盖品牌定位、完整套餐价格、付款周期成本、客户端政策、优缺点与消费风险提示。在品牌物语档案里面购买套餐订阅，不影响您购买的价格，准确价格以官方结算页面为主。"
+  canonical="https://jichangwuyu.blog/stories/"
+  chapterTone="dawn"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '品牌物语', url: '/stories/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <div class="story-card story-card--gold" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:24px;">
+      <div style="max-width:720px;">
+        <span class="chapter-badge">BRAND STORY ARCHIVES · 品牌物语</span>
+        <h1 style="margin:10px 0 10px;">品牌物语档案中心：18家机场品牌故事与套餐研究</h1>
+        <p style="margin:0 0 12px;color:var(--text-secondary);">
+          每家品牌均建有完整的独立物语档案，系统整理品牌定位、各周期套餐价格、流量倍率与重置规则、客户端兼容政策、公开维护记录及消费风险边界，帮助您在下单前看清长期使用条件。
+        </p>
+        <p style="margin:0;padding:10px 14px;border-radius:10px;background:var(--bg-chapter-tint);border-left:3px solid var(--story-gold);font-size:13.5px;color:var(--text-primary);">
+          <strong>购买与价格提示：</strong>在品牌物语档案里面购买套餐订阅，不影响您购买的价格，但准确的价格与优惠信息请以官方结算页面为主。
+        </p>
+      </div>
+      <YumeriaArt pose="recording" size={140} />
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;">
+      {brands.map((b) => {
+        const brandPlans = plans.filter((p) => p.brandId === b.id);
+        return (
+          <article class="story-card story-card--interactive" style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="tag">#{String(b.order).padStart(2, '0')} · {b.nameEn}</span>
+              <span class="tag tag--gold">{b.coupon.code}</span>
+            </div>
+            <h2 style="font-size:20px;margin:4px 0 0;"><a href={b.storyPath}>{b.name}</a></h2>
+            <p style="font-size:13.5px;color:var(--text-secondary);margin:0;flex-grow:1;">{b.tagline}</p>
+            <div style="font-size:12.5px;color:var(--text-muted);background:var(--bg-chapter-tint);padding:8px 10px;border-radius:8px;">
+              <div>已整理套餐：{brandPlans.length} 项 · 地区：{b.regions.join(' / ')}</div>
+              <div>核验日期：{b.verifiedAt} · 历史价格：{b.historicalRecordCount} 条</div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:4px;">
+              <a href={b.storyPath} class="btn btn-primary" style="padding:7px 14px;font-size:13px;">进入26节档案</a>
+              <a href={b.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored" class="btn btn-ghost" style="padding:7px 12px;font-size:13px;">原始注册入口 ↗</a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { articles } from '../../data/articles';
+---
+
+<BaseLayout
+  title="原创物语阅读中心（30篇深度研究）｜机场物语"
+  description="机场物语首批30篇原创深度研究文章，覆盖套餐消费核算、历史价格变化、预付风险、真假官网辨别、线路原理与个人隐私保护。"
+  canonical="https://jichangwuyu.blog/articles/"
+  chapterTone="forest"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '阅读中心', url: '/articles/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <span class="chapter-badge">READING CENTER · 首批30篇原创重点文章</span>
+    <h1 style="margin:10px 0 8px;">原创物语阅读中心（30篇）</h1>
+    <p style="color:var(--text-secondary);max-width:760px;margin-bottom:22px;">
+      围绕套餐价格、续费与升级、预付风险、线路证据与隐私保护整理的原创深度内容，每篇均包含资料来源与对应实用工具入口。
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;">
+      {articles.map((a) => (
+        <article class="story-card story-card--interactive" style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="tag">#{String(a.id).padStart(2, '0')} · {a.template}</span>
+            <small style="color:var(--text-muted);">{a.updatedAt}</small>
+          </div>
+          <h2 style="font-size:18px;margin:4px 0 0;"><a href={`/articles/${a.slug}/`}>{a.title}</a></h2>
+          <p style="font-size:13.5px;color:var(--text-secondary);margin:0;flex-grow:1;">{a.summary}</p>
+          <a href={`/articles/${a.slug}/`} style="font-size:13px;font-weight:600;">阅读全文 →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

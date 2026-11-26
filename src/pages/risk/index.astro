@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import YumeriaArt from '../../components/art/YumeriaArt.astro';
+import { serviceEvents } from '../../lib/db';
+---
+
+<BaseLayout
+  title="长期服务风险观察中心｜机场消费避坑与安全隐私｜机场物语"
+  description="记录机场服务维护、政策调整、规则缺口与消费风险观察，严格区分已确认事实、服务商说明与待核验信息。"
+  canonical="https://jichangwuyu.blog/risk/"
+  chapterTone="moonlight"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '风险观察中心', url: '/risk/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <div class="story-card story-card--gold" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:22px;">
+      <div style="max-width:720px;">
+        <span class="chapter-badge">FEATURE 06 · RISK OBSERVATORY</span>
+        <h1 style="margin:10px 0 8px;">长期服务风险观察中心</h1>
+        <p style="margin:0;color:var(--text-secondary);">
+          本站不依据个别投诉或单次官网无法访问直接判定服务商“跑路”。所有风险记录均区分事实核验状态，并提供 <a href="/contact/">纠错与官方回应入口</a>。
+        </p>
+      </div>
+      <YumeriaArt pose="thinking" size={140} />
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:24px;">
+      <a href="/risk/website-verification/" class="story-card story-card--interactive">
+        <h2 style="font-size:17px;">真假官网辨别</h2>
+        <p style="font-size:13.5px;color:var(--text-secondary);margin:0;">核对发布页域名与高仿注册页特征。</p>
+      </a>
+      <a href="/risk/service-continuity/" class="story-card story-card--interactive">
+        <h2 style="font-size:17px;">跑路风险与服务连续性</h2>
+        <p style="font-size:13.5px;color:var(--text-secondary);margin:0;">如何区分临时维护与长期失联。</p>
+      </a>
+      <a href="/risk/refund-policy/" class="story-card story-card--interactive">
+        <h2 style="font-size:17px;">退款政策审查</h2>
+        <p style="font-size:13.5px;color:var(--text-secondary);margin:0;">下单前必须核对的不可退款条款。</p>
+      </a>
+      <a href="/risk/privacy-security/" class="story-card story-card--interactive">
+        <h2 style="font-size:17px;">安全与个人隐私</h2>
+        <p style="font-size:13.5px;color:var(--text-secondary);margin:0;">订阅链接隔离与账号密码安全习惯。</p>
+      </a>
+    </div>
+
+    <div class="story-card">
+      <h2 style="font-size:19px;margin-bottom:14px;">公开规则冲突与资料核验观察（{serviceEvents.length} 条）</h2>
+      <div style="display:grid;gap:12px;">
+        {serviceEvents.slice(0, 18).map((e) => (
+          <div style="padding:12px 14px;border-radius:8px;background:var(--bg-chapter-tint);border-left:3px solid var(--rose-pink);">
+            <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+              <strong><a href={`/stories/${e.brandId}/`}>{e.title}</a></strong>
+              <span class="tag tag--rose">{e.verificationStatus}</span>
+            </div>
+            <p style="margin:6px 0;font-size:14px;color:var(--text-secondary);">{e.summary}</p>
+            <small style="color:var(--text-muted);">发生/快照：{e.eventDate} · 证据：{e.evidenceType} · 影响：{e.impactScope}</small>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

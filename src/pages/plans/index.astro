@@ -1,0 +1,344 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import YumeriaArt from '../../components/art/YumeriaArt.astro';
+import LumoArt from '../../components/art/LumoArt.astro';
+import PlanFilterSystem from '../../components/plans/PlanFilterSystem';
+import PlanCostCalculator from '../../components/plans/PlanCostCalculator';
+import CouponZone from '../../components/plans/CouponZone';
+import { brands, plans, coupons, getSiteStats } from '../../lib/db';
+
+const stats = getSiteStats();
+const monthlyPrices = plans.filter((p) => p.cycle === 'monthly').map((p) => p.price);
+const yearlyPrices = plans.filter((p) => p.cycle === 'yearly').map((p) => p.price);
+const minMonthlyPrice = monthlyPrices.length ? Math.min(...monthlyPrices) : null;
+const minYearlyPrice = yearlyPrices.length ? Math.min(...yearlyPrices) : null;
+
+const brandOrderMap = Object.fromEntries(brands.map((b) => [b.id, b.order]));
+
+const planFaqs = [
+  { q: '1. 机场套餐标价和折合月价有什么区别？', a: '标价是单次结算需要支付的整期金额，而折合月价是将季付或年付总价除以有效月数后的均摊结果。低折合月价往往要求一次性预付更长周期。' },
+  { q: '2. 为什么月付机场通常比年付折算月价更高？', a: '月付让服务商承担更高的用户流失弹性，因此单月定价通常不享受长周期阶梯折扣；但其优势在于能将用户的试错资金风险锁定在单月以内。' },
+  { q: '3. 10元以内的机场套餐有哪些常见限制？', a: '在已收录资料中，单月折算 10 元以内的方案多为年付小流量包（例如 30–70 GB/月）或入门低流量周期档，并不一定提供无限设备或大流量支持。' },
+  { q: '4. 一次性流量包和不限时套餐怎么理解？', a: '一次性流量包购买固定 GB 总额度后，不按自然月强制清零，用完为止；但购买前仍需确认是否存在长期不登录回收或最低活跃要求。' },
+  { q: '5. 流量倍率如何影响每 GB 实际成本？', a: '若节点标注 2x 倍率，消耗 10 GB 实际流量会扣除 20 GB 账户额度，相当于真实可用流量减半、每 GB 成本翻倍。' },
+  { q: '6. 周期套餐未用完的流量会结转到下个月吗？', a: '绝大多数周期套餐每月按购买日或自然月 1 日重置，未用完流量不结转下月；月内耗尽通常需购买同档重置包或等待下次刷新。' },
+  { q: '7. 优惠码是否对所有套餐都生效？', a: '不一定。多个品牌在资料中明确标注优惠码排除年付小包、不限时流量包或企业定制档位，部分优惠码仅限首购有效。' },
+  { q: '8. 年付套餐购买前最应该核对什么？', a: '优先核对是否支持先月付试错、退款政策边界（多数激活后不可退）、续费是否恢复原价以及客户端是否兼容常用设备。' },
+  { q: '9. 季付和半年付适合什么样的消费节奏？', a: '适合已经通过月付验证过本地网络适配度、希望减少每月续费操作，但又不想一次性承担整年预付资金风险的用户。' },
+  { q: '10. 高流量用户应该看总流量还是峰值带宽？', a: '高频影音与多设备用户需同时关注月度流量上限与节点倍率；若常用 2x 节点，实际需要购买两倍于估算耗流量的基础额度。' },
+  { q: '11. 两年付或三年付套餐值得考虑吗？', a: '虽然两年付/三年付在部分品牌中提供 8 折或 75 折阶梯优惠，但跨度超过一年的预付周期伴随着更高的服务政策变动风险，需谨慎评估。' },
+  { q: '12. 在品牌物语档案中点击购买会影响价格吗？', a: '不会。站内推广链接仅用于来源统计，不影响您的实际购买价格，所有最终定价与优惠抵扣请以服务商官网结算页为准。' },
+  { q: '13. 套餐中的“不限设备”等于可以任意分享吗？', a: '不等同。部分品牌虽不限制同时在线设备数，但仍禁止公开共享账号或异常高频跨地区并发，违规可能触发风控限制。' },
+  { q: '14. 官方客户端与第三方订阅对套餐价值有何影响？', a: '若服务商仅限官方客户端且不开放第三方订阅，使用路由器（如 OpenWrt）或特定开源内核的用户将无法直接部署，购买前务必核对。' },
+  { q: '15. 找不到最新结算价时应该以什么为准？', a: '本站展示的历史与档案价格均标注了采集核验日期，若服务商近期调整定价或活动结束，一切以官网实时结算页面为准。' },
+];
+
+const newArticles = [
+  { slug: '2027-airport-plan-price-comparison-guide', title: '2027机场套餐价格对比与购买指南' },
+  { slug: 'monthly-vs-yearly-which-is-better', title: '机场月付和年付套餐哪个更划算？' },
+  { slug: 'how-to-calculate-cost-per-gb', title: '如何计算机场套餐的每GB流量成本？' },
+  { slug: 'are-cheap-airports-worth-long-term', title: '便宜机场套餐是否值得长期购买？' },
+  { slug: 'who-should-use-unlimited-time-plans', title: '不限时流量机场套餐适合哪些用户？' },
+  { slug: 'student-high-value-airport-plans', title: '学生用户如何选择高性价比机场套餐？' },
+  { slug: 'how-traffic-multiplier-affects-cost', title: '机场流量倍率如何影响实际使用成本？' },
+  { slug: 'yearly-plan-pre-purchase-checklist', title: '机场年付套餐购买前需要注意什么？' },
+];
+---
+
+<BaseLayout
+  title="2027机场套餐研究中心｜机场价格、流量成本、月付年付套餐对比｜机场物语"
+  description="机场物语 Plan Research MAX 套餐研究中心：汇总18家机场全部有效套餐、智能筛选排序、实时套餐消费计算器、优惠码一键复制及月付/年付/不限时流量深度研究。"
+  canonical="https://jichangwuyu.blog/plans/"
+  chapterTone="sunset"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '套餐研究', url: '/plans/' }]}
+>
+  <!-- 04. Hero Section -->
+  <section class="container" style="padding:32px 0 24px;">
+    <div class="story-card story-card--gold plan-hero">
+      <div>
+        <span class="chapter-badge">PLAN RESEARCH MAX · 机场套餐研究中心</span>
+        <h1 style="margin:12px 0 8px;font-size:clamp(24px,3.2vw,34px);">
+          2027机场套餐研究中心｜机场价格、流量成本、月付年付套餐对比
+        </h1>
+        <p style="font-size:13px;letter-spacing:0.06em;color:var(--deep-dream);font-weight:600;margin:0 0 12px;">
+          PLAN RESEARCH MAX — Discover the Value Behind Every Subscription
+        </p>
+        <p style="color:var(--text-secondary);margin:0 0 14px;">
+          选择机场订阅时，仅仅对比表面月付标价往往容易忽略真正的长期成本。不同服务商在付款周期折扣、月度流量重置日、节点流量倍率、同时在线设备数以及第三方客户端开放政策上存在显著差异。有的方案虽然宣传单月仅需几元，却要求整年预付且排除优惠码；有的套餐看似流量充足，却因高倍率节点消耗使每 GB 实际支出成倍上升。机场套餐研究中心从完整原始档案出发，将 18 家品牌的全部周期套餐、年付小流量包、不限时流量包与优惠规则统一纳入可筛选、可核算的研究框架，帮助每一位旅行者在下单前看清真实单价与长期规则边界。
+        </p>
+        <p style="margin:0;padding:10px 14px;border-radius:10px;background:var(--bg-chapter-tint);border-left:3px solid var(--story-gold);font-size:13.5px;">
+          <strong>透明提示：</strong>通过本站品牌档案购买套餐订阅不影响您的实际价格，但准确售价与优惠抵扣请以服务商官方结算页面为准。
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <YumeriaArt pose="thinking" size={185} />
+        <LumoArt mood="calculate" size={76} />
+      </div>
+    </div>
+
+    <!-- Real Dynamic Stats -->
+    <div class="story-card plan-stats-bar" style="margin-top:18px;">
+      <div>
+        <span class="pstat-num">{stats.brandCount} 家</span>
+        <span class="pstat-label">已收录机场品牌</span>
+      </div>
+      <div>
+        <span class="pstat-num">{stats.planRecordCount} 项</span>
+        <span class="pstat-label">已收录有效套餐</span>
+      </div>
+      <div>
+        <span class="pstat-num">{minMonthlyPrice !== null ? `¥${minMonthlyPrice}` : '—'}</span>
+        <span class="pstat-label">最低月付套餐标价</span>
+      </div>
+      <div>
+        <span class="pstat-num">{minYearlyPrice !== null ? `¥${minYearlyPrice}` : '—'}</span>
+        <span class="pstat-label">最低年付套餐标价</span>
+      </div>
+      <div>
+        <span class="pstat-num" style="font-size:18px;">{stats.latestVerifiedDate}</span>
+        <span class="pstat-label">最新资料核验日期</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. Smart Plan Filter System -->
+  <section class="container" style="padding:20px 0;" id="plan-filter">
+    <h2 style="font-size:24px;margin-bottom:8px;">智能套餐筛选与排序系统</h2>
+    <p style="color:var(--text-secondary);margin-bottom:14px;">
+      连接全站 {stats.planRecordCount} 条真实套餐记录，支持按品牌、付款周期、整期金额、流量额度、月均成本筛选及多维度排序。
+    </p>
+    <PlanFilterSystem client:load plans={plans} brandOrderMap={brandOrderMap} />
+  </section>
+
+  <!-- 08. Interactive Plan Cost Calculator -->
+  <section class="container" style="padding:24px 0;" id="plan-calculator">
+    <h2 style="font-size:24px;margin-bottom:8px;">套餐消费与每 GB 成本计算器</h2>
+    <p style="color:var(--text-secondary);margin-bottom:14px;">
+      实时核算实际支付金额、优惠节省金额、月均/年均消费、每 GB 成本与预计剩余流量，严格区分按月重置与不限时总流量包。
+    </p>
+    <PlanCostCalculator client:load />
+  </section>
+
+  <!-- 05. Complete Airport Plan Database (18 brands in exact order) -->
+  <section class="container" style="padding:24px 0;" id="plan-database">
+    <h2 style="font-size:24px;margin-bottom:8px;">完整机场套餐数据库（18家全部有效套餐）</h2>
+    <p style="color:var(--text-secondary);margin-bottom:18px;">
+      严格按照项目原有品牌顺序展示，每家均列出已归档的全部周期套餐、年付小包、一次性流量包及定制档位，并保留原始注册入口。
+    </p>
+
+    <div style="display:grid;gap:20px;">
+      {brands.map((b) => {
+        const periodic = b.planGroup?.periodic || [];
+        const yearlySmall = b.planGroup?.yearlySmall || [];
+        const dataPacks = b.planGroup?.dataPacks || [];
+        const customPlans = b.planGroup?.custom || [];
+        return (
+          <article class="story-card" id={`brand-${b.slug}`}>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
+              <div>
+                <span class="tag">#{String(b.order).padStart(2, '0')} · {b.nameEn}</span>
+                <h3 style="font-size:21px;margin:6px 0 4px;">
+                  <a href={b.storyPath}>{b.name}</a>
+                </h3>
+                <p style="margin:0;font-size:13.5px;color:var(--text-secondary);">{b.tagline}</p>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+                <span class="tag tag--gold">优惠码：{b.coupon.code}</span>
+                <a href={b.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored" class="btn btn-gold" style="padding:7px 14px;font-size:13px;">
+                  官方购买入口 ↗
+                </a>
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;padding:10px 12px;border-radius:10px;background:var(--bg-chapter-tint);font-size:13px;margin-bottom:14px;">
+              <div><strong>设备限制：</strong>{b.deviceLimit}</div>
+              <div><strong>流量倍率：</strong>{b.ratio}</div>
+              <div><strong>重置规则：</strong>{b.trafficRules[0] || '见品牌档案'}</div>
+              <div><strong>客户端政策：</strong>{b.clientPolicy[0] || '见官网说明'}</div>
+            </div>
+
+            {periodic.length > 0 && (
+              <div class="table-scroll" style="margin-bottom:12px;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>套餐名称</th>
+                      <th>月流量</th>
+                      <th>月付</th>
+                      <th>季付</th>
+                      <th>半年付</th>
+                      <th>年付</th>
+                      <th>两年付 / 三年付</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {periodic.map((p) => (
+                      <tr>
+                        <td><strong>{p.plan}</strong></td>
+                        <td>{p.trafficGb ? `${p.trafficGb} GB/月` : '见详情'}</td>
+                        <td>{p.prices.monthly ? `¥${p.prices.monthly}` : '—'}</td>
+                        <td>{p.prices.quarterly ? `¥${p.prices.quarterly}` : '—'}</td>
+                        <td>{p.prices['half-year'] ? `¥${p.prices['half-year']}` : '—'}</td>
+                        <td>{p.prices.yearly ? `¥${p.prices.yearly}` : '—'}</td>
+                        <td>
+                          {p.prices['two-year'] || p.prices['three-year']
+                            ? `${p.prices['two-year'] ? `两年 ¥${p.prices['two-year']}` : ''}${p.prices['two-year'] && p.prices['three-year'] ? ' / ' : ''}${p.prices['three-year'] ? `三年 ¥${p.prices['three-year']}` : ''}`
+                            : '—'}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+
+            {(yearlySmall.length > 0 || dataPacks.length > 0 || customPlans.length > 0) && (
+              <div style="display:grid;gap:6px;font-size:13.5px;color:var(--text-secondary);">
+                {yearlySmall.map((y) => (
+                  <div>• <strong>年付专项（{y.plan}）：</strong>¥{y.price}/年，{y.trafficGb ? `${y.trafficGb} GB/月` : ''}（{(y.notes || []).join('；')}）</div>
+                ))}
+                {dataPacks.map((d) => (
+                  <div>• <strong>一次性/不限时流量包（{d.plan}）：</strong>¥{d.price} / {d.trafficGb} GB（{(d.notes || []).join('；') || '不限时流量包'}）</div>
+                ))}
+                {customPlans.map((c) => (
+                  <div>• <strong>定制档位（{c.plan}）：</strong>¥{c.price} / {c.trafficGb} GB（{(c.notes || []).join('；')}）</div>
+                ))}
+              </div>
+            )}
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- 07. Six Plan Price & Traffic Research Modules -->
+  <section class="container" style="padding:24px 0;" id="plan-research-modules">
+    <h2 style="font-size:24px;margin-bottom:14px;">套餐价格与流量深度研究</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+      <article class="story-card">
+        <h3>月付机场套餐研究</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">
+          月付方案是新手验证本地宽带晚高峰连通性与客户端适配度的首选。在已收录的 18 家品牌中，月付入门档多集中在 ¥15–¥30 区间。虽然月付不享受年付阶梯折扣，但它能把服务政策变更或线路波动的潜在试错成本严格控制在单月之内。
+        </p>
+      </article>
+      <article class="story-card">
+        <h3>年付机场套餐研究</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">
+          年付方案通常附带 85 折至 75 折的长周期定价优惠，部分品牌还提供低门槛年付小流量包（如 ¥39–¥99/年）。但年付属于一次性预付消费，购买前必须核对品牌历史连续性、退款排除条款以及续费是否恢复原价。
+        </p>
+      </article>
+      <article class="story-card">
+        <h3>季付与半年付套餐研究</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">
+          季付（95 折常见）与半年付（9 折常见）处于灵活性与折合单价的折中位置。对于已完成月付体验、有 3 至 6 个月阶段性项目或学期需求的用户，季付与半年付能减少频繁续费操作，同时避免跨年长周期的预付风险。
+        </p>
+      </article>
+      <article class="story-card">
+        <h3>一次性流量套餐研究</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">
+          一次性不限时流量包不按自然月清零，适合每月耗流量极低或将其作为主力线路备用备份的用户。选购时需特别留意：多数品牌明确将不限时流量包排除在优惠码适用范围之外，且部分档位单 GB 标价高于大流量周期套餐。
+        </p>
+      </article>
+      <article class="story-card">
+        <h3>高流量套餐研究</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">
+          4K 流媒体、云端备份、多设备家庭共享与远程开发往往需要每月 500 GB 至 1500 GB 以上额度。高流量档位虽然整期金额较高，但每 GB 边际成本通常显著低于入门小包；若常用 2x 倍率节点，应按实际需求的两倍预留流量。
+        </p>
+      </article>
+      <article class="story-card">
+        <h3>低预算套餐研究</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">
+          对于预算控制在每月 ¥10–¥20 以内的轻度用户，可通过上方筛选器直接锁定“¥20 以内月付”或“年付小包”。低预算选择的关键在于接受合理的月度流量上限（如 50–100 GB）与设备数量限制，避免盲目追求虚假的“低价无限流量”。
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 09. Airport Coupon Zone -->
+  <section class="container" style="padding:24px 0;" id="plan-coupons">
+    <h2 style="font-size:24px;margin-bottom:8px;">机场优惠码专区（一键复制）</h2>
+    <p style="color:var(--text-secondary);margin-bottom:14px;">
+      以下优惠码均来自原始 MD 资料档案，无法确认永久有效期的折扣已注明证据边界，下单时请以官网结算页实付金额为准。
+    </p>
+    <CouponZone client:load coupons={coupons} />
+  </section>
+
+  <!-- 10. 8 Original SEO Articles -->
+  <section class="container" style="padding:24px 0;" id="plan-articles">
+    <h2 style="font-size:24px;margin-bottom:14px;">套餐消费研究专题文章（8篇深度解析）</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:14px;">
+      {newArticles.map((a, idx) => (
+        <a href={`/articles/${a.slug}/`} class="story-card story-card--interactive">
+          <span class="tag">专题 0{idx + 1}</span>
+          <h3 style="font-size:17px;margin:8px 0 4px;">{a.title}</h3>
+          <span style="font-size:13px;color:var(--deep-dream);font-weight:600;">阅读完整分析 →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- 11. 15 Plan FAQs -->
+  <section class="container" style="padding:24px 0 48px;" id="plan-faq">
+    <h2 style="font-size:24px;margin-bottom:14px;">机场套餐与消费常见问题（15项FAQ）</h2>
+    <div class="plan-faq-grid">
+      {planFaqs.map((item) => (
+        <details class="story-card plan-faq-item">
+          <summary>{item.q}</summary>
+          <p style="margin:10px 0 0;padding-top:10px;border-top:1px dashed var(--border-subtle);font-size:14px;color:var(--text-secondary);">
+            {item.a}
+          </p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .plan-hero {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 24px;
+      align-items: center;
+    }
+    .plan-stats-bar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      text-align: center;
+      padding: 18px 20px;
+    }
+    .pstat-num {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--deep-dream);
+    }
+    html[data-theme="night"] .pstat-num {
+      color: var(--story-gold);
+    }
+    .pstat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .plan-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .plan-faq-item summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      list-style: none;
+    }
+    @media (max-width: 900px) {
+      .plan-hero, .plan-faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .plan-stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</BaseLayout>

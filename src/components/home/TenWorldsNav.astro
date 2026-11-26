@@ -1,0 +1,131 @@
+---
+import WorldScene from '../art/WorldScene.astro';
+import type { WorldId } from '../art/WorldScene.astro';
+
+const worlds: Array<{
+  chapter: string;
+  id: WorldId;
+  titleEn: string;
+  titleCn: string;
+  range: string;
+  desc: string;
+  href: string;
+}> = [
+  { chapter: '第一章', id: 'dream-town', titleEn: 'Dream Town', titleCn: '梦境物语小镇', range: '001–020', desc: '机场推荐知识、品牌长期研究与选购基础逻辑', href: '/recommend/' },
+  { chapter: '第二章', id: 'journey-railway', titleEn: 'Journey Railway', titleCn: '幻想旅行列车', range: '021–040', desc: '学生、办公、游戏、多设备及不同使用场景条件', href: '/experiences/' },
+  { chapter: '第三章', id: 'crystal-market', titleEn: 'Crystal Market', titleCn: '水晶商业街', range: '041–060', desc: '套餐价格、流量倍率、优惠码、续费升级与长期消费', href: '/plans/' },
+  { chapter: '第四章', id: 'astral-observatory', titleEn: 'Astral Observatory', titleCn: '星辰观测站', range: '061–080', desc: '实测方法论、网络性能指标与测试证据解读', href: '/test/' },
+  { chapter: '第五章', id: 'horizon-harbor', titleEn: 'Horizon Harbor', titleCn: '天际旅行港', range: '081–100', desc: 'IEPL/IPLC、BGP、地区节点覆盖与代理协议知识', href: '/nodes/' },
+  { chapter: '第六章', id: 'mystic-forest', titleEn: 'Mystic Forest', titleCn: '魔法物语森林', range: '101–120', desc: '梯子概念、VPN 与机场结构差异及网络基础知识', href: '/ladder/' },
+  { chapter: '第七章', id: 'device-atelier', titleEn: 'Device Atelier', titleCn: '连接技术工坊', range: '121–140', desc: 'Clash、Mihomo、Shadowrocket 等客户端与订阅兼容', href: '/clients/' },
+  { chapter: '第八章', id: 'digital-dream-city', titleEn: 'Digital Dream City', titleCn: '数字梦境都市', range: '141–160', desc: 'AI 工具支持条件、流媒体可用性与平台规则研究', href: '/applications/' },
+  { chapter: '第九章', id: 'everyday-story', titleEn: 'Everyday Story', titleCn: '日常生活物语', range: '161–180', desc: '设备基础使用、订阅导入管理与日常连接常识', href: '/guide/' },
+  { chapter: '第十章', id: 'eternal-archives', titleEn: 'Eternal Archives', titleCn: '永恒物语档案馆', range: '181–200', desc: '长期服务观察、消费风险、安全隐私、退款与故障排查', href: '/risk/' },
+];
+---
+
+<section class="section-block" id="module-03">
+  <div class="container">
+    <div class="section-header">
+      <span class="chapter-badge">十大幻想物语章节导航</span>
+      <h2>十重幻想世界：从品牌启程到永恒档案</h2>
+      <p>对应全站 200 个核心研究主题，每个章节由独立幻想场景承载真实的消费分析与网络知识。</p>
+    </div>
+
+    <div class="worlds-grid">
+      {worlds.map((w) => (
+        <a href={w.href} class="world-card story-card story-card--interactive">
+          <div class="world-thumb">
+            <WorldScene world={w.id} />
+            <span class="world-range">{w.chapter} · {w.range}</span>
+          </div>
+          <div class="world-body">
+            <small class="world-en">{w.titleEn}</small>
+            <h3>{w.titleCn}</h3>
+            <p>{w.desc}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-block {
+    padding: 36px 0;
+  }
+  .section-header {
+    margin-bottom: 24px;
+  }
+  .section-header h2 {
+    font-size: clamp(22px, 2.6vw, 30px);
+    margin: 10px 0 6px;
+  }
+  .section-header p {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .worlds-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .world-card {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none !important;
+    color: var(--text-primary);
+  }
+  .world-thumb {
+    position: relative;
+    height: 112px;
+    overflow: hidden;
+  }
+  .world-thumb :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+  .world-range {
+    position: absolute;
+    left: 10px;
+    bottom: 8px;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(24, 34, 56, 0.78);
+    color: #F9F4EF;
+    border: 1px solid rgba(216, 183, 126, 0.5);
+  }
+  .world-body {
+    padding: 14px;
+  }
+  .world-en {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+  .world-body h3 {
+    font-size: 16px;
+    margin: 3px 0 6px;
+  }
+  .world-body p {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 1100px) {
+    .worlds-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .worlds-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

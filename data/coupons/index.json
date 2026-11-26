@@ -1,0 +1,319 @@
+[
+  {
+    "brandId": "lingdongyun",
+    "brandName": "灵动云",
+    "code": "ld888",
+    "discount": "8 折",
+    "appliesTo": [
+      "拂风",
+      "驭浪",
+      "破晓",
+      "凌霄"
+    ],
+    "excludes": [
+      "穿云",
+      "不限时流量包",
+      "至尊私人定制"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "资料写明四档周期套餐均含长周期",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://varnexa.lingdongaff.com/#/?code=HHoxxHGa",
+    "verifiedAt": "2026-11-09"
+  },
+  {
+    "brandId": "muguang-jiasu",
+    "brandName": "暮光加速",
+    "code": "mm88",
+    "discount": "8 折",
+    "appliesTo": [
+      "周期套餐（基础版、标准版、旗舰版、至尊版）"
+    ],
+    "excludes": [
+      "年付轻量版"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://varnexa.twilightaff.com/#/?code=1V9N5bZk",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "weifeng-wangluo",
+    "brandName": "微风网络 Breezenet",
+    "code": "weifeng90",
+    "discount": "9 折",
+    "appliesTo": [
+      "乘风",
+      "破风",
+      "御风"
+    ],
+    "excludes": [
+      "清风",
+      "微风·不限时",
+      "信风·不限时",
+      "长风·不限时"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "",
+    "evidenceNature": "用户提供代码／公开规则存在缺口或冲突",
+    "affiliateUrl": "https://downloadshare.breezenetttt.sbs/#/?code=GnhAtVpF",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "feimaoyun",
+    "brandName": "飞猫云",
+    "code": "flycat888",
+    "discount": "8 折",
+    "appliesTo": [
+      "季付及以上的周期套餐"
+    ],
+    "excludes": [
+      "月付"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "",
+    "evidenceNature": "用户提供代码／公开规则存在缺口或冲突",
+    "affiliateUrl": "https://flycat1.flycatvipaff.cc/#/?code=Gja6RpJ8",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "guangsuyun",
+    "brandName": "光速云 LightSpeed（原大佬云）",
+    "code": "AMM",
+    "discount": "8 折",
+    "appliesTo": [],
+    "excludes": [
+      "轻量B版（套餐页注明特殊套餐不支持优惠打折）"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "折扣为站长 2026-11-13 确认；适用套餐范围以结算页为准",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://mdlky.gsyaff.com/#/?code=nnRRD56A",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "flyv",
+    "brandName": "飞V（FlyV）",
+    "code": "fly20",
+    "discount": "8 折",
+    "appliesTo": [
+      "入门方案",
+      "进阶方案",
+      "高端方案",
+      "商业方案"
+    ],
+    "excludes": [
+      "年付标准轻量版",
+      "不限时流量包",
+      "独享黄金专线"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "资料写明四档周期套餐均含长周期",
+    "evidenceNature": "品牌公开说明",
+    "affiliateUrl": "https://varnexa.flyvaff.com/#/?code=PphqCqzD",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "langwang",
+    "brandName": "浪网 WaveNet",
+    "code": "lw888",
+    "discount": "8 折",
+    "appliesTo": [
+      "符合条件的常规周期套餐"
+    ],
+    "excludes": [
+      "年付标准"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "资料对“符合条件”的范围未进一步说明",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://varnexa.wavenetaff.com/#/?code=8lvPHncJ",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "yinxingren",
+    "brandName": "隐形人",
+    "code": "yxr888",
+    "discount": "8 折",
+    "appliesTo": [],
+    "excludes": [],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "适用套餐范围资料未写（折扣与使用限制为站长 2026-11-13 补充）",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://varnexa.invisibleaff.com/#/?code=TNqBqWEw",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "tiziyun",
+    "brandName": "梯子云 LadderCloud",
+    "code": "tzy888",
+    "discount": "以结算页实际抵扣为准",
+    "appliesTo": [],
+    "excludes": [],
+    "usage": "结算页优惠码栏填写",
+    "note": "",
+    "evidenceNature": "用户提供代码／公开规则存在缺口或冲突",
+    "affiliateUrl": "https://varnexa.ladderaff.com/#/?code=kCHBqwtn",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "wuyou",
+    "brandName": "无忧链接",
+    "code": "79元mini",
+    "discount": "8 折",
+    "appliesTo": [
+      "舒心链接",
+      "省心链接",
+      "随心链接",
+      "忘忧链接"
+    ],
+    "excludes": [
+      "MINI 链接"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "第三方 2026-11-09 后台调查记载活动至 11 月 30 日，有效期待结算核实",
+    "evidenceNature": "用户提供代码／公开规则存在缺口或冲突",
+    "affiliateUrl": "https://wep01.worryfreeaff.com/#/?code=wRKHiDZB",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "firefly",
+    "brandName": "飞为（Firefly）",
+    "code": "firefly",
+    "discount": "8 折",
+    "appliesTo": [
+      "Lite",
+      "Plus",
+      "Blaze",
+      "Nova"
+    ],
+    "excludes": [
+      "年付版"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://fly.fireflyxx.cfd/#/?code=WWdYMdoa",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "quanqiuyun",
+    "brandName": "全球云",
+    "code": "qq88",
+    "discount": "8 折",
+    "appliesTo": [
+      "周期套餐、轻量版与不限时流量包（资料只写不适用项）"
+    ],
+    "excludes": [
+      "独享私人专线节点"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://n3oplhjnm.quanqiugttt1.club/#/?code=RZW9Z7OZ",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "weituyun",
+    "brandName": "唯兔云（V2云）",
+    "code": "rabbit",
+    "discount": "9 折",
+    "appliesTo": [
+      "普通版",
+      "进阶版",
+      "专业版",
+      "至尊版"
+    ],
+    "excludes": [
+      "年付版限量款",
+      "年付加强专线"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://fast.v2yunvipaff.com/#/?code=Q03xl6H9",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "u1s1",
+    "brandName": "U1S1（有一说一）",
+    "code": "U1S1",
+    "discount": "8 折",
+    "appliesTo": [
+      "四档周期套餐与定制包（资料只写不适用项）"
+    ],
+    "excludes": [
+      "就是好用包"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "2026-10 / 11 第三方曾核对 120 GB 月付 ¥20 实付 ¥16；另一渠道码 akaka 有失效记录",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://pkdj7.vipaff.cc/#/?code=Dw6wziZa",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "sogoyun",
+    "brandName": "Sogo云",
+    "code": "SOGO10000",
+    "discount": "9 折",
+    "appliesTo": [],
+    "excludes": [],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "第三方后台调查称每号一次、部分小包排除；另有 sss777 渠道码，以结算页为准",
+    "evidenceNature": "用户提供代码／公开规则存在缺口或冲突",
+    "affiliateUrl": "https://jbvfh.sogotztz2.sbs/#/?code=RMM9ZL0E",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "lingmao",
+    "brandName": "灵猫",
+    "code": "lingmao",
+    "discount": "8 折",
+    "appliesTo": [
+      "Small",
+      "Big"
+    ],
+    "excludes": [
+      "年付小包"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "另有渠道资料列 lmao888（9 折），哪一个有效待结算确认",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://vip02.civetaff.com/#/?code=DpcJTfcr",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "shanyue",
+    "brandName": "闪跃 FlashLeap",
+    "code": "shanyue",
+    "discount": "8 折",
+    "appliesTo": [
+      "闪动 Flicker",
+      "飞跃 Leap",
+      "瞬移 Teleport",
+      "跃迁 Warp"
+    ],
+    "excludes": [
+      "闪跃年付版"
+    ],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://vip02.flashleapaff.com/#/?code=Mn2H0udG",
+    "verifiedAt": "2026-11-25"
+  },
+  {
+    "brandId": "kuajie",
+    "brandName": "跨界",
+    "code": "kuajie",
+    "discount": "8 折",
+    "appliesTo": [],
+    "excludes": [],
+    "usage": "在结算页优惠码栏填写，实付金额以结算页显示为准",
+    "note": "资料未写适用套餐范围",
+    "evidenceNature": "第三方公开记录",
+    "affiliateUrl": "https://vip02.kuajieaff.com/#/?code=cyls6TVF",
+    "verifiedAt": "2026-11-25"
+  }
+]

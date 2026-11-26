@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import YumeriaArt from '../../components/art/YumeriaArt.astro';
+import { serviceEvents, brands } from '../../lib/db';
+---
+
+<BaseLayout
+  title="品牌历史时间轴与档案中心｜机场品牌历史｜机场物语"
+  description="机场物语品牌历史时间轴（Story Timeline），记录18家机场品牌的首次资料采集、价格快照日期、规则缺口与核验更新，不虚构未发生的运营事件。"
+  canonical="https://jichangwuyu.blog/archives/"
+  chapterTone="moonlight"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '历史档案', url: '/archives/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <div class="story-card story-card--gold" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:24px;">
+      <div style="max-width:720px;">
+        <span class="chapter-badge">FEATURE 02 · STORY TIMELINE</span>
+        <h1 style="margin:10px 0 8px;">品牌历史时间轴与档案中心</h1>
+        <p style="margin:0;color:var(--text-secondary);">
+          每条记录均标注事件/快照时间、资料采集时间、来源 URL、证据类型、核验状态与影响范围。对于尚未获得独立多期事件的品牌，时间轴已整合至对应品牌主档案中，不伪造历史事件。
+        </p>
+      </div>
+      <YumeriaArt pose="reading" size={140} />
+    </div>
+
+    <div class="story-card" style="margin-bottom:24px;">
+      <h2>18家品牌档案时间索引</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+        {brands.map((b) => (
+          <a href={b.storyPath} class="tag">{b.name}（{b.historicalPriceDate}）</a>
+        ))}
+      </div>
+    </div>
+
+    <div style="border-left:3px solid var(--story-gold);padding-left:20px;display:grid;gap:14px;">
+      {serviceEvents.map((evt) => (
+        <article class="story-card">
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-bottom:6px;">
+            <span class="tag tag--gold">{evt.eventDate} · {evt.category}</span>
+            <span class="tag">{evt.verificationStatus}</span>
+          </div>
+          <h3 style="margin:4px 0 6px;font-size:18px;">
+            <a href={`/stories/${evt.brandId}/`}>{evt.title}</a>
+          </h3>
+          <p style="margin:0 0 8px;color:var(--text-secondary);font-size:14.5px;">{evt.summary}</p>
+          <div style="font-size:12.5px;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:14px;">
+            <span>采集时间：{evt.collectedAt}</span>
+            <span>证据类型：{evt.evidenceType}</span>
+            <span>影响范围：{evt.impactScope}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

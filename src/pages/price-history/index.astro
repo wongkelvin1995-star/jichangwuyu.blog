@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PriceHistoryExplorer from '../../components/tools/PriceHistoryExplorer';
+import { plans, priceHistory } from '../../lib/db';
+---
+
+<BaseLayout
+  title="机场套餐历史价格研究与价格变化分析｜机场物语"
+  description="按品牌、套餐、付款周期与流量筛选机场历史价格快照与当前核验标价，严格区分正常售价、活动售价与历史公开记录。"
+  canonical="https://jichangwuyu.blog/price-history/"
+  chapterTone="sunset"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '历史价格', url: '/price-history/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <span class="chapter-badge">FEATURE 03 · PRICE HISTORY</span>
+    <h1 style="margin:10px 0 8px;">套餐历史价格研究与变化分析</h1>
+    <p style="color:var(--text-secondary);max-width:780px;margin-bottom:22px;">
+      机场物语严格区分“正常标价”“活动优惠价”与“历史公开索引记录”。在尚未取得同套餐多时间点可比序列前，绝不将不同流量档位拼接成虚假的涨跌走势图。
+    </p>
+
+    <PriceHistoryExplorer client:load plans={plans} historyRecords={priceHistory} />
+  </section>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LumoArt from '../../../components/art/LumoArt.astro';
+import ValueAnalyzerApp from '../../../components/tools/ValueAnalyzerApp';
+---
+
+<BaseLayout
+  title="套餐消费分析器｜折合月价与每GB成本计算｜机场物语"
+  description="精准区分月付、季付、年付预付成本与一次性流量包，支持优惠码折扣与流量倍率折算，避免只看宣传月价导致误判。"
+  canonical="https://jichangwuyu.blog/tools/value-analyzer/"
+  chapterTone="sunset"
+  breadcrumbs={[
+    { name: '首页', url: '/' },
+    { name: '套餐消费分析器', url: '/tools/value-analyzer/' },
+  ]}
+>
+  <section class="container" style="padding:32px 0;">
+    <div class="story-card story-card--gold" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
+      <div style="max-width:740px;">
+        <span class="chapter-badge">FEATURE 05 · VALUE ANALYZER</span>
+        <h1 style="margin:10px 0 8px;">套餐消费分析器</h1>
+        <p style="margin:0;color:var(--text-secondary);">
+          严格区分“整期预付金额”与“折合每月价格”，并把节点流量倍率纳入每 GB 实际成本核算。
+        </p>
+      </div>
+      <LumoArt mood="calculate" size={96} />
+    </div>
+
+    <ValueAnalyzerApp client:load />
+  </section>
+</BaseLayout>

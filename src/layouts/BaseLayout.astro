@@ -1,0 +1,472 @@
+---
+import '../styles/global.css';
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  noindex?: boolean;
+  ogType?: 'website' | 'article';
+  chapterTone?: 'dawn' | 'sky' | 'forest' | 'sunset' | 'moonlight';
+  breadcrumbs?: BreadcrumbItem[];
+  publishedAt?: string;
+  updatedAt?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  noindex = false,
+  ogType = 'website',
+  chapterTone = 'dawn',
+  breadcrumbs = [],
+  publishedAt,
+  updatedAt,
+} = Astro.props;
+
+const siteOrigin = 'https://jichangwuyu.blog';
+const resolvedCanonical = canonical || `${siteOrigin}${Astro.url.pathname}`;
+const ogImage = `${siteOrigin}/images/og-cover.svg`;
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: '机场物语 · Airport Monogatari',
+  alternateName: 'MONOGATARI WORLD MAX',
+  url: siteOrigin,
+  inLanguage: 'zh-CN',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteOrigin}/search/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const breadcrumbSchema = breadcrumbs.length > 0 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((b, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    name: b.name,
+    item: b.url.startsWith('http') ? b.url : `${siteOrigin}${b.url}`,
+  })),
+} : null;
+
+const articleSchema = ogType === 'article' ? {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  inLanguage: 'zh-CN',
+  datePublished: publishedAt || '2026-11-25',
+  dateModified: updatedAt || '2026-11-26',
+  author: {
+    '@type': 'Organization',
+    name: '机场物语编辑部（资料整理）',
+    url: `${siteOrigin}/about/`,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: '机场物语 · Airport Monogatari',
+    url: siteOrigin,
+  },
+  mainEntityOfPage: resolvedCanonical,
+} : null;
+
+const navLinks = [
+  { label: '首页', href: '/' },
+  { label: '品牌物语', href: '/stories/' },
+  { label: '套餐研究', href: '/plans/' },
+  { label: '历史档案', href: '/archives/' },
+  { label: '网络知识', href: '/nodes/' },
+  { label: '数字应用', href: '/applications/' },
+  { label: '风险观察', href: '/risk/' },
+  { label: '阅读中心', href: '/articles/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="zh-CN" data-theme="day" data-motion="full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={resolvedCanonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {noindex ? (
+      <meta name="robots" content="noindex, follow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large" />
+    )}
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="机场物语 · Airport Monogatari" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+    {articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+
+    <!-- Apply saved theme & motion preference early to prevent flash -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('jichangwuyu_theme');
+          if (t === 'night' || t === 'day') document.documentElement.setAttribute('data-theme', t);
+          var m = localStorage.getItem('jichangwuyu_motion');
+          if (m === 'reduced' || m === 'full') document.documentElement.setAttribute('data-motion', m);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body data-chapter-tone={chapterTone}>
+    <a class="sr-only" href="#main-content">跳到正文内容</a>
+
+    <!-- Glass Navigation -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="brand-logo" aria-label="机场物语首页">
+          <span class="brand-crest" aria-hidden="true">✦</span>
+          <span class="brand-text">
+            <strong>机场物语</strong>
+            <small>Airport Monogatari</small>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="主导航">
+          {navLinks.map((item) => {
+            const active = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+            return (
+              <a href={item.href} class={`nav-link ${active ? 'is-active' : ''}`}>
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
+
+        <div class="header-actions">
+          <a href="/search/" class="icon-btn" title="全站物语搜索" aria-label="全站搜索">🔍</a>
+          <a href="/profile/" class="icon-btn" title="我的物语与收藏" aria-label="我的物语">★</a>
+          <button type="button" id="theme-toggle" class="icon-btn" title="切换日间/夜间阅读模式" aria-label="切换阅读模式">◐</button>
+          <button type="button" id="motion-toggle" class="icon-btn" title="开启或减弱动画特效" aria-label="动画设置">✧</button>
+        </div>
+      </div>
+    </header>
+
+    {breadcrumbs.length > 0 && (
+      <nav class="container breadcrumb-bar" aria-label="面包屑导航">
+        <ol>
+          {breadcrumbs.map((b, i) => (
+            <li>
+              {i < breadcrumbs.length - 1 ? <a href={b.url}>{b.name}</a> : <span aria-current="page">{b.name}</span>}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="chapter-badge">MONOGATARI WORLD MAX</div>
+          <h2 style="font-size:20px;margin:12px 0 8px;">机场物语 · Airport Monogatari</h2>
+          <p style="font-size:14px;color:var(--text-secondary);margin:0 0 10px;">
+            每一次连接，都有属于自己的故事。专注于机场品牌档案、套餐价格研究、历史价格变化、长期服务观察与消费风险梳理。
+          </p>
+          <p style="font-size:12px;color:var(--text-muted);margin:0;">
+            角色说明：YUMERIA · 梦璃与 LUMO · 星语精灵均为本站原创虚构档案向导，不代表真实消费者或官方技术专家。
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-size:15px;margin-bottom:10px;">核心栏目</h3>
+          <ul class="footer-list">
+            <li><a href="/stories/">品牌物语档案（18家）</a></li>
+            <li><a href="/price-history/">套餐历史价格研究</a></li>
+            <li><a href="/archives/">品牌历史时间轴</a></li>
+            <li><a href="/risk/">消费风险观察中心</a></li>
+            <li><a href="/evidence/">网络证据研究中心</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="font-size:15px;margin-bottom:10px;">独家工具</h3>
+          <ul class="footer-list">
+            <li><a href="/tools/subscription-calendar/">个人订阅手账</a></li>
+            <li><a href="/tools/value-analyzer/">套餐消费分析器</a></li>
+            <li><a href="/coupons/">优惠码资料索引</a></li>
+            <li><a href="/nodes/">全球网络知识百科</a></li>
+            <li><a href="/search/">全站物语智能搜索</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="font-size:15px;margin-bottom:10px;">透明与合规</h3>
+          <ul class="footer-list">
+            <li><a href="/about/">关于机场物语</a></li>
+            <li><a href="/methodology/">编辑原则与评价标准</a></li>
+            <li><a href="/disclosure/">推广关系披露说明</a></li>
+            <li><a href="/contact/">内容纠错与联系</a></li>
+            <li><a href="/privacy/">本地隐私政策</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <span>© 2026–2027 jichangwuyu.blog 机场物语 · 非任何机场服务商官方网站</span>
+        <span>站内推广链接均标注 rel="sponsored"，不影响资料客观记录与风险提示</span>
+      </div>
+    </footer>
+
+    <!-- Mobile Fixed Bottom Navigation -->
+    <nav class="mobile-bottom-nav" aria-label="移动端快捷导航">
+      <a href="/" class={currentPath === '/' ? 'is-active' : ''}><span>⌂</span><small>首页</small></a>
+      <a href="/stories/" class={currentPath.startsWith('/stories') ? 'is-active' : ''}><span>📖</span><small>物语</small></a>
+      <a href="/plans/" class={currentPath.startsWith('/plans') ? 'is-active' : ''}><span>💎</span><small>套餐</small></a>
+      <a href="/search/" class={currentPath.startsWith('/search') ? 'is-active' : ''}><span>🔍</span><small>搜索</small></a>
+      <a href="/profile/" class={currentPath.startsWith('/profile') ? 'is-active' : ''}><span>★</span><small>我的</small></a>
+    </nav>
+
+    <script is:inline>
+      (function () {
+        var themeBtn = document.getElementById('theme-toggle');
+        var motionBtn = document.getElementById('motion-toggle');
+        if (themeBtn) {
+          themeBtn.addEventListener('click', function () {
+            var next = document.documentElement.getAttribute('data-theme') === 'night' ? 'day' : 'night';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('jichangwuyu_theme', next); } catch (e) {}
+          });
+        }
+        if (motionBtn) {
+          motionBtn.addEventListener('click', function () {
+            var next = document.documentElement.getAttribute('data-motion') === 'reduced' ? 'full' : 'reduced';
+            document.documentElement.setAttribute('data-motion', next);
+            try { localStorage.setItem('jichangwuyu_motion', next); } catch (e) {}
+          });
+        }
+      })();
+    </script>
+
+    <style>
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        height: var(--nav-height);
+        background: var(--bg-glass);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+      .header-inner {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .brand-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none !important;
+        color: var(--text-primary);
+        flex-shrink: 0;
+      }
+      .brand-crest {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--deep-dream), var(--twilight-blue));
+        color: var(--story-gold);
+        font-size: 16px;
+        border: 1px solid var(--border-gold);
+      }
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.15;
+      }
+      .brand-text strong {
+        font-family: var(--font-serif);
+        font-size: 16px;
+      }
+      .brand-text small {
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+      }
+      .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+      }
+      .nav-link {
+        padding: 6px 11px;
+        border-radius: 999px;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        white-space: nowrap;
+        text-decoration: none !important;
+      }
+      .nav-link:hover, .nav-link.is-active {
+        background: rgba(182, 167, 223, 0.2);
+        color: var(--text-primary);
+      }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .icon-btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--border-subtle);
+        background: var(--bg-surface);
+        color: var(--text-primary);
+        cursor: pointer;
+        font-size: 14px;
+        text-decoration: none !important;
+      }
+      .icon-btn:hover {
+        border-color: var(--story-gold);
+      }
+
+      .breadcrumb-bar {
+        padding-top: 14px;
+        padding-bottom: 4px;
+      }
+      .breadcrumb-bar ol {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+      .breadcrumb-bar li + li::before {
+        content: "/";
+        margin-right: 6px;
+        opacity: 0.55;
+      }
+
+      .site-footer {
+        margin-top: 64px;
+        padding: 48px 0 32px;
+        border-top: 1px solid var(--border-subtle);
+        background: var(--bg-chapter-tint);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 28px;
+      }
+      .footer-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 8px;
+        font-size: 14px;
+      }
+      .footer-bottom {
+        margin-top: 32px;
+        padding-top: 18px;
+        border-top: 1px solid var(--border-subtle);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 12.5px;
+        color: var(--text-muted);
+      }
+
+      .mobile-bottom-nav {
+        display: none;
+      }
+
+      @media (max-width: 960px) {
+        .desktop-nav {
+          display: none;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 900px) {
+        .mobile-bottom-nav {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 70;
+          height: 64px;
+          background: var(--bg-glass);
+          backdrop-filter: blur(16px);
+          border-top: 1px solid var(--border-subtle);
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+        }
+        .mobile-bottom-nav a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 2px;
+          color: var(--text-secondary);
+          font-size: 11px;
+          text-decoration: none !important;
+        }
+        .mobile-bottom-nav a.is-active {
+          color: var(--deep-dream);
+          font-weight: 700;
+        }
+        html[data-theme="night"] .mobile-bottom-nav a.is-active {
+          color: var(--story-gold);
+        }
+      }
+      @media (max-width: 600px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </body>
+</html>

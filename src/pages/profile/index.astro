@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProfileApp from '../../components/tools/ProfileApp';
+import { brands } from '../../lib/db';
+
+const brandMap = Object.fromEntries(brands.map((b) => [b.slug, b.name]));
+---
+
+<BaseLayout
+  title="我的物语｜本地收藏、订阅手账与阅读设置｜机场物语"
+  description="机场物语本地个人中心，保存您的品牌收藏、订阅手账、消费笔记与日间/夜间阅读设置。"
+  canonical="https://jichangwuyu.blog/profile/"
+  noindex={true}
+  chapterTone="moonlight"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '我的物语', url: '/profile/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <span class="chapter-badge">FEATURE 10 · MY MONOGATARI</span>
+    <h1 style="margin:10px 0 8px;">我的物语（本地个人中心）</h1>
+    <p style="color:var(--text-secondary);margin-bottom:20px;">
+      所有数据仅存储于您的本地浏览器中，本站不收集任何账户密码或订阅链接，亦不提供虚假注册/登录。
+    </p>
+
+    <ProfileApp client:load brandMap={brandMap} />
+  </section>
+</BaseLayout>

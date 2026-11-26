@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { articles, type ArticleItem } from '../../../data/articles';
+import { brands } from '../../../lib/db';
+
+export function getStaticPaths() {
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: ArticleItem;
+}
+
+const { article } = Astro.props;
+const relatedArticles = articles.filter((a) => a.slug !== article.slug).slice(0, 4);
+const sampleBrands = brands.slice(0, 4);
+---
+
+<BaseLayout
+  title={`${article.title}｜机场物语`}
+  description={article.summary}
+  canonical={`https://jichangwuyu.blog/articles/${article.slug}/`}
+  ogType="article"
+  chapterTone="forest"
+  publishedAt={article.publishedAt}
+  updatedAt={article.updatedAt}
+  breadcrumbs={[
+    { name: '首页', url: '/' },
+    { name: '阅读中心', url: '/articles/' },
+    { name: article.title, url: `/articles/${article.slug}/` },
+  ]}
+>
+  <article class="container reading-container" style="padding:32px 20px 48px;">
+    <header class="story-card story-card--gold" style="margin-bottom:22px;">
+      <span class="chapter-badge">{article.template} · #{String(article.id).padStart(2, '0')}</span>
+      <h1 style="margin:10px 0 10px;font-size:clamp(24px,3vw,32px);">{article.title}</h1>
+      <p style="color:var(--text-secondary);margin:0 0 12px;">{article.summary}</p>
+      <div style="font-size:13px;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:14px;">
+        <span>作者：机场物语编辑部（资料整理）</span>
+        <span>发布：{article.publishedAt}</span>
+        <span>更新：{article.updatedAt}</span>
+      </div>
+    </header>
+
+    <nav class="story-card" style="margin-bottom:20px;">
+      <strong style="font-size:14px;">文章目录</strong>
+      <ul style="margin:8px 0 0;padding-left:18px;font-size:14px;">
+        {article.sections.map((s) => <li>{s.heading}</li>)}
+      </ul>
+    </nav>
+
+    <div class="story-card" style="display:grid;gap:18px;margin-bottom:20px;">
+      {article.sections.map((s) => (
+        <section>
+          <h2 style="font-size:20px;margin-bottom:8px;">{s.heading}</h2>
+          <p style="margin:0;color:var(--text-secondary);">{s.body}</p>
+        </section>
+      ))}
+    </div>
+
+    <footer class="story-card" style="display:grid;gap:12px;">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <a href={article.relatedTool.href} class="btn btn-primary">{article.relatedTool.label}</a>
+        <a href={article.relatedTopic.href} class="btn btn-ghost">{article.relatedTopic.label}</a>
+        <a href="/contact/" class="btn btn-ghost">内容纠错入口</a>
+      </div>
+      <div>
+        <strong style="font-size:14px;">相关品牌档案：</strong>
+        <span style="display:inline-flex;flex-wrap:wrap;gap:6px;margin-left:6px;">
+          {sampleBrands.map((b) => <a href={b.storyPath} class="tag">{b.name}</a>)}
+        </span>
+      </div>
+      <div>
+        <strong style="font-size:14px;">继续阅读：</strong>
+        <ul style="margin:6px 0 0;padding-left:18px;font-size:14px;">
+          {relatedArticles.map((ra) => (
+            <li><a href={`/articles/${ra.slug}/`}>{ra.title}</a></li>
+          ))}
+        </ul>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>

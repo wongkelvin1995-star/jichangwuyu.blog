@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import YumeriaArt from '../components/art/YumeriaArt.astro';
+---
+
+<BaseLayout
+  title="页面在梦境小镇迷路了（404）｜机场物语"
+  description="未找到您访问的物语页面，请返回首页或通过全站搜索继续探索。"
+  noindex={true}
+  chapterTone="moonlight"
+>
+  <section class="container reading-container" style="padding:56px 20px;text-align:center;">
+    <div class="story-card story-card--gold" style="display:grid;gap:16px;justify-items:center;">
+      <YumeriaArt pose="thinking" size={180} />
+      <span class="chapter-badge">404 · 梦境迷路物语</span>
+      <h1>这页手账似乎随风飘散了</h1>
+      <p style="color:var(--text-secondary);max-width:520px;margin:0;">
+        您访问的路径不存在或已整合至最新专题档案。您可以返回首页，或使用星语搜索查找目标品牌与套餐。
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+        <a href="/" class="btn btn-gold">返回机场物语首页</a>
+        <a href="/stories/" class="btn btn-primary">浏览 18 家品牌档案</a>
+        <a href="/search/" class="btn btn-ghost">全站智能搜索</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

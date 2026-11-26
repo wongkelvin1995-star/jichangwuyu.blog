@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { serviceEvents } from '../../lib/db';
+---
+
+<BaseLayout
+  title="长期服务观察｜机场服务变更与订阅政策记录｜机场物语"
+  description="长期追踪18家机场品牌的套餐调整、订阅政策变化、优惠规则更新与公开服务事件。"
+  canonical="https://jichangwuyu.blog/observations/"
+  chapterTone="moonlight"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '长期服务观察', url: '/observations/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <span class="chapter-badge">OBSERVATIONS · 长期服务观察</span>
+    <h1 style="margin:10px 0 8px;">长期服务观察与政策变更记录</h1>
+    <p style="color:var(--text-secondary);max-width:760px;margin-bottom:20px;">
+      持续记录各品牌在订阅政策、客户端限制、优惠适用范围与历史价格上的公开变化，帮助用户识别长期消费风险。
+    </p>
+
+    <div style="display:grid;gap:14px;">
+      {serviceEvents.map((e) => (
+        <article class="story-card">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+            <strong><a href={`/stories/${e.brandId}/`}>{e.title}</a></strong>
+            <span class="tag">{e.eventDate} · {e.evidenceType}</span>
+          </div>
+          <p style="margin:6px 0 0;font-size:14px;color:var(--text-secondary);">{e.summary}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

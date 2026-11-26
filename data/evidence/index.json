@@ -1,0 +1,992 @@
+[
+  {
+    "id": "lingdongyun-ev-main",
+    "brandId": "lingdongyun",
+    "brandName": "灵动云",
+    "evidenceTag": "历史公开记录",
+    "title": "灵动云 品牌档案与套餐价格依据",
+    "date": "2026-11-09",
+    "sources": [
+      {
+        "file": "source-materials/brands/灵动云.txt",
+        "date": "2026-11-09",
+        "type": "owner-supplied",
+        "note": "品牌资料全文（一至十节）"
+      },
+      {
+        "file": "source-materials/brands/灵动云-品牌介绍.txt",
+        "date": "2026-11-10",
+        "type": "promotional-copy",
+        "note": "宣传性品牌介绍文案，不作为价格、节点或测速的事实依据"
+      },
+      {
+        "file": "source-materials/evidence/灵动云_实测报告_浅色版.png",
+        "date": "2026-11-10",
+        "type": "owner-measured",
+        "note": "站长实测报告图"
+      },
+      {
+        "file": "source-materials/evidence/灵动云节点检测-2026-11-01.jpg",
+        "date": "2026-11-01",
+        "type": "owner-measured",
+        "note": "MiaoKo 节点检测截图"
+      },
+      "https://jichangyouxuan.blog/airports/lingdongyun/"
+    ],
+    "verificationNotes": [],
+    "conflicts": [],
+    "caveats": [
+      "资料未逐一列出官方客户端支持的操作系统；站长实测报告显示使用“客户端 V3.0.0”。",
+      "付款方式、退款具体条件、申请订阅链接的具体套餐条件资料未写明。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "muguang-jiasu-ev-main",
+    "brandId": "muguang-jiasu",
+    "brandName": "暮光加速",
+    "evidenceTag": "历史公开记录",
+    "title": "暮光加速 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/暮光加速.txt",
+        "date": "2026-11-09",
+        "type": "owner-supplied",
+        "note": "品牌资料原稿"
+      },
+      {
+        "file": "source-materials/brands/暮光加速-品牌介绍.txt",
+        "date": "2026-11-10",
+        "type": "promotional-copy",
+        "note": "宣传文案，不作为事实依据"
+      },
+      "https://jichangyouxuan.blog/airports/muguang-jiasu/"
+    ],
+    "verificationNotes": [],
+    "conflicts": [
+      "品牌介绍文案把线路写成 IEPL / IPLC，原稿写 BGP 智能路由 + IPLC 专线出口，本站以原稿为准。",
+      "品牌介绍文案把“多客户端兼容”列为特色，原稿客户端一节却写不推荐订阅链接、不推荐导入 Clash 等第三方客户端，本站以原稿为准。"
+    ],
+    "caveats": [
+      "各地区节点数未写。",
+      "长周期折扣比例未单独写明，月均价格由本站按价格计算。",
+      "晚高峰实测：资料写“待观察实测中”。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "weifeng-wangluo-ev-main",
+    "brandId": "weifeng-wangluo",
+    "brandName": "微风网络 Breezenet",
+    "evidenceTag": "历史公开记录",
+    "title": "微风网络 Breezenet 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/微风网络.txt",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "品牌资料原稿"
+      },
+      "https://jichangyouxuan.blog/airports/breezenet/"
+    ],
+    "verificationNotes": [],
+    "conflicts": [
+      "原稿写“全 IPLC 专线”，同时写日本 14 个节点“含直连”；直连节点一般不经专线，直连节点的数量与线路资料未写明。"
+    ],
+    "caveats": [
+      "倍率资料未写。",
+      "客服渠道资料未写。",
+      "原稿含与其他机场的横向排名表述（品牌方口径），本站不转载，与首页编辑推荐榜无关。",
+      "晚高峰实测：资料写“待观察实测中”。",
+      "御风年付 ¥998 只相当于月付 12 个月总价 ¥1500 的约 66.5%，与乘风、破风年付正好 8 折不一致；原稿如此，可能是特价或笔误，待站长向品牌核实。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "feimaoyun-ev-main",
+    "brandId": "feimaoyun",
+    "brandName": "飞猫云",
+    "evidenceTag": "历史公开记录",
+    "title": "飞猫云 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/飞猫云.txt",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "品牌资料原稿"
+      },
+      "https://jichangyouxuan.blog/airports/feimaoyun/"
+    ],
+    "verificationNotes": [],
+    "conflicts": [
+      "资料总数 63 只包含六个已计数地区；另列的九个地区如有节点，总数应更高。",
+      "宇宙版年付 ¥1360 只相当于月付全年 ¥1800 的约 75.6%，与资料“年付 8 折”（应为 ¥1440）不一致；原稿如此，待站长核实。",
+      "品牌介绍写“IEPL/IPLC 优化线路”，线路一节写“全 IPLC 专线”，本站以线路一节为准。",
+      "资料同时写“支持导入 Clash、小火箭等第三方客户端”和“不推荐使用订阅链接”，没有说明第三方客户端所需的配置从哪里获取。"
+    ],
+    "caveats": [
+      "支持系统、客服渠道与时间、试用政策资料未写。",
+      "两年付 7 折、三年付 6 折只有比例，无具体价格。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "guangsuyun-ev-main",
+    "brandId": "guangsuyun",
+    "brandName": "光速云 LightSpeed（原大佬云）",
+    "evidenceTag": "历史公开记录",
+    "title": "光速云 LightSpeed（原大佬云） 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/19_光速云_LightSpeed_更新版.md",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "原稿（一至九）+ 站长 2026-11-13 补充核验（十至十三）"
+      },
+      {
+        "file": "source-materials/brands/光速云-补充-2026-11-13.txt",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "站长提供的套餐页截图 6 张的转录：季付 / 半年付 / 年付价格、各档流量、轻量B版、优惠码折扣"
+      },
+      {
+        "file": "source-materials/evidence/光速云-套餐页截图-2026-11-13",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "套餐页截图原图"
+      },
+      "https://jichangyouxuan.blog/airports/lightspeed/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "成立时间",
+        "finding": "第三方记录 2020 年开业，缺少品牌方历史公告",
+        "status": "第三方资料，待核实"
+      },
+      {
+        "field": "传输协议",
+        "finding": "第三方资料记录 VLESS；当前用户中心协议未直接确认",
+        "status": "第三方说法"
+      },
+      {
+        "field": "支付方式",
+        "finding": "第三方资料列支付宝、微信和 USDT；原稿未列",
+        "status": "站长 2026-11-13 确认：支付宝、微信、USDT"
+      },
+      {
+        "field": "套餐流量",
+        "finding": "原稿极速版 138 GB、流光版 220 GB；其他 2026-10 资料写 148 GB、238 GB；站长 2026-11-13 提供的套餐页截图为极速A版 168 GB、流光C版 268 GB、量子B版 568 GB、无界A版 938 GB，轻量B版 69 GB ¥99 / 年",
+        "status": "已按 2026-11-13 套餐页更新"
+      },
+      {
+        "field": "设备限制",
+        "finding": "原稿写不限设备，公开渠道也有类似宣传",
+        "status": "原稿 / 宣传资料，待规则验证"
+      },
+      {
+        "field": "退款政策",
+        "finding": "原稿明确称特殊商品不支持退款；公开资料也见不退款说法",
+        "status": "原稿记录，待最终核实"
+      },
+      {
+        "field": "免费试用",
+        "finding": "原稿写无免费试用",
+        "status": "原稿记录"
+      },
+      {
+        "field": "优惠码",
+        "finding": "AMM 的折扣公开来源有 8 折与 9 折两种说法；原稿仅列代码",
+        "status": "站长 2026-11-13 确认 8 折；轻量B版不支持优惠"
+      }
+    ],
+    "conflicts": [
+      "原稿与第三方资料的档位流量（138 / 148 GB、220 / 238 GB）均与当前套餐页不同，本站按 2026-11-13 套餐页截图更新为 168 / 268 / 568 / 938 GB；月付价取自卡片描述（¥25 / ¥34 / ¥68 / ¥138），极速A版与无界A版的 ¥25 / ¥138 已由站长确认，原稿的 ¥23 / ¥130 为旧价。",
+      "套餐页各卡片的长周期折扣口径不一：多数写年付 8 折、两年付 7 折、三年付 6 折，量子B版另写半年付 9 折、两年付 75 折、三年付 7 折。",
+      "原稿“地区覆盖 10 个”但列出 13 个国家 / 地区；轻量B版卡片的节点覆盖（台湾 ×10、韩国 ×2、阿根廷 ×2）与其他卡片（台湾 ×5、马来西亚 ×2）不一致。",
+      "“不支持退款”是商家规则说法，不代替消费者适用法律权利。",
+      "原稿含基于其他站点口径的地区覆盖横向排名表述（品牌方口径），本站不转载，与首页编辑推荐榜无关。"
+    ],
+    "caveats": [
+      "两年付、三年付只有折扣比例，无价格。",
+      "客服渠道、优惠码适用套餐范围资料未写。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "flyv-ev-main",
+    "brandId": "flyv",
+    "brandName": "飞V（FlyV）",
+    "evidenceTag": "官方资料",
+    "title": "飞V（FlyV） 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/FLYV.txt",
+        "date": "2026-11-09",
+        "type": "owner-supplied",
+        "note": "品牌资料原稿"
+      },
+      "https://jichangyouxuan.blog/airports/flyv/"
+    ],
+    "verificationNotes": [],
+    "conflicts": [],
+    "caveats": [
+      "季付、半年付、年付只有折扣比例（约 95% / 90% / 85%），无具体价格；两年付、三年付无价格。",
+      "试用政策资料未写。",
+      "电视盒子、软路由等设备资料建议先咨询客服。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "langwang-ev-main",
+    "brandId": "langwang",
+    "brandName": "浪网 WaveNet",
+    "evidenceTag": "历史公开记录",
+    "title": "浪网 WaveNet 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/浪网.txt",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "品牌资料原稿；资料写“附上测速图”但本次未附"
+      },
+      {
+        "file": "source-materials/brands/浪网-补充-2026-11-13.txt",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "站长补充：英文名、一句话定位、支持系统、试用、付款方式"
+      },
+      "https://jichangyouxuan.blog/airports/wavenet/"
+    ],
+    "verificationNotes": [],
+    "conflicts": [],
+    "caveats": [
+      "各地区节点数、倍率资料未写（总数为“60+”）。",
+      "限速说明资料未写；正式客服渠道（工单 / 在线客服）待补充。",
+      "测速图资料提及但未附。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "yinxingren-ev-main",
+    "brandId": "yinxingren",
+    "brandName": "隐形人",
+    "evidenceTag": "历史公开记录",
+    "title": "隐形人 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/隐形人.txt",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "品牌资料原稿"
+      },
+      {
+        "file": "source-materials/brands/隐形人-补充-2026-11-13.txt",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "站长补充：优惠码折扣与使用限制、付款方式、客户端政策"
+      },
+      "https://jichangyouxuan.blog/airports/yinxingren/"
+    ],
+    "verificationNotes": [],
+    "conflicts": [
+      "原稿一处写“支持主流第三方客户端”，站长 2026-11-13 补充确认为不支持第三方客户端、不提供订阅链接，本站以补充说明为准。",
+      "马来西亚节点数待确认，总数 60 不含马来西亚。"
+    ],
+    "caveats": [
+      "优惠码 yxr888 的适用套餐范围资料未写。",
+      "客服渠道与时间、重置包价格资料未写。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "tiziyun-ev-main",
+    "brandId": "tiziyun",
+    "brandName": "梯子云 LadderCloud",
+    "evidenceTag": "历史公开记录",
+    "title": "梯子云 LadderCloud 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/梯子云_2026-11-23.md",
+        "date": "2026-11-23",
+        "type": "owner-supplied",
+        "note": "站长整理的品牌资料（2026-11-25 站长同意用于本站）；资料自述套餐与线路信息来自公开网页、品牌自述或第三方后台快照，不是逐项登录后的实时结算价"
+      },
+      "https://jichangyouxuan.blog/airports/laddercloud/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "官网域名",
+        "finding": "资料称独立官方网站域名未获可靠确认；本站只使用站长提供的注册入口",
+        "status": "待核实"
+      },
+      {
+        "field": "价格",
+        "finding": "资料称价格为公开资料标价（2026-10-27 面板价目记录可核对四档订阅与年付 / 一次性包），无法读取需要登录的结算页",
+        "status": "原稿参考价"
+      },
+      {
+        "field": "协议与支持系统",
+        "finding": "资料未取得各档位适用的协议列表，也未确认各系统的官方客户端",
+        "status": "待核实"
+      }
+    ],
+    "conflicts": [],
+    "caveats": [
+      "初阶与中阶不是 IEPL 专线（分别为基础中转与 BGP 中转），宣传中的“专线机场”不适用于每个套餐。",
+      "节点总数、完整地区列表、协议、支持系统、付款方式与退款条件资料未写。",
+      "重置包价格资料未写；独享定制专线的月度流量额度由客服确认。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "wuyou-ev-main",
+    "brandId": "wuyou",
+    "brandName": "无忧链接",
+    "evidenceTag": "历史公开记录",
+    "title": "无忧链接 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/10_无忧_无忧链接_更新版.md",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "原稿（一至九）+ 站长 2026-11-13 补充核验（十至十三）"
+      },
+      "https://jichangyouxuan.blog/airports/wuyou/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "成立时间",
+        "finding": "有页面自称 2024 年；2026-11-09 的后台调查仅追溯到 2026 年 7 月套餐记录",
+        "status": "有冲突，不可视为已核实"
+      },
+      {
+        "field": "传输协议",
+        "finding": "第三方资料列 VLESS / Trojan / Hysteria2，无现行直接证据",
+        "status": "第三方说法，待核验"
+      },
+      {
+        "field": "支付方式",
+        "finding": "原稿未注明，当前结算渠道未核实",
+        "status": "站长 2026-11-13 确认：支付宝、微信、USDT"
+      },
+      {
+        "field": "客户端细节",
+        "finding": "原稿称 2026 年 10 月后仅官方客户端；较新后台调查提到 iOS Nextin 与定制第三方订阅资格",
+        "status": "来源冲突，应查后台公告"
+      },
+      {
+        "field": "退款政策",
+        "finding": "公开条款把退款交由实际订单条件处理；未核实无理由退款天数、用量限制",
+        "status": "站长 2026-11-13 确认需联系客服申请；天数与用量限制待核实"
+      },
+      {
+        "field": "免费试用",
+        "finding": "未得到可确认的当前免费试用规则",
+        "status": "待核实"
+      },
+      {
+        "field": "售后渠道",
+        "finding": "原稿称 7×24 客服，夜间 AI；响应时间未实测",
+        "status": "原稿记载，待测"
+      },
+      {
+        "field": "优惠码",
+        "finding": "wuyou666；第三方记载 8 折、活动至 11 月 30 日",
+        "status": "有时间限制，待结算核实"
+      }
+    ],
+    "conflicts": [
+      "原稿写新用户不提供第三方订阅，但 2026-11-09 后台调查记载可向客服申请定制加密订阅。",
+      "2024 年创立宣传与 2026 年 7 月才可追溯到的后台记录不是同一回事，不可把域名年龄当作品牌成立时间。",
+      "原稿写全线 IPLC，第三方写 IPLC / IEPL，线路标注不等于已证实物理走线。"
+    ],
+    "caveats": [
+      "各地区节点数、试用条件资料未写或待核实。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "firefly-ev-main",
+    "brandId": "firefly",
+    "brandName": "飞为（Firefly）",
+    "evidenceTag": "历史公开记录",
+    "title": "飞为（Firefly） 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/11_Firefly_更新版.md",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "原稿（一至九）+ 站长 2026-11-13 补充核验（十至十三）"
+      },
+      "https://jichangyouxuan.blog/airports/firefly/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "成立时间",
+        "finding": "尚无足够可靠的运营起始年份证据",
+        "status": "待核实"
+      },
+      {
+        "field": "传输协议",
+        "finding": "公开页面主要介绍 IPLC 线路及自研客户端，没有现行协议直接证据",
+        "status": "待核实"
+      },
+      {
+        "field": "支付方式",
+        "finding": "当前支付渠道未获可靠证据",
+        "status": "站长 2026-11-13 确认：支付宝、微信、USDT"
+      },
+      {
+        "field": "客户端平台版本",
+        "finding": "公开页面标明 Android 5.0+、iOS 12.0+、macOS 10.15+、Windows 10+",
+        "status": "公开展示，版本可能变化"
+      },
+      {
+        "field": "第三方订阅",
+        "finding": "原稿写 2026 年 10 月后仅自研客户端；公开站同样主推自研应用",
+        "status": "原稿 + 公开站宣传"
+      },
+      {
+        "field": "退款政策",
+        "finding": "公开联系页把退款申请引导至合作平台工单；无公布的退款期限或比例",
+        "status": "站长 2026-11-13 确认需联系客服申请；期限与比例待核实"
+      },
+      {
+        "field": "免费试用",
+        "finding": "未找到可验证的免费试用额度或时长",
+        "status": "待核实"
+      },
+      {
+        "field": "优惠码",
+        "finding": "firefly 新人 8 折、常规四档适用；公开页面亦写年付 ¥96 档不适用",
+        "status": "原稿与公开宣传一致，结算核实"
+      }
+    ],
+    "conflicts": [
+      "原稿声称使用原生 IP 和多平台解锁，公开资料不等于逐节点可用性验证。",
+      "“IPLC 专线”是线路宣传，不是传输协议。"
+    ],
+    "caveats": [
+      "各地区节点数、倍率、试用、限速说明资料未写。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "quanqiuyun-ev-main",
+    "brandId": "quanqiuyun",
+    "brandName": "全球云",
+    "evidenceTag": "历史公开记录",
+    "title": "全球云 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/14_全球云_更新版.md",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "原稿（一至九）+ 站长 2026-11-13 补充核验（十至十三）"
+      },
+      "https://jichangyouxuan.blog/airports/quanqiuyun/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "成立时间",
+        "finding": "第三方资料写 2026 年起运营，缺品牌方正式成立证明",
+        "status": "第三方说法，待核实"
+      },
+      {
+        "field": "传输协议",
+        "finding": "第三方资料记录 VLESS 和 Shadowsocks；当前节点订阅尚未直接核验",
+        "status": "第三方说法"
+      },
+      {
+        "field": "支付方式",
+        "finding": "原稿明确支付宝、微信、USDT，仍需检查实际结算选项",
+        "status": "原稿资料，待现行复核"
+      },
+      {
+        "field": "设备限制",
+        "finding": "原稿称常规套餐不限设备；2026 年第三方资料写限制 5 台",
+        "status": "重大冲突"
+      },
+      {
+        "field": "退款政策",
+        "finding": "第三方声称首单 24 小时内按未用流量折算申请退款；无直接服务条款可验证",
+        "status": "站长 2026-11-13 确认需联系客服申请；24 小时折算说法未证实"
+      },
+      {
+        "field": "免费试用",
+        "finding": "第三方称新用户有体验流量，原稿没有对应条款",
+        "status": "待核实"
+      },
+      {
+        "field": "售后渠道",
+        "finding": "第三方记载工单及 Telegram；具体联络地址 / 时段未核实",
+        "status": "待核实"
+      },
+      {
+        "field": "优惠码",
+        "finding": "qq88 8 折（独享节点不适用）来自原稿，未完成当前下单验证",
+        "status": "原稿记录，待现行复核"
+      }
+    ],
+    "conflicts": [
+      "“不限设备”与另一公开来源“5 台设备”不一致，需按具体套餐核实。",
+      "原稿合计港台新日美 60 个节点，却还宣称覆盖马来西亚、德国、土耳其、巴西等；额外地区计数尚未提供。",
+      "首单 24 小时退款与新客试用是第三方说法，不能当作服务承诺。"
+    ],
+    "caveats": [
+      "客服渠道与时间、试用、重置日资料未写。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "weituyun-ev-main",
+    "brandId": "weituyun",
+    "brandName": "唯兔云（V2云）",
+    "evidenceTag": "历史公开记录",
+    "title": "唯兔云（V2云） 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/12_唯兔云_OnlyRabbit_V2_云_更新版.md",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "原稿（一至九）+ 站长 2026-11-13 补充核验（十至十三）"
+      },
+      "https://jichangyouxuan.blog/airports/v2yun/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "成立时间",
+        "finding": "第三方记录 2023 年，未取得品牌方成立公告",
+        "status": "第三方说法，待核实"
+      },
+      {
+        "field": "传输协议",
+        "finding": "2026-10 第三方测评记录 VLESS / Shadowsocks，与“官方客户端优先”表述有差异",
+        "status": "有冲突，需当前后台核验"
+      },
+      {
+        "field": "支付方式",
+        "finding": "未取得可对应目前下单后台的支付方式清单",
+        "status": "站长 2026-11-13 确认：支付宝、微信、USDT"
+      },
+      {
+        "field": "节点数量",
+        "finding": "原稿写 50+；所列九个地区逐项相加为 65，另提泰国、菲律宾、印度未列个数",
+        "status": "内部不一致，需重新统计"
+      },
+      {
+        "field": "客户端政策",
+        "finding": "原稿称官方客户端登录；第三方专题称只支持通用订阅、没有自研客户端",
+        "status": "重大冲突，需核实"
+      },
+      {
+        "field": "退款政策",
+        "finding": "品牌资讯页强调退款依据实际订单，不公布固定比例和期限",
+        "status": "站长 2026-11-13 确认需联系客服申请；无固定比例和期限"
+      },
+      {
+        "field": "免费试用",
+        "finding": "未找到可靠的免费试用条款",
+        "status": "待核实"
+      },
+      {
+        "field": "优惠码",
+        "finding": "rabbit 9 折、四档适用来自原稿，未独立验证结算",
+        "status": "原稿记录，待核实"
+      }
+    ],
+    "conflicts": [
+      "地区节点数合计 65，原稿总数为“50+”，且泰国、菲律宾、印度缺计数。",
+      "“官网客户端登录”与“只有通用订阅、没有自研客户端”的第三方记载正面冲突。",
+      "年付 8 折等长周期宣传与原稿各档周期总价未必一一对应，结算时需逐档核对。"
+    ],
+    "caveats": [
+      "支持系统、试用、客服渠道资料未写。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "u1s1-ev-main",
+    "brandId": "u1s1",
+    "brandName": "U1S1（有一说一）",
+    "evidenceTag": "历史公开记录",
+    "title": "U1S1（有一说一） 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/20_有一说一_U1S1_更新版.md",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "原稿（一至九）+ 站长 2026-11-13 补充核验（十至十三）"
+      },
+      "https://jichangyouxuan.blog/airports/u1s1/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "成立时间",
+        "finding": "多个第三方资料记载 2023 年开业，尚缺直接运营证明",
+        "status": "第三方资料，待核实"
+      },
+      {
+        "field": "传输协议",
+        "finding": "有来源写 Shadowsocks，有来源写 VLESS，另有组合说法",
+        "status": "有冲突，需按当前节点确认"
+      },
+      {
+        "field": "支付方式",
+        "finding": "第三方资料列支付宝、微信、USDT；当前付款页未核实",
+        "status": "站长 2026-11-13 确认：支付宝、微信、USDT"
+      },
+      {
+        "field": "设备限制",
+        "finding": "原稿写不限同时在线；其他资料存在“入门档 3 台”说法",
+        "status": "有冲突"
+      },
+      {
+        "field": "退款政策",
+        "finding": "第三方后台调查未找到明确退款承诺；通过后台工单询问",
+        "status": "站长 2026-11-13 确认需联系客服申请"
+      },
+      {
+        "field": "免费试用",
+        "finding": "当前是否提供试用没有可靠证据",
+        "status": "待核实"
+      },
+      {
+        "field": "优惠码",
+        "finding": "U1S1 新人 8 折：2026 年 10 / 11 月第三方曾核对 120 GB 月付 ¥20 实付 ¥16；akaka 有失效记录",
+        "status": "近期可核验记录，仍看结算"
+      },
+      {
+        "field": "节点地区",
+        "finding": "原稿 8 个地区、50+ 节点；第三方测评有 11 个地区、61 个节点的旧快照",
+        "status": "历史统计差异"
+      }
+    ],
+    "conflicts": [
+      "原稿写不限设备但第三方资料出现入门档 3 台。",
+      "协议 SS 与 VLESS 说法并存。",
+      "“每两个月额外增加 200 兆带宽”来自原稿宣传，未查到可验证的触发条件与单位。"
+    ],
+    "caveats": [
+      "各地区节点数、倍率、客服渠道与时间、试用、结转规则资料未写。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "sogoyun-ev-main",
+    "brandId": "sogoyun",
+    "brandName": "Sogo云",
+    "evidenceTag": "历史公开记录",
+    "title": "Sogo云 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/17_Sogo_云_SOGO_Cloud_更新版.md",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "原稿（一至九）+ 站长 2026-11-13 补充核验（十至十三）"
+      },
+      "https://jichangyouxuan.blog/airports/sogoyun/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "成立时间",
+        "finding": "2026-11-10 的后台调查称 2026 年 3 月开始运营，尚未核实注册主体",
+        "status": "第三方后台调查"
+      },
+      {
+        "field": "传输协议",
+        "finding": "2026 年公开资料多数称 VLESS，另有混合 VLESS / Shadowsocks 记录",
+        "status": "第三方资料，待当前核实"
+      },
+      {
+        "field": "支付方式",
+        "finding": "2026-11-10 后台调查称当时仅支付宝；部分较旧来源称支付宝、微信、USDT",
+        "status": "站长 2026-11-13 确认：支付宝、微信、USDT"
+      },
+      {
+        "field": "设备数量",
+        "finding": "原稿写不限同时在线；2026-11-10 的后台调查也称不限设备",
+        "status": "资料一致，结算前确认"
+      },
+      {
+        "field": "第三方订阅",
+        "finding": "2026-11-10 的后台调查称第三方订阅功能已暂停，与部分旧宣传不同",
+        "status": "近期后台调查，重要"
+      },
+      {
+        "field": "退款政策",
+        "finding": "不同公开条款出现“年付 7 天内可申请”及“一般付款后不退款”矛盾",
+        "status": "站长 2026-11-13 确认需联系客服申请；公开条款仍矛盾，以客服答复为准"
+      },
+      {
+        "field": "免费试用",
+        "finding": "原稿写无免费试用，近期调查没有相反证据",
+        "status": "原稿记录"
+      },
+      {
+        "field": "优惠码",
+        "finding": "SOGO10000 新人 9 折；较新后台调查称每号一次、部分小包排除；另有 sss777 渠道码",
+        "status": "有渠道差异"
+      }
+    ],
+    "conflicts": [
+      "近期后台调查称第三方订阅暂停，较旧品牌展示依然声称支持 Clash 等。",
+      "退款政策公开来源正面冲突，不能承诺“7 天退款”。",
+      "原稿说 55 节点并列 13 个地区，但五个核心地区的节点数恰好合计 55。",
+      "部分外部渠道给出了与原稿不同的套餐价格与流量，本站保留原稿价格。"
+    ],
+    "caveats": [
+      "客服渠道与时间、结转与限速规则资料未写。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "lingmao-ev-main",
+    "brandId": "lingmao",
+    "brandName": "灵猫",
+    "evidenceTag": "历史公开记录",
+    "title": "灵猫 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/13_灵猫_灵猫网络_CivetNet_更新版.md",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "原稿（一至九）+ 站长 2026-11-13 补充核验（十至十三）"
+      },
+      "https://jichangyouxuan.blog/airports/lingmao/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "成立时间",
+        "finding": "部分推广资料写 2024 年；2026 年注册的域名记录不足以证明成立或否定早期运营",
+        "status": "有争议，待实际运营资料"
+      },
+      {
+        "field": "传输协议",
+        "finding": "第三方资料称 VLESS，缺乏当前订阅后台直接确认",
+        "status": "第三方说法"
+      },
+      {
+        "field": "支付方式",
+        "finding": "第三方页面列支付宝、微信、USDT，未核实当下付款选项",
+        "status": "站长 2026-11-13 确认：支付宝、微信、USDT"
+      },
+      {
+        "field": "客户端政策",
+        "finding": "原稿写 2026 年 10 月后仅官方客户端；不同测评对可否提供通用订阅持不同说法",
+        "status": "有冲突"
+      },
+      {
+        "field": "退款政策",
+        "finding": "有面板模板出现“7 天无理由”字样，但没有找到生效的正式退款条款",
+        "status": "站长 2026-11-13 确认需联系客服申请；“7 天无理由”未证实"
+      },
+      {
+        "field": "免费试用",
+        "finding": "第三方称无免费试用，缺少当前后台规则",
+        "status": "待核实"
+      },
+      {
+        "field": "客服",
+        "finding": "原稿写全天在线、申请增加节点需工单；响应时效未实测",
+        "status": "原稿记录，待核实"
+      },
+      {
+        "field": "优惠码",
+        "finding": "lingmao 8 折来自原稿；另有渠道资料列 lmao888 9 折",
+        "status": "有冲突"
+      }
+    ],
+    "conflicts": [
+      "部分品牌资料称 2024 年开业，没有核实到持续运营证据。",
+      "订阅支持与 7 天无理由退款存在互相冲突或证据不足。",
+      "原稿含基于其他站点口径的每 GB 单价横向排名表述（品牌方口径），本站不转载，与首页编辑推荐榜无关。"
+    ],
+    "caveats": [
+      "支持系统、各地区节点数、加油包价格、定制套餐流量、试用资料未写。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "shanyue-ev-main",
+    "brandId": "shanyue",
+    "brandName": "闪跃 FlashLeap",
+    "evidenceTag": "历史公开记录",
+    "title": "闪跃 FlashLeap 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/16_闪跃_FlashLeap_更新版.md",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "原稿（一至九）+ 站长 2026-11-13 补充核验（十至十三）"
+      },
+      {
+        "file": "source-materials/brands/闪跃-补充-2026-11-13.txt",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "站长补充：流量规则表（截图转录）、设备数、倍率、退款与付款方式"
+      },
+      "https://jichangyouxuan.blog/airports/flashleap/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "成立时间",
+        "finding": "第三方品牌资料记载 2026 年起运营，具体日期待品牌确认",
+        "status": "第三方资料"
+      },
+      {
+        "field": "传输协议",
+        "finding": "2026-07-18 的 50 节点订阅截图显示 VLESS",
+        "status": "历史快照，非实时"
+      },
+      {
+        "field": "支付方式",
+        "finding": "第三方与公开宣传页面列支付宝、微信、USDT / 加密货币",
+        "status": "公开资料，待下单复核"
+      },
+      {
+        "field": "设备数量",
+        "finding": "原稿写以官网说明为准；第三方有不限设备的宣传但无当前套餐截图确认",
+        "status": "待核实"
+      },
+      {
+        "field": "第三方订阅",
+        "finding": "原稿“不推荐”；公开展示说支持通用订阅，较新调查说 Clash 链接需向客服领取",
+        "status": "冲突，须查客服政策"
+      },
+      {
+        "field": "退款政策",
+        "finding": "只能确认有工单申请渠道的说法，未找到完整的退款条件",
+        "status": "待核实"
+      },
+      {
+        "field": "免费试用",
+        "finding": "2026-10 / 11 第三方调查称无免费试用",
+        "status": "第三方说法"
+      },
+      {
+        "field": "地区节点快照",
+        "finding": "2026-07-18 香港 15、台湾 5、日本 10、新加坡 10、美国 10，共 50 个",
+        "status": "历史快照"
+      },
+      {
+        "field": "优惠码",
+        "finding": "shanyue：原稿和公开品牌页均宣传新人约 8 折",
+        "status": "公开说法，待现行核实"
+      }
+    ],
+    "conflicts": [
+      "原稿写 50+，历史订阅快照实际数为 50。",
+      "“Clash 不推荐导入”“支持通用订阅”“需联系客服领取”三种说法并存。",
+      "流量是否结转、重置日期（自然月或购买日）、是否支持加油包及提前重置，站长补充资料中均标“待确认”。"
+    ],
+    "caveats": [
+      "客服渠道与时间、试用政策资料未写；退款需联系客服申请，具体条件未写。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  },
+  {
+    "id": "kuajie-ev-main",
+    "brandId": "kuajie",
+    "brandName": "跨界",
+    "evidenceTag": "历史公开记录",
+    "title": "跨界 品牌档案与套餐价格依据",
+    "date": "2026-11-25",
+    "sources": [
+      {
+        "file": "source-materials/brands/15_跨界_跨界云_更新版.md",
+        "date": "2026-11-13",
+        "type": "owner-supplied",
+        "note": "原稿（一至九）+ 站长 2026-11-13 补充核验（十至十三）"
+      },
+      "https://jichangyouxuan.blog/airports/kuajie/"
+    ],
+    "verificationNotes": [
+      {
+        "field": "成立时间",
+        "finding": "没有可确认的成立年份资料",
+        "status": "待核实"
+      },
+      {
+        "field": "传输协议",
+        "finding": "2026-11 第三方页面称 VLESS；另一个同月测评写“协议未公开”",
+        "status": "存在来源差异"
+      },
+      {
+        "field": "支付方式",
+        "finding": "原稿记微信、支付宝；第三方另列 USDT",
+        "status": "有差异"
+      },
+      {
+        "field": "客户端政策",
+        "finding": "原稿不推荐第三方导入；第三方页面推荐 Clash Verge Rev 和 Shadowrocket 订阅导入",
+        "status": "存在来源差异"
+      },
+      {
+        "field": "退款政策",
+        "finding": "第三方页面称可通过工单申请，是否通过取决于客服回复",
+        "status": "站长 2026-11-13 确认需联系客服申请"
+      },
+      {
+        "field": "免费试用",
+        "finding": "第三方页面称没有免费试用；原稿只建议购买小额套餐",
+        "status": "第三方说法"
+      },
+      {
+        "field": "节点数量",
+        "finding": "原稿 50+；另一公开测评某次统计共 49 个、其中 43 个在线",
+        "status": "统计时间和口径不同"
+      },
+      {
+        "field": "优惠码",
+        "finding": "kuajie 新人 8 折来自原稿，第三方同样列出",
+        "status": "公开记载，待结算核实"
+      }
+    ],
+    "conflicts": [
+      "协议与第三方订阅支持的外部记录不一致。",
+      "原稿写“不限登录设备数”，不代表每档都无限同时在线连接。",
+      "49 个节点、43 个在线为特定时间的第三方统计，不能当实时数据。",
+      "原稿含基于其他站点口径的顶档流量横向排名表述（品牌方口径），本站不转载，与首页编辑推荐榜无关。"
+    ],
+    "caveats": [
+      "跃云、凌云、无界三档的季付与半年付资料未写。",
+      "优惠码适用范围、客服时间、试用、结转规则资料未写。"
+    ],
+    "hasLiveSpeedTest": false,
+    "speedTestNote": "本站（机场物语）定位为品牌研究与消费档案，未收录独立测速实证；节点测速参考请以专门实测平台为准。"
+  }
+]

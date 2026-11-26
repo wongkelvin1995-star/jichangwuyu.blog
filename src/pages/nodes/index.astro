@@ -1,0 +1,328 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import YumeriaArt from '../../components/art/YumeriaArt.astro';
+import LumoArt from '../../components/art/LumoArt.astro';
+import NetworkDiagrams from '../../components/network/NetworkDiagrams.astro';
+import NetworkEncyclopediaTools from '../../components/network/NetworkEncyclopediaTools';
+import { networkArticles } from '../../data/network-articles';
+import { networkGlossary } from '../../data/network-glossary';
+
+const upgradedCards = [
+  {
+    title: 'IEPL 与 IPLC 专线区别',
+    category: '线路研究',
+    terms: 'IEPL · IPLC · 专线',
+    summary: '解析国际以太网专线（IEPL）与传统国际专线租用电路（IPLC）在二层透传、带宽调度及跨境机场应用中的真实差异，并拆解“标注专线即永不掉线”的宣传误区。',
+    href: '/network/iepl-vs-iplc-differences/',
+  },
+  {
+    title: '直连与中转区别',
+    category: '线路研究',
+    terms: '直连 · 中转 · 入口节点',
+    summary: '对比公网直连与国内入口中转在跳点路径、跨网晚高峰丢包控制以及套餐定价上的核心差异，帮助不同预算用户匹配合适架构。',
+    href: '/network/direct-vs-relay-lines/',
+  },
+  {
+    title: 'BGP 中转机制',
+    category: '线路研究',
+    terms: 'BGP · ASN · 多线入口',
+    summary: '说明边界网关协议（BGP）如何协同中国电信、中国联通与中国移动多线接入，减少本地宽带到国内中转入口第一跳的跨网损耗。',
+    href: '/network/bgp-multi-line-routing/',
+  },
+  {
+    title: '香港节点',
+    category: '全球节点研究',
+    terms: '香港 · 低延迟 · 地区限制',
+    summary: '梳理香港节点的华南光缆低延迟优势、港区流媒体应用特征，并明确说明主流海外 AI 平台目前并不支持香港出口地区。',
+    href: '/network/hong-kong-nodes-guide/',
+  },
+  {
+    title: '日本节点',
+    category: '全球节点研究',
+    terms: '日本 · 东亚海缆 · AI支持',
+    summary: '介绍东京与大阪节点在东亚海缆枢纽中的带宽冗余特点、对主流 AI 工具的地区合规支持，以及日区流媒体的解锁检测条件。',
+    href: '/network/japan-nodes-guide/',
+  },
+  {
+    title: '新加坡节点',
+    category: '全球节点研究',
+    terms: '新加坡 · 东南亚枢纽 · IX',
+    summary: '分析新加坡节点作为东南亚互联网交换中心在 AI 工具接入、跨区云服务与东南亚跨境业务中的实用定位与中转路由注意事项。',
+    href: '/network/singapore-nodes-guide/',
+  },
+  {
+    title: '美国节点',
+    category: '全球节点研究',
+    terms: '美西 · 美东 · 物理RTT',
+    summary: '详解跨太平洋光缆决定的美西（130–180ms）与美东物理延迟下限，说明美国节点在北美版权库、学术资源与 AI 首发功能中的作用。',
+    href: '/network/united-states-nodes-guide/',
+  },
+  {
+    title: '台湾节点',
+    category: '全球节点研究',
+    terms: '台湾 · 繁体流媒体 · 带宽成本',
+    summary: '解析台湾节点在繁体中文流媒体、东亚低延迟替代路径以及 AI 地区支持上的特点，并提示台湾本土国际带宽规模约束。',
+    href: '/network/taiwan-nodes-guide/',
+  },
+  {
+    title: '韩国与欧洲节点',
+    category: '全球节点研究',
+    terms: '首尔 · 欧区 · 跨区路由',
+    summary: '对比韩国首尔在北方路由与韩服游戏中的优势，以及英德法等欧洲节点在欧区电商、GDPR 合规办公与备用出口中的条件。',
+    href: '/network/south-korea-nodes-guide/',
+  },
+  {
+    title: 'Shadowsocks / VLESS / Trojan / Hysteria2',
+    category: '网络协议研究',
+    terms: 'SS · VLESS · Trojan · Hysteria2',
+    summary: '横向对比四大主流代理协议的传输层基础（TCP vs UDP/QUIC）、TLS/Reality 伪装方式、弱网抗丢包表现与客户端内核兼容要求。',
+    href: '/network/four-protocols-comparison/',
+  },
+  {
+    title: '延迟、抖动、丢包与带宽指标',
+    category: '网络性能研究',
+    terms: 'Ping · Jitter · Packet Loss',
+    summary: '系统拆解网络延迟（RTT）、抖动（Jitter）、丢包率与实际吞吐量（Throughput）的物理含义，破除“低 Ping 即稳定”的常见误区。',
+    href: '/network/network-latency-ping-explained/',
+  },
+  {
+    title: '节点地区怎么选',
+    category: '全球节点研究',
+    terms: '地区选择 · 分流规则 · 策略组',
+    summary: '建立面向日常网页、AI 工具、4K 流媒体与跨国办公的全球节点选择决策树，示范如何借助客户端分流规则同时兼顾速度与地区合规。',
+    href: '/network/global-node-region-selection/',
+  },
+];
+
+const categories = ['线路研究', '全球节点研究', '网络协议研究', '网络性能研究', '宽带运营商研究', '网络安全与故障排查'] as const;
+
+const networkFaqs = [
+  { q: '1. IEPL 和 IPLC 专线在日常使用中差别大吗？', a: '两者都属于跨境私有专网，日常网页与视频体感差异通常很小，真正决定体验的是端口带宽冗余与是否超售。' },
+  { q: '2. 标注“专线机场”就一定不会掉线或卡顿吗？', a: '不会。国内入口机受攻击、海缆维护或后端落地机过载都可能影响连接，任何线路名称都不构成绝对稳定性保证。' },
+  { q: '3. 直连和中转线路最大的区别是什么？', a: '直连直接走公网国际出口，成本低但晚高峰易拥堵；中转先连国内优化入口再跨境转发，能显著改善跨网丢包。' },
+  { q: '4. BGP 多线中转对三大运营商都有用吗？', a: '是的。BGP 入口能自动匹配电信、联通与移动各自最优路径进入中转机，减少本地到入口的跨网损耗。' },
+  { q: '5. 节点地区是不是永远选延迟最低的香港最好？', a: '不一定。香港延迟最低，但主流 AI 平台通常不支持香港地区 IP，访问 AI 时需切换至日本、新加坡或美国节点。' },
+  { q: '6. 为什么电信、联通、移动用户用同一家机场体验不同？', a: '不同运营商的国际出口策略（如 163/CN2、AS4837/AS9929、CMI）与到中转入口的跨网路由不同，选购前建议月付实测。' },
+  { q: '7. 客户端测出的延迟（Ping）低就一定快吗？', a: '不一定。低延迟仅反映往返时间短，若伴随高抖动或 2% 以上丢包，实际下载与视频加载仍会频繁卡顿。' },
+  { q: '8. 丢包率对使用体验的影响有多大？', a: 'TCP 协议遇丢包会触发重传与窗口减半，哪怕仅 1%–3% 的丢包也会使单线程网页加载与下载速度大幅下降。' },
+  { q: '9. 什么是网络抖动（Jitter）？', a: '指连续数据包延迟的波动幅度。高抖动会导致实时语音卡顿、游戏瞬移和网页加载时快时慢。' },
+  { q: '10. 100 Mbps 宽带为什么下载速度不是 100 MB/s？', a: '1 Byte = 8 bits，100 Mbps 理论上限约为 12.5 MB/s，扣除协议头开销后实际常见在 10–11 MB/s 左右。' },
+  { q: '11. 如何理性看待第三方测速图？', a: '必须查看测试日期、测试城市、本地宽带运营商、是否处于晚高峰以及单线程/多线程口径，避免盲信单张截图。' },
+  { q: '12. 为什么每天 20:00–23:00 晚高峰容易变慢？', a: '晚高峰期间民用国际出口与共享节点在线人数同时达到峰值，带宽竞争加剧，是检验机场冗余度的核心时段。' },
+  { q: '13. Shadowsocks、VLESS、Trojan 和 Hysteria2 怎么选？', a: '专线中转下前三者差异很小；若处于高丢包公网弱网环境，基于 QUIC 的 Hysteria2 通常更具吞吐优势。' },
+  { q: '14. DNS 设置错误会导致连上节点却打不开网页吗？', a: '是的。DNS 污染、直连 DNS 配置错误或 Fake-IP 缓存残留都可能导致能连通节点却无法解析域名。' },
+  { q: '15. 共享 IP 和独立 IP 有什么实际区别？', a: '消费级机场多为多人共享出口 IP，易受他人请求触发人机验证；独立 IP 隔离度高，多见于高价企业定制套餐。' },
+  { q: '16. 什么情况下才需要购买独立 IP？', a: '仅跨境电商店铺防关联、固定 IP 白名单办公等特定业务需要考虑；个人日常浏览无需承担高额定制成本。' },
+  { q: '17. 流量倍率 2x 会改变网络速度吗？', a: '倍率只决定扣费比例（消耗 10 GB 扣 20 GB 配额），不直接提升或降低物理链路速度，但会使每 GB 成本翻倍。' },
+  { q: '18. 节点全部显示超时（Timeout）最先检查什么？', a: '优先检查本地设备系统时间是否准确（TLS 协议对时间误差极敏感），其次更新订阅并确认套餐未到期。' },
+  { q: '19. 为什么更新客户端后部分节点无法导入或报错？', a: '新版内核可能调整规则语法或淘汰旧协议，或服务商订阅模板尚未适配最新客户端特性。' },
+  { q: '20. 使用网络代理时如何保护个人安全与隐私？', a: '切勿向陌生网站泄露完整订阅链接，确保访问敏感服务时浏览器地址栏保持 HTTPS 加密锁定状态。' },
+];
+
+const articleIndexItems = networkArticles.map((a) => ({
+  id: a.id,
+  slug: a.slug,
+  title: a.title,
+  category: a.category,
+  summary: a.summary,
+  terms: a.terms,
+}));
+---
+
+<BaseLayout
+  title="全球网络知识百科 - 机场线路、节点、协议与网络性能指南｜机场物语"
+  description="机场物语全球网络知识百科，深入介绍IEPL、IPLC、BGP、机场直连与中转线路、全球节点地区、Shadowsocks、VLESS、Trojan及Hysteria2协议，并提供网络延迟、丢包、带宽、测速、DNS与网络故障排查知识。"
+  canonical="https://jichangwuyu.blog/nodes/"
+  chapterTone="sky"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '网络知识百科', url: '/nodes/' }]}
+>
+  <!-- 03. Hero Section -->
+  <section class="container" style="padding:32px 0 24px;">
+    <div class="story-card story-card--gold net-hero">
+      <div>
+        <span class="chapter-badge">NETWORK ENCYCLOPEDIA MAX · 全球网络知识百科</span>
+        <h1 style="margin:12px 0 8px;font-size:clamp(24px,3.2vw,34px);">
+          全球网络知识百科｜机场线路、节点协议与网络性能研究指南
+        </h1>
+        <p style="font-size:13px;letter-spacing:0.06em;color:var(--deep-dream);font-weight:600;margin:0 0 12px;">
+          Network Encyclopedia MAX — Discover the Science Behind Global Connectivity
+        </p>
+        <p style="color:var(--text-secondary);margin:0 0 14px;">
+          全球跨境网络的实际连接体验，由底层的物理海缆路由、运营商互联策略、中转与专线架构、传输层代理协议以及本地客户端 DNS 分流共同决定。本百科系统梳理机场线路原理（IEPL / IPLC / BGP / 直连与中转）、全球主要地区出口特征、四大主流代理协议技术差异、网络性能指标（Ping、Jitter、Packet Loss、Throughput）解读、三大基础运营商特点及常见故障排查方法。请务必注意：任何线路名称、协议名称及节点地区均仅代表技术架构或出口位置，不构成对绝对速度、稳定性或安全性的保证。
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <a href="#network-search" class="btn btn-primary" style="padding:8px 14px;font-size:13px;">知识与术语搜索</a>
+          <a href="#network-tools" class="btn btn-gold" style="padding:8px 14px;font-size:13px;">4款网络计算工具</a>
+          <a href="#network-articles" class="btn btn-ghost" style="padding:8px 14px;font-size:13px;">36篇深度文章</a>
+          <a href="#network-glossary" class="btn btn-ghost" style="padding:8px 14px;font-size:13px;">50项术语库</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <YumeriaArt pose="research" size={185} />
+        <LumoArt mood="curious" size={76} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Search, 4 Calculators & 50-Term Glossary -->
+  <section class="container" style="padding:12px 0 24px;">
+    <NetworkEncyclopediaTools client:load articles={articleIndexItems} glossary={networkGlossary} />
+  </section>
+
+  <!-- 05. Upgraded 12 Knowledge Cards -->
+  <section class="container" style="padding:20px 0;" id="knowledge-cards">
+    <h2 style="font-size:24px;margin-bottom:8px;">核心网络知识专题卡片（12大主题入口）</h2>
+    <p style="color:var(--text-secondary);margin-bottom:16px;">保留全部12项核心专题并升级为独立深度研究入口，点击任意卡片即可阅读完整原理与对比分析。</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;">
+      {upgradedCards.map((c) => (
+        <article class="story-card story-card--interactive" style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+            <span class="tag">{c.category}</span>
+            <small style="color:var(--text-muted);font-size:11.5px;">{c.terms}</small>
+          </div>
+          <h3 style="font-size:18px;margin:2px 0 0;"><a href={c.href}>{c.title}</a></h3>
+          <p style="font-size:13.5px;color:var(--text-secondary);margin:0;flex-grow:1;">{c.summary}</p>
+          <a href={c.href} class="btn btn-ghost" style="padding:6px 12px;font-size:12.5px;align-self:flex-start;margin-top:4px;">阅读全文 →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- 04. 12 Substantive Knowledge Modules (2500-3500+ chars) -->
+  <section class="container" style="padding:20px 0;" id="knowledge-modules">
+    <h2 style="font-size:24px;margin-bottom:14px;">网络知识百科核心研究体系（十二大模块）</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;">
+      <article class="story-card">
+        <h3>1. 网络基础知识</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">互联网通信依托分层协议栈协作：应用层发起 HTTPS 请求，传输层通过 TCP 或 UDP 拆分与校验数据包，网络层依赖 IPv4/IPv6 地址与路由表在自治系统之间转发。理解分层逻辑，才能准确判断故障究竟出在域名解析、本地代理端口还是跨境链路本身。</p>
+      </article>
+      <article class="story-card">
+        <h3>2. 全球网络架构</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">全球互联网由一级国际骨干运营商、海底光缆（如跨太平洋与亚欧海缆）、区域互联网交换中心（IX）以及本地接入网构成。数据包从国内家庭宽带出发，往往需跨越多个 AS 自治系统并经历去程与回程两条未必对称的路由路径。</p>
+      </article>
+      <article class="story-card">
+        <h3>3. 机场线路分类</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">主流机场线路可分为公网直连、普通公网中转（含多线 BGP 入口）与跨境专线（IEPL/IPLC）。直连架构成本低但晚高峰易受民用国际出口拥堵影响；中转与专线通过国内入口转发绕开普通公网拥塞段，但仍受入口带宽与端口冗余制约。</p>
+      </article>
+      <article class="story-card">
+        <h3>4. 全球节点地区研究</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">东亚节点（香港、台湾、日本、韩国）与新加坡因光缆距离近，适合低延迟日常网页与亚太流媒体；美国与欧洲节点虽然物理 RTT 较高（130–260ms），却是访问北美版权库、海外学术库及特定 AI 平台不可或缺的出口地区。</p>
+      </article>
+      <article class="story-card">
+        <h3>5. 代理协议技术研究</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">Shadowsocks（AEAD）以极简轻量与广泛兼容见长；Trojan 借助标准 TLS 443 端口模仿 HTTPS 流量；VLESS 通过去加密冗余搭配 TLS/Reality 提升灵活性；Hysteria2 则基于 UDP/QUIC 专注于高丢包弱网环境下的吞吐表现。</p>
+      </article>
+      <article class="story-card">
+        <h3>6. 网络性能与测速分析</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">评估网络质量需同时观察往返延迟（RTT）、连续抖动（Jitter）、丢包率（Packet Loss）与持续吞吐量（Throughput）。单次多线程测速峰值容易掩盖单连接丢包问题，真正决定体感的是晚高峰连续时段的低丢包与稳定性。</p>
+      </article>
+      <article class="story-card">
+        <h3>7. 宽带运营商知识</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">中国电信（163 骨干网与 CN2 精品网）、中国联通（AS4837 与 AS9929）及中国移动（CMI）在国际出口带宽、南北互联与 CGNAT 策略上各不相同。选配具有三网 BGP 入口的中转服务，通常能降低跨网损耗。</p>
+      </article>
+      <article class="story-card">
+        <h3>8. 网络连接故障排查</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">遇到节点超时或连上却无法上网，建议按“四步法”排查：核对本地系统时间是否准确（防 TLS 握手失败）、确认套餐未到期且流量未耗尽、更新订阅获取最新入口端口、检查系统代理或 TUN 模式与浏览器插件是否端口冲突。</p>
+      </article>
+      <article class="story-card">
+        <h3>9. DNS 与网络安全</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">DNS 负责将域名映射为 IP，开启 DoH/DoT 加密查询与合理的客户端分流 DNS 策略可避免本地解析污染。同时需牢记：个人订阅链接等同于流量凭证，切勿在不可信网页粘贴，访问重要账号时务必确认 HTTPS 加密锁标志。</p>
+      </article>
+      <article class="story-card">
+        <h3>10. 客户端及设备知识</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">现代客户端内核（Mihomo、sing-box、Xray）决定了节点协议兼容上限。桌面端与路由器（OpenWrt）还需关注 TUN 虚拟网卡权限与设备 CPU 加解密性能；不同服务商的订阅开放政策亦会限制可使用的客户端范围。</p>
+      </article>
+      <article class="story-card">
+        <h3>11. 网络专业术语库</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">本百科已整理 50 项高频专业术语，覆盖从 ASN、MTU/MSS、CGNAT 到 Fake-IP、QoS、流量倍率的核心概念，并在上方提供实时检索与分类筛选，帮助读者看懂技术文档与服务商套餐条款。</p>
+      </article>
+      <article class="story-card">
+        <h3>12. 延伸专题联动</h3>
+        <p style="font-size:14px;color:var(--text-secondary);">理解技术原理后，您可前往 <a href="/plans/">套餐研究中心</a> 核算不同周期与倍率下的每 GB 实际支出，或进入 <a href="/stories/">品牌物语档案</a> 与 <a href="/risk/">消费风险中心</a> 核对 18 家品牌的具体规则边界。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 07. 9 Technical Diagrams -->
+  <section class="container" style="padding:20px 0;" id="network-diagrams">
+    <h2 style="font-size:24px;margin-bottom:8px;">网络技术原理可视化图解（9张示意图）</h2>
+    <p style="color:var(--text-secondary);margin-bottom:16px;">以下图解仅用于网络架构与性能指标的原理教学演示，不代表任何品牌的实时节点监控或实测数据。</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;">
+      <NetworkDiagrams type="direct-vs-relay" title="1. 直连与中转网络架构对比图" />
+      <NetworkDiagrams type="iepl-vs-iplc" title="2. IEPL 与 IPLC 概念对比图" />
+      <NetworkDiagrams type="bgp-routing" title="3. BGP 多网络路由示意图" />
+      <NetworkDiagrams type="global-nodes" title="4. 全球节点地区分布示意" />
+      <NetworkDiagrams type="tcp-vs-udp" title="5. TCP 与 UDP 传输机制图" />
+      <NetworkDiagrams type="latency-rtt" title="6. 网络延迟（RTT）往返原理图" />
+      <NetworkDiagrams type="packet-loss" title="7. 网络丢包与重传示意图" />
+      <NetworkDiagrams type="dns-flow" title="8. DNS 分流与加密解析流程图" />
+      <NetworkDiagrams type="bandwidth-speed" title="9. 标称带宽与实际下载速度关系图" />
+    </div>
+  </section>
+
+  <!-- 06. 36 Network Articles Directory -->
+  <section class="container" style="padding:24px 0;" id="network-articles">
+    <h2 style="font-size:24px;margin-bottom:8px;">网络知识百科深度文章库（36篇独立研究）</h2>
+    <p style="color:var(--text-secondary);margin-bottom:18px;">涵盖六大技术研究分类，每篇文章均包含技术原理解释、对比分析、应用场景、常见误区与问答。</p>
+
+    <div style="display:grid;gap:20px;">
+      {categories.map((cat) => {
+        const list = networkArticles.filter((a) => a.category === cat);
+        return (
+          <div class="story-card">
+            <h3 style="font-size:19px;margin-bottom:12px;">{cat}（{list.length}篇）</h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;">
+              {list.map((a) => (
+                <a href={`/network/${a.slug}/`} style="display:block;padding:12px;border-radius:10px;background:var(--bg-chapter-tint);text-decoration:none;color:var(--text-primary);border:1px solid var(--border-subtle);">
+                  <strong style="font-size:14.5px;display:block;margin-bottom:4px;">{a.title}</strong>
+                  <small style="color:var(--text-secondary);font-size:12.5px;line-height:1.45;display:block;">{a.summary}</small>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- 13. 20 Network FAQs -->
+  <section class="container" style="padding:20px 0 48px;" id="network-faq">
+    <h2 style="font-size:24px;margin-bottom:14px;">全球网络知识常见问题（20项FAQ）</h2>
+    <div class="net-faq-grid">
+      {networkFaqs.map((item) => (
+        <details class="story-card net-faq-item">
+          <summary>{item.q}</summary>
+          <p style="margin:10px 0 0;padding-top:10px;border-top:1px dashed var(--border-subtle);font-size:14px;color:var(--text-secondary);">
+            {item.a}
+          </p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .net-hero {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 24px;
+      align-items: center;
+    }
+    .net-faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .net-faq-item summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      list-style: none;
+    }
+    @media (max-width: 900px) {
+      .net-hero, .net-faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</BaseLayout>

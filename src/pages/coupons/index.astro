@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { coupons } from '../../lib/db';
+---
+
+<BaseLayout
+  title="机场优惠码查询与活动限制档案（18家）｜机场物语"
+  description="汇总18家机场品牌的原始优惠码、折扣说明、排除档位与证据性质，提示结算页核验注意事项。"
+  canonical="https://jichangwuyu.blog/coupons/"
+  chapterTone="sunset"
+  breadcrumbs={[{ name: '首页', url: '/' }, { name: '优惠码中心', url: '/coupons/' }]}
+>
+  <section class="container" style="padding:32px 0;">
+    <span class="chapter-badge">COUPON ARCHIVES · 057</span>
+    <h1 style="margin:10px 0 8px;">机场优惠码资料与使用限制查询（18家）</h1>
+    <p style="color:var(--text-secondary);max-width:780px;margin-bottom:20px;">
+      以下优惠码与推广链接均保留自用户提供的原始资料总索引，不代表当前永久有效。部分优惠码不适用于年付小包或不限时流量包，请以结算页实际抵扣为准。
+    </p>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>品牌</th>
+            <th>优惠码</th>
+            <th>折扣参考</th>
+            <th>不适用/限制说明</th>
+            <th>证据性质</th>
+            <th>原始入口</th>
+          </tr>
+        </thead>
+        <tbody>
+          {coupons.map((c) => (
+            <tr>
+              <td><a href={`/stories/${c.brandId}/`}>{c.brandName}</a></td>
+              <td><code>{c.code}</code></td>
+              <td>{c.discount}</td>
+              <td>{c.excludes.length > 0 ? `排除：${c.excludes.join('、')}` : c.note || '见结算页'}</td>
+              <td>{c.evidenceNature}</td>
+              <td><a href={c.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored">注册页 ↗</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</BaseLayout>
